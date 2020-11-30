@@ -27,9 +27,26 @@ f. By clicking on ‘Contract’ in you contracts tab in the Metamask plugin, yo
 g. Click on contract address to view the contract information.
 ```
 
-## iv. Test
+## iv. Screenshot on Etherscan
+```
+![Contract](/home/aditimahesh/Pictures/etherscan.png)
+```
+
+## v. Test
 ```
 On Remix IDE, under deployed contracts, click on arrow and you can test the functions by entering the required params and then click on Transact button.
+```
+
+## vi. Instructions for interacting with the contract
+```
+The token should be paused at first and the transfer should be rejected
+a. Try to send any amount of tokens from the deployed account to other address MetaMask_Try_Send_Freeze
+b. The transaction should be failed because the token is freezed by default
+
+Once unpaused the token, it should be able to transfer freely
+a. Only token owner can unfreeze the token.
+b. Try to send any amount of tokens between any accounts
+c. Should be able to transfer
 ```
 
 # 2. Deploying ERC20 Contract locally

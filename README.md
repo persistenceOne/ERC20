@@ -49,16 +49,14 @@ To verify that Truffle is installed properly, type truffle version on a terminal
 MetaMask is a browser extension that serves as a “wallet” that safely stores your cryptocurrencies such as Ether (ETH). It also serves as a “bridge” that connects the web application with the blockchain. You can download and learn more about Metamask at https://metamask.io/.
 ```
 
-## iii. Get Test Token:
+## iii. Initialize the project:
 ```
-You need to get Test Tokens (Testnet) to deploy your smart contracts.
+Inside the project directory, Run command: truffle init
+This will create folders: contracts, migrations, test and truffle-config file
 ```
 
 ## iv. Compile
 ```
-Inside the project directory, Run command: truffle init
-This will create folders: contracts, migrations, test and truffle-config file
-
 a. Place the smart contract inside contracts folder.
 b. Run "truffle compile", this comamnd will create "build" folder which will have the respected .json file of the smart contract
 c. In the migrations/directory, create the file 2_deploy_contracts.js and add the following content:

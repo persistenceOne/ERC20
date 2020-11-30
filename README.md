@@ -28,7 +28,8 @@ g. Click on contract address to view the contract information.
 ```
 
 ## iv. Screenshot on Etherscan
-![contract](etherscan.png)
+![contract](etherscan.png?raw=true)
+<img src="etherscan.png" width="350" title="Etherscan">
 
 ## v. Test
 ```

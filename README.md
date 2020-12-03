@@ -1,7 +1,13 @@
 <div align="center">
-  <h1>Persistence Guide</h1>
+  <h1>XRPT ERC20 Placeholder Contract</h1>
   <br/>
 </div>
+
+## Additional Feature:
+```
+1. Added a new method transferToMany which takes addresses and tokens as input and transfers. This method will reduce the gas units
+2. It should be noted that when the token is paused, only the owner of the contract can transfer tokens and that only the owner can unpause or pause the token.
+```
 
 # 1. Deploying and Testing ERC20 Contract using Remix IDE
 ## i. Basic Steps:

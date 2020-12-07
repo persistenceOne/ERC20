@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>XRPT ERC20 Placeholder Contract</h1>
+  <h1>XPRT ERC20 Placeholder Contract</h1>
   <br/>
 </div>
 

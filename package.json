@@ -1,0 +1,28 @@
+{
+  "name": "erc20",
+  "version": "1.0.0",
+  "description": "Token contracts pertaining to Persistence products",
+  "main": "truffle-config.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/persistenceOne/ERC20.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/persistenceOne/ERC20/issues"
+  },
+  "homepage": "https://github.com/persistenceOne/ERC20#readme",
+  "dependencies": {
+    "@openzeppelin/contracts-upgradeable": "^4.3.2",
+    "@openzeppelin/truffle-upgrades": "^1.10.0",
+    "solc": "^0.8.9"
+  }
+}

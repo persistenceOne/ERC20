@@ -365,4 +365,46 @@ contract PSTAKE is
         emit GrantRevoked(benificiaries_[i.sub(1)], vestingProvider_, block.timestamp);
     }
 
+    /**
+     * @notice Returns the quantity of unclaimed PSTAKE allocated privately to `holder`.
+     * @param holder The holder of the unclaimed PSTAKE allocated privately.
+     * @return The quantity of unclaimed PSTAKE.
+     */
+    function getUnclaimedPrivatePSTAKE(address holder) public view returns (uint256) {
+        return privatePSTAKEAllocations[holder].sub(_privatePSTAKEClaimed[holder]);
+    }
+
+    /**
+     * @notice Internal function to claim `amount` unclaimed PSTAKE allocated privately to `holder` (without validating `amount`).
+     * @param holder The holder of the unclaimed PSTAKE allocated privately.
+     * @param amount The amount of PSTAKE to claim.
+     */
+    function _claimPrivatePSTAKE(address holder, uint256 amount) internal {
+        uint256 burnPSTAKE = amount.mul(getPrivatePSTAKEClaimFee(block.timestamp)).div(1e18);
+        uint256 transferPSTAKE = amount.sub(burnPSTAKE);
+        _privatePSTAKEClaimed[holder] = _privatePSTAKEClaimed[holder].add(amount);
+        require(rariGovernanceToken.transfer(holder, transferPSTAKE), "Failed to transfer PSTAKE from vesting reserve.");
+        rariGovernanceToken.burn(burnPSTAKE);
+        emit PrivateClaim(holder, amount, transferPSTAKE, burnPSTAKE);
+    }
+
+    /**
+     * @notice Claims `amount` unclaimed PSTAKE allocated privately to `msg.sender`.
+     * @param amount The amount of PSTAKE to claim.
+     */
+    function claimPrivatePSTAKE(uint256 amount) external {
+        uint256 unclaimedPSTAKE = getUnclaimedPrivatePSTAKE(msg.sender);
+        require(amount <= unclaimedPSTAKE, "This amount is greater than the unclaimed PSTAKE allocated privately.");
+        _claimPrivatePSTAKE(msg.sender, amount);
+    }
+
+    /**
+     * @notice Claims all unclaimed PSTAKE allocated privately to `msg.sender`.
+     */
+    function claimAllPrivatePSTAKE() external {
+        uint256 unclaimedPSTAKE = getUnclaimedPrivatePSTAKE(msg.sender);
+        require(unclaimedPSTAKE > 0, "Unclaimed PSTAKE allocated privately not greater than 0.");
+        _claimPrivatePSTAKE(msg.sender, unclaimedPSTAKE);
+    }
+
 }

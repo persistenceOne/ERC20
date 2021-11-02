@@ -4,18 +4,27 @@ pragma solidity >=0.7.0;
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
+import "./libraries/FullMath.sol";
 import "./interfaces/IVestingTimelockV2.sol";
+import "./interfaces/IPSTAKE.sol";
 
 contract PSTAKE is
+  IPSTAKE,
   ERC20Upgradeable,
   PausableUpgradeable,
   AccessControlUpgradeable
 {
+  // including libraries
+  using SafeMathUpgradeable for uint256;
+  using FullMath for uint256;
+
   // constants defining access control ROLES
   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-  // variable pertaining to contract upgrades versioning
+  // variable pertaining to contract upgrades versioning and value divisor
   uint256 public _version;
+  uint256 public _valueDivisor;
 
   // addresses pertaining to various tokenomics strategy
   address public _airdropPool;
@@ -31,11 +40,19 @@ contract PSTAKE is
   // address of vesting timelock contract to enable several vesting strategy
   address public _vestingTimelockAddress;
 
+  // total inflated supply and the supply limit component to implement inflation
+  uint256 public _totalInflatedSupply;
+  uint256 public _inflationRate;
+  uint256 public _lastInflationBlockHeight;
+  uint256 public constant SUPPLY_AT_GENESIS = uint256(500000000e18);
+  uint256 public constant BLOCKS_PER_YEAR = uint256(2407328);
+
   /**
    * @dev Constructor for initializing the UToken contract.
    * @param pauserAddress - address of the pauser admin.
    */
   function initialize(
+    uint256 inflationRate,
     address pauserAddress,
     address vestingTimelockAddress,
     address airdropPool,
@@ -56,6 +73,10 @@ contract PSTAKE is
 
     // PSTAKE is an erc20 token hence 18 decimal places
     _setupDecimals(18);
+    _inflationRate = inflationRate;
+    _valueDivisor = uint256(1e9);
+    _lastInflationBlockHeight = block.number;
+    _totalInflatedSupply = uint256(500000000e18);
 
     // setup the version and vesting timelock contract
     _version = 1;
@@ -80,7 +101,7 @@ contract PSTAKE is
     _mint(_communityDevelopmentFundPool, uint256(3125000e18));
 
     // accumulate tokens to allocate for vesting strategies (total supply - initial circulating supply)
-    _mint(address(this), uint256(448541666e18));
+    mint(address(this), uint256(448541666e18));
 
     // approve the vesting timelock contract to pull the tokens
     _approve(address(this), _vestingTimelockAddress, uint256(448541666e18));
@@ -212,6 +233,41 @@ contract PSTAKE is
   }
 
   /**
+   * @dev A token holder contract that will allow a beneficiary to extract
+   */
+  function checkInflation() public virtual override returns (bool success) {
+    if (_lastInflationBlockHeight.add(BLOCKS_PER_YEAR) <= block.number) {
+      // add inflation component to total inflated supply
+      uint256 inflationComponent = uint256(SUPPLY_AT_GENESIS).mulDiv(
+        _inflationRate,
+        _valueDivisor
+      );
+      _totalInflatedSupply = _totalInflatedSupply.add(inflationComponent);
+      _lastInflationBlockHeight = block.number;
+      emit CheckInflation(
+        _lastInflationBlockHeight.add(BLOCKS_PER_YEAR),
+        inflationComponent,
+        block.timestamp
+      );
+    }
+    success = true;
+  }
+
+  /**
+   * @dev A token holder contract that will allow a beneficiary to extract
+   */
+  function setInflation(uint256 inflationRate)
+    public
+    virtual
+    override
+    returns (bool success)
+  {
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS0");
+    _inflationRate = inflationRate;
+    success = true;
+  }
+
+  /**
    * @dev Mint new PSTAKE for the provided 'address' and 'amount'
    *
    *
@@ -222,9 +278,18 @@ contract PSTAKE is
    * - `amount` cannot be less than zero.
    *
    */
-  function mint(address to, uint256 tokens) public returns (bool success) {
-    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS2");
+  function mint(address to, uint256 tokens)
+    public
+    virtual
+    override
+    returns (bool success)
+  {
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS1");
+    // condition to check if the total supply doesnt cross the inflated supply
+    checkInflation();
+    require((totalSupply()).add(tokens) <= _totalInflatedSupply, "PS2");
 
+    // mint the tokens
     _mint(to, tokens);
     return true;
   }
@@ -236,7 +301,7 @@ contract PSTAKE is
    *
    * - The contract must not be paused.
    */
-  function pause() public returns (bool success) {
+  function pause() public virtual override returns (bool success) {
     require(hasRole(PAUSER_ROLE, _msgSender()), "PS3");
     _pause();
     return true;
@@ -249,7 +314,7 @@ contract PSTAKE is
    *
    * - The contract must be paused.
    */
-  function unpause() public returns (bool success) {
+  function unpause() public virtual override returns (bool success) {
     require(hasRole(PAUSER_ROLE, _msgSender()), "PS4");
     _unpause();
     return true;

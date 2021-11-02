@@ -28,14 +28,17 @@ contract PSTAKE is
 
   // addresses pertaining to various tokenomics strategy
   address public _airdropPool;
+  address public _alphaLaunchpadPool;
   address public _seedSalePool;
-  address public _strategicFoundationSalePool;
+  address public _publicSalePool1;
+  address public _publicSalePool2;
+  address public _publicSalePool3;
   address public _teamPool;
   address public _incentivisationPool;
   address public _xprtStakersPool;
   address public _protocolTreasuryPool;
   address public _communityDevelopmentFundPool;
-  address public _communityDevelopmentFundPool2;
+  address public _retroactiveRewardProtocolBootstrapPool;
 
   // address of vesting timelock contract to enable several vesting strategy
   address public _vestingTimelockAddress;
@@ -49,31 +52,31 @@ contract PSTAKE is
 
   /**
    * @dev Constructor for initializing the UToken contract.
-   * @param pauserAddress - address of the pauser admin.
    */
   function initialize(
-    uint256 inflationRate,
-    address pauserAddress,
     address vestingTimelockAddress,
     address airdropPool,
+    address alphaLaunchpadPool,
     address seedSalePool,
-    address strategicFoundationSalePool,
+    address publicSalePool1,
+    address publicSalePool2,
+    address publicSalePool3,
     address teamPool,
     address incentivisationPool,
     address xprtStakersPool,
     address protocolTreasuryPool,
     address communityDevelopmentFundPool,
-    address communityDevelopmentFundPool2
+    address retroactiveRewardProtocolBootstrapPool
   ) public virtual initializer {
     __ERC20_init("pSTAKE Token", "PSTAKE");
     __AccessControl_init();
     __Pausable_init();
     _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
-    _setupRole(PAUSER_ROLE, pauserAddress);
+    _setupRole(PAUSER_ROLE, _msgSender());
 
     // PSTAKE is an erc20 token hence 18 decimal places
     _setupDecimals(18);
-    _inflationRate = inflationRate;
+    _inflationRate = uint256(15e9);
     _valueDivisor = uint256(1e9);
     _lastInflationBlockHeight = block.number;
     _totalInflatedSupply = uint256(500000000e18);
@@ -83,28 +86,34 @@ contract PSTAKE is
     _vestingTimelockAddress = vestingTimelockAddress;
 
     // allocate the various tokenomics strategy pool addresses
+    // (must be different addresses because each address can have only one active vesting strategy at a time)
     _airdropPool = airdropPool;
+    _alphaLaunchpadPool = alphaLaunchpadPool;
     _seedSalePool = seedSalePool;
-    _strategicFoundationSalePool = strategicFoundationSalePool;
+    _publicSalePool1 = publicSalePool1;
+    _publicSalePool2 = publicSalePool2;
+    _publicSalePool3 = publicSalePool3;
     _teamPool = teamPool;
     _incentivisationPool = incentivisationPool;
     _xprtStakersPool = xprtStakersPool;
     _protocolTreasuryPool = protocolTreasuryPool;
     _communityDevelopmentFundPool = communityDevelopmentFundPool;
-    _communityDevelopmentFundPool2 = communityDevelopmentFundPool2;
+    _retroactiveRewardProtocolBootstrapPool = retroactiveRewardProtocolBootstrapPool;
 
     // pre-allocate tokens to strategy pools
-    _mint(_airdropPool, uint256(20000000e18));
-    _mint(_incentivisationPool, uint256(20000000e18));
-    _mint(_xprtStakersPool, uint256(2083334e18));
-    _mint(_protocolTreasuryPool, uint256(6250000e18));
-    _mint(_communityDevelopmentFundPool, uint256(3125000e18));
+    _mint(_airdropPool, uint256(5000000e18));
+    _mint(_alphaLaunchpadPool, uint256(10000000e18));
+    _mint(_incentivisationPool, uint256(13222222e18));
+    _mint(_xprtStakersPool, uint256(1250000e18));
+    _mint(_protocolTreasuryPool, uint256(4250000e18));
+    _mint(_communityDevelopmentFundPool, uint256(1666667e18));
+    _mint(_retroactiveRewardProtocolBootstrapPool, uint256(14500000e18));
 
     // accumulate tokens to allocate for vesting strategies (total supply - initial circulating supply)
     mint(address(this), uint256(448541666e18));
 
     // approve the vesting timelock contract to pull the tokens
-    _approve(address(this), _vestingTimelockAddress, uint256(448541666e18));
+    _approve(address(this), _vestingTimelockAddress, uint256(450111111e18));
     // create vesting strategies
 
     // airdrop pool
@@ -112,10 +121,12 @@ contract PSTAKE is
       address(this),
       _airdropPool,
       block.timestamp,
-      (182 days + 12 hours),
-      uint256(10000000e18),
-      1,
-      0,
+      // 1 month
+      (30 days + 10 hours),
+      uint256(5000000e18),
+      5,
+      // 1 month
+      (30 days + 10 hours),
       false
     );
 
@@ -126,24 +137,52 @@ contract PSTAKE is
       block.timestamp,
       // 6 months
       (182 days + 12 hours),
-      uint256(4166667e18),
+      uint256(8333333e18),
       12,
       // 1 month
       (30 days + 10 hours),
       false
     );
 
-    // strategicFoundationSale pool
+    // publicSalePool1 pool
     IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
       address(this),
-      _strategicFoundationSalePool,
+      _publicSalePool1,
       block.timestamp,
       // 6 months
       (182 days + 12 hours),
-      uint256(1250000e18),
-      12,
+      uint256(833333e18),
+      6,
       // 1 month
       (30 days + 10 hours),
+      false
+    );
+
+    // publicSalePool2 pool
+    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+      address(this),
+      _publicSalePool2,
+      block.timestamp,
+      // 3 months
+      (91 days + 6 hours),
+      uint256(1666667e18),
+      6,
+      // 1 month
+      (30 days + 10 hours),
+      false
+    );
+
+    // publicSalePool3 pool
+    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+      address(this),
+      _publicSalePool3,
+      block.timestamp,
+      // 1 month
+      (30 days + 10 hours),
+      uint256(10000000e18),
+      1,
+      // 0 month
+      0,
       false
     );
 
@@ -152,9 +191,9 @@ contract PSTAKE is
       address(this),
       _teamPool,
       block.timestamp,
-      // 12 months
-      365 days,
-      uint256(4166667e18),
+      // 18 months
+      (547 days + 12 hours),
+      uint256(4444444e18),
       18,
       // 1 month
       (30 days + 10 hours),
@@ -168,7 +207,7 @@ contract PSTAKE is
       block.timestamp,
       // 3 months
       (91 days + 6 hours),
-      uint256(20000000e18),
+      uint256(13222222e18),
       8,
       // 3 months
       (91 days + 6 hours),
@@ -182,7 +221,7 @@ contract PSTAKE is
       block.timestamp,
       // 1 month
       (30 days + 10 hours),
-      uint256(2083333e18),
+      uint256(1250000e18),
       11,
       // 1 month
       (30 days + 10 hours),
@@ -194,12 +233,12 @@ contract PSTAKE is
       address(this),
       _protocolTreasuryPool,
       block.timestamp,
-      // 3 months
-      (91 days + 6 hours),
-      uint256(6250000e18),
-      11,
-      // 3 months
-      (91 days + 6 hours),
+      // 2 months
+      (60 days + 20 hours),
+      uint256(4250000e18),
+      17,
+      // 2 months
+      (60 days + 20 hours),
       false
     );
 
@@ -210,24 +249,10 @@ contract PSTAKE is
       block.timestamp,
       // 3 months
       (91 days + 6 hours),
-      uint256(3125000e18),
-      14,
+      uint256(1666667e18),
+      17,
       // 3 months
       (91 days + 6 hours),
-      false
-    );
-
-    // communityDevelopmentFund2 pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
-      address(this),
-      _communityDevelopmentFundPool2,
-      block.timestamp,
-      // 42 months
-      (1277 days + 12 hours),
-      uint256(3125000e18),
-      1,
-      // 0 months
-      0,
       false
     );
   }

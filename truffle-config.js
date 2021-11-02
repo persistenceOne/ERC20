@@ -18,10 +18,15 @@
  *
  */
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+// const infuraKey = "fj4jll3k.....";
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
+// 0x714d4CaF73a0F5dE755488D14f82e74232DAF5B7
+// 0x466aF9ea44f2dEbbE4fd54a98CffA26A3674fBf7
+const mnemonic =
+  "baby year rocket october what surprise lab bag report swap game unveil";
 
 module.exports = {
   /**
@@ -41,11 +46,12 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+    development: {
+      host: "127.0.0.1", // Localhost (default: none)
+      port: 8545, // Standard Ethereum port (default: none)
+      network_id: "*", // Any network (default: none)
+      // from: "0x466aF9ea44f2dEbbE4fd54a98CffA26A3674fBf7",
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -53,18 +59,85 @@ module.exports = {
     // gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
     // gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
     // from: <address>,        // Account to send txs from (default: accounts[0])
-    // websocket: true        // Enable EventEmitter interface for web3 (default: false)
+    // websockets: true        // Enable EventEmitter interface for web3 (default: false)
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    // ropsten: {
-    // provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/YOUR-PROJECT-ID`),
-    // network_id: 3,       // Ropsten's id
-    // gas: 5500000,        // Ropsten has a lower block limit than mainnet
-    // confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-    // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-    // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    // },
+    ropsten: {
+      /* provider: () =>
+         new HDWalletProvider(
+           mnemonic,
+           `https://eth-ropsten.alchemyapi.io/v2/07n2GnZCR4HhRPxa-RCMFStbjqW87Rbt`
+         ), */
+
+      // ROPSTEN GETH RPC URL
+      /* HTTPS: https://ropsten.eth.audit.one/rpc
+         WS: https://ropsten.eth.audit.one/ws */
+
+      provider: () =>
+        new HDWalletProvider({
+          mnemonic: {
+            phrase: mnemonic,
+          },
+          providerOrUrl: `http://13.232.138.144:8545`,
+        }),
+      network_id: 3, // Ropsten's id
+      gas: 7900000, // Ropsten has a lower block limit than mainnet
+      gasPrice: 30000000000,
+      // confirmations: 1, // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: false, // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    mainnet: {
+      /* provider: () =>
+          new HDWalletProvider(
+            "ce0b4f52b909ed065181c5295632e398018bbe9d8be9aaab30ca0831dfef905c",
+            `https://eth-ropsten.alchemyapi.io/v2/07n2GnZCR4HhRPxa-RCMFStbjqW87Rbt`
+          ),*/
+      provider: () =>
+        new HDWalletProvider(
+          mnemonic,
+          `https://eth-mainnet.alchemyapi.io/v2/vD3x9QX71JVFQhFTYPZa_3eP-RfkODNi`
+        ),
+      network_id: 1, // Mainnet's id
+      gas: 6000000,
+      gasPrice: 150000000000,
+      // confirmations: 1, // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: false, // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    goerliGeth: {
+      provider: () =>
+        new HDWalletProvider({
+          mnemonic: mnemonic,
+          providerOrUrl: "http://15.206.124.254:8545",
+          numberOfAddresses: 10,
+          shareNonce: true,
+          derivationPath: "m/44'/60'/0'/0/",
+        }),
+      network_id: 5, // goerli's id
+      // gas: 8000000, //
+      gasPrice: 3000000000,
+      // confirmations: 1, // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: false, // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    goerli: {
+      provider: () =>
+        new HDWalletProvider(
+          mnemonic,
+          `https://goerli.infura.io/v3/c1a795f858814218840034fe273cb040`
+        ),
+      network_id: 5, // goerli's id
+      // gas: 8000000, //
+      gasPrice: 50000000000,
+      // confirmations: 1, // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: false, // Skip dry run before migrations? (default: false for public nets )
+    },
     // Useful for private networks
     // private: {
     // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
@@ -75,7 +148,7 @@ module.exports = {
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
-    // timeout: 100000
+    timeout: 100000,
   },
 
   // Configure your compilers
@@ -93,25 +166,4 @@ module.exports = {
       },
     },
   },
-
-  // Truffle DB is currently disabled by default; to enable it, change enabled:
-  // false to enabled: true. The default storage location can also be
-  // overridden by specifying the adapter settings, as shown in the commented code below.
-  //
-  // NOTE: It is not possible to migrate your contracts to truffle DB and you should
-  // make a backup of your artifacts to a safe location before enabling this feature.
-  //
-  // After you backed up your artifacts you can utilize db by running migrate as follows:
-  // $ truffle migrate --reset --compile-all
-  //
-  // db: {
-  // enabled: false,
-  // host: "127.0.0.1",
-  // adapter: {
-  //   name: "sqlite",
-  //   settings: {
-  //     directory: ".db"
-  //   }
-  // }
-  // }
 };

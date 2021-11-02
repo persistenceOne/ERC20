@@ -27,6 +27,13 @@ interface IPSTAKE is IERC20Upgradeable {
   function mint(address to, uint256 tokens) external returns (bool success);
 
   /**
+   * @dev Set 'contract address', called from constructor
+   * @param vestingTimelockAddress: VestingTimelockcontract address
+   * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.
+   */
+  function setVestingTimelockContract(address vestingTimelockAddress) external;
+
+  /**
    * @dev Triggers stopped state.
    *
    * Requirements:
@@ -49,4 +56,6 @@ interface IPSTAKE is IERC20Upgradeable {
     uint256 inflationComponent,
     uint256 timestamp
   );
+
+  event SetVestingTimelockContract(address vestingTimelockAddress);
 }

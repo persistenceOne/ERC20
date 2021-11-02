@@ -320,6 +320,21 @@ contract PSTAKE is
   }
 
   /**
+   * @dev Set 'contract address', called from constructor
+   * @param vestingTimelockAddress: VestingTimelockcontract address
+   * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.
+   */
+  function setVestingTimelockContract(address vestingTimelockAddress)
+    public
+    virtual
+    override
+  {
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS6");
+    _vestingTimelockAddress = vestingTimelockAddress;
+    emit SetVestingTimelockContract(vestingTimelockAddress);
+  }
+
+  /**
    * @dev Triggers stopped state.
    *
    * Requirements:

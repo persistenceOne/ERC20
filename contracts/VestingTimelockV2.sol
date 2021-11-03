@@ -214,7 +214,7 @@ contract VestingTimelockV2 is
     }
 
     // if the last claimed timstamp has crossed the endTime, return zero
-    if (lastClaimedTimestamp >= _endTime[id_])
+    if (!_isActive[id_] || lastClaimedTimestamp >= _endTime[id_])
       return (pendingAmount, pendingTime, pendingInstalment);
 
     lowerTimestamp = (lastClaimedTimestamp <
@@ -341,7 +341,7 @@ contract VestingTimelockV2 is
     }
 
     // if the last claimed timstamp has crossed the endTime, return zero
-    if (lastClaimedTimestamp >= _endTime[id_])
+    if (!_isActive[id_] || lastClaimedTimestamp >= _endTime[id_])
       return (remainingAmount, remainingTime, remainingInstalment);
 
     // if cliff time is crossed then calculate the remaining data by taking the ratio
@@ -587,7 +587,7 @@ contract VestingTimelockV2 is
     returns (uint256 remainingAmount)
   {
     // require the end date for grant to not have passed
-    require(_endTime[id_] > block.timestamp, "VT4");
+    require(_isActive[id_] && _endTime[id_] > block.timestamp, "VT4");
 
     (remainingAmount, , ) = _getRemaining(id_);
     // deactivate the grant (keep other values intact)
@@ -629,7 +629,7 @@ contract VestingTimelockV2 is
     );
 
     if (remainingAmount > 0) {
-      delete _beneficiaryID[token_][beneficiary_];
+      // delete _beneficiaryID[token_][beneficiary_];
       IERC20Upgradeable(token_).safeTransfer(grantManager_, remainingAmount);
     }
 

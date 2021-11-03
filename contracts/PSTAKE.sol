@@ -114,9 +114,10 @@ contract PSTAKE is
 
     // approve the vesting timelock contract to pull the tokens
     _approve(address(this), _vestingTimelockAddress, uint256(448541666e18));
-    // create vesting strategies
+    
+    // ALLOCATING VESTING STRATEGIES
 
-    // airdrop pool
+     // airdrop pool
     IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
       address(this),
       _airdropPool,

@@ -210,11 +210,7 @@ contract VestingTimelockV2 is
 
     // if cliff time is not crossed by lastClaimedTimestamp, return the full amount and instalment count
     if (block.timestamp <= _startTime[id_].add(_cliffTime[id_])) {
-      return (
-        _instalmentAmount[id_].mul(_instalmentCount[id_]),
-        _endTime[id_].sub(block.timestamp),
-        _instalmentCount[id_]
-      );
+      return (pendingAmount, pendingTime, pendingInstalment);
     }
 
     // if the last claimed timstamp has crossed the endTime, return zero
@@ -243,13 +239,20 @@ contract VestingTimelockV2 is
     // calculate the pending time in the currently vesting instalment
     instalmentPeriodRemainder = pendingVestingTime.mod(_instalmentPeriod[id_]);
 
-    // _instalmentPeriod[id_] zero condition need not be checked as it would come under already elapsed grant's end time
-    pendingInstalment = (instalmentPeriodRemainder > 0)
-      ? (pendingVestingTime.div(_instalmentPeriod[id_])).add(2)
-      : (pendingVestingTime.div(_instalmentPeriod[id_])).add(1);
-
     // calculate pendingAmount as per vesting mode
     if (_isContinuousVesting[id_]) {
+      // _instalmentPeriod[id_] zero condition need not be checked as it would come under already elapsed grant's end time
+      if (lowerTimestamp > _startTime[id_].add(_cliffTime[id_])) {
+        pendingInstalment = (instalmentPeriodRemainder > 0)
+          ? (pendingVestingTime.div(_instalmentPeriod[id_])).add(1)
+          : (pendingVestingTime.div(_instalmentPeriod[id_]));
+      } else {
+        pendingInstalment = (instalmentPeriodRemainder > 0)
+          ? (pendingVestingTime.div(_instalmentPeriod[id_])).add(2)
+          : (pendingVestingTime.div(_instalmentPeriod[id_])).add(1);
+      }
+
+      // pending amount will contain the amount pro-rated to the time diff component also, along with the pendingInstalment
       pendingAmount = (instalmentPeriodRemainder > 0)
         ? (
           (
@@ -261,6 +264,15 @@ contract VestingTimelockV2 is
         )
         : (pendingInstalment.mul(_instalmentAmount[id_]));
     } else {
+      // _instalmentPeriod[id_] zero condition need not be checked as it would come under already elapsed grant's end time
+      if (lowerTimestamp > _startTime[id_].add(_cliffTime[id_])) {
+        pendingInstalment = (pendingVestingTime.div(_instalmentPeriod[id_]));
+      } else {
+        pendingInstalment = (pendingVestingTime.div(_instalmentPeriod[id_]))
+          .add(1);
+      }
+
+      // pending amount will be directly derived from pendingInstalment
       pendingAmount = pendingInstalment.mul(_instalmentAmount[id_]);
     }
   }
@@ -338,13 +350,11 @@ contract VestingTimelockV2 is
     // calculate the remaining time in the currently vesting instalment
     instalmentPeriodRemainder = remainingTime.mod(_instalmentPeriod[id_]);
 
-    // _instalmentPeriod[id_] zero condition need not be checked as it would come under already elapsed grant's end time
-    remainingInstalment = (instalmentPeriodRemainder > 0)
-      ? (remainingTime.div(_instalmentPeriod[id_])).add(1)
-      : (remainingTime.div(_instalmentPeriod[id_]));
-
     // calculate remainingAmount as per vesting mode
     if (_isContinuousVesting[id_]) {
+      // _instalmentPeriod[id_] zero condition need not be checked as it would come under already elapsed grant's end time
+      remainingInstalment = (remainingTime.div(_instalmentPeriod[id_]));
+
       remainingAmount = (instalmentPeriodRemainder > 0)
         ? (
           (
@@ -352,10 +362,15 @@ contract VestingTimelockV2 is
               _instalmentAmount[id_],
               _instalmentPeriod[id_]
             )
-          ).add((remainingInstalment.sub(1)).mul(_instalmentAmount[id_]))
+          ).add((remainingInstalment).mul(_instalmentAmount[id_]))
         )
         : (remainingInstalment.mul(_instalmentAmount[id_]));
     } else {
+      // _instalmentPeriod[id_] zero condition need not be checked as it would come under already elapsed grant's end time
+      remainingInstalment = (instalmentPeriodRemainder > 0)
+        ? (remainingTime.div(_instalmentPeriod[id_])).add(1)
+        : (remainingTime.div(_instalmentPeriod[id_]));
+
       remainingAmount = remainingInstalment.mul(_instalmentAmount[id_]);
     }
   }
@@ -406,7 +421,7 @@ contract VestingTimelockV2 is
     uint256 id_,
     address beneficiary_,
     uint256 startTime_,
-    uint256 cliffTime_,
+    uint256 cliffPeriod_,
     uint256 instalmentAmount_,
     uint256 instalmentCount_,
     uint256 instalmentPeriod_,
@@ -415,13 +430,13 @@ contract VestingTimelockV2 is
   ) internal {
     // Require statement to check if grant is already active
     require(!_isActive[id_], "VT1");
-    uint256 endTime = startTime_.add(cliffTime_).add(
+    uint256 endTime = startTime_.add(cliffPeriod_).add(
       instalmentPeriod_.mul(instalmentCount_.sub(1))
     );
 
     _startTime[id_] = startTime_;
     _endTime[id_] = endTime;
-    _cliffTime[id_] = cliffTime_;
+    _cliffTime[id_] = cliffPeriod_;
     _beneficiary[id_] = beneficiary_;
     _isActive[id_] = true;
     _instalmentAmount[id_] = instalmentAmount_;
@@ -438,7 +453,7 @@ contract VestingTimelockV2 is
     address token_,
     address beneficiary_,
     uint256 startTime_,
-    uint256 cliffTime_,
+    uint256 cliffPeriod_,
     uint256 totalAmount_,
     uint256 instalmentCount_,
     uint256 instalmentPeriod_,
@@ -472,7 +487,7 @@ contract VestingTimelockV2 is
       id,
       beneficiary_,
       startTime_,
-      cliffTime_,
+      cliffPeriod_,
       instalmentAmount,
       instalmentCount_,
       instalmentPeriod_,
@@ -485,7 +500,7 @@ contract VestingTimelockV2 is
       token_,
       beneficiary_,
       startTime_,
-      cliffTime_,
+      cliffPeriod_,
       totalAmount_,
       instalmentCount_,
       instalmentPeriod_,
@@ -502,7 +517,7 @@ contract VestingTimelockV2 is
     address token_,
     address beneficiary_,
     uint256 startTime_,
-    uint256 cliffTime_,
+    uint256 cliffPeriod_,
     uint256 instalmentAmount_,
     uint256 instalmentCount_,
     uint256 instalmentPeriod_,
@@ -519,9 +534,12 @@ contract VestingTimelockV2 is
 
     // check the calling address has suffecient tokens and then transfer tokens to this contract
     totalVestingAmount = instalmentAmount_.mul(instalmentCount_);
+
     require(
-      IERC20Upgradeable(token_).balanceOf(beneficiary_) >= totalVestingAmount
+      IERC20Upgradeable(token_).balanceOf(_msgSender()) >= totalVestingAmount,
+      "VT11"
     );
+
     IERC20Upgradeable(token_).safeTransferFrom(
       _msgSender(),
       address(this),
@@ -538,7 +556,7 @@ contract VestingTimelockV2 is
       id,
       beneficiary_,
       startTime_,
-      cliffTime_,
+      cliffPeriod_,
       instalmentAmount_,
       instalmentCount_,
       instalmentPeriod_,
@@ -551,7 +569,7 @@ contract VestingTimelockV2 is
       token_,
       beneficiary_,
       startTime_,
-      cliffTime_,
+      cliffPeriod_,
       instalmentAmount_,
       instalmentCount_,
       instalmentPeriod_,
@@ -651,11 +669,19 @@ contract VestingTimelockV2 is
       "VT10"
     );
 
+    // require the grant to be active and vesting amount still pening to be credited to beneficiary for claiming
+    require(
+      _isActive[id] &&
+        (_instalmentAmount[id].mul(_instalmentCount[id]) > _amountReceived[id]),
+      "VT12"
+    );
+
     // get the pending amount to be credited to beneficiary
     (uint256 pendingAmount, , ) = _getPending(id);
 
     if (pendingAmount > 0) {
       IERC20Upgradeable(token_).safeTransfer(beneficiary_, pendingAmount);
+      _amountReceived[id] = _amountReceived[id].add(pendingAmount);
     }
 
     // set last claimed for the grant to current time

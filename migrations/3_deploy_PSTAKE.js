@@ -64,6 +64,8 @@ async function deployContract(gasPrice, gasLimit, deployer, accounts) {
   let communityDevelopmentFundPool = accounts[11];
   let retroactiveRewardProtocolBootstrapPool = accounts[12];
 
+  console.log("Vesting Timelock address: ", VestingTimelockV2Artifact.address);
+
   PSTAKEInstance = await deployProxy(
     PSTAKEArtifact,
     [

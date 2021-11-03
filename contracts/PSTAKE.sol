@@ -113,7 +113,7 @@ contract PSTAKE is
     mint(address(this), uint256(448541666e18));
 
     // approve the vesting timelock contract to pull the tokens
-    _approve(address(this), _vestingTimelockAddress, uint256(450111111e18));
+    _approve(address(this), _vestingTimelockAddress, uint256(448541666e18));
     // create vesting strategies
 
     // airdrop pool

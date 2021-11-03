@@ -37,7 +37,7 @@ contract VestingTimelockV2 is
   uint256 public _version;
 
   // Vesting grant identifier
-  uint256 _id;
+  uint256 public _id;
   mapping(address => uint256) public _grantCount;
   mapping(address => mapping(address => uint256)) public _beneficiaryID;
 

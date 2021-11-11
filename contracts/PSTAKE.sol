@@ -51,8 +51,21 @@ contract PSTAKE is
   uint256 public constant BLOCKS_PER_YEAR = uint256(2407328);
 
   /**
-   * @dev Constructor for initializing the UToken contract.
-   */
+  * @dev Constructor for initializing the PSTAKE contract.
+  * @param vestingTimelockAddress - address of the vesting timelock contract.
+  * @param airdropPool - address of the airdrop pool.
+  * @param alphaLaunchpadPool - address of the alpha launchpad pool.
+  * @param seedSalePool - address of the seed sale pool.
+  * @param publicSalePool1 - address of the public sale pool1.
+  * @param publicSalePool2 - address of the public sale pool2.
+  * @param publicSalePool3 - address of the public sale pool3.
+  * @param teamPool - address of the team pool.
+  * @param incentivisationPool - address of the incentivising pool.
+  * @param xprtStakersPool - address of the xprt stakers pool.
+  * @param protocolTreasuryPool - address of the protocol treasury pool.
+  * @param communityDevelopmentFundPool - address of the community development fund pool.
+  * @param retroactiveRewardProtocolBootstrapPool - address of the retroactive reward protocol bootstrap pool.
+  */
   function initialize(
     address vestingTimelockAddress,
     address airdropPool,
@@ -259,7 +272,9 @@ contract PSTAKE is
   }
 
   /**
-   * @dev A token holder contract that will allow a beneficiary to extract
+   * @dev Check inflation
+   * Emits a {CheckInflation} event with 'block height', 'inflationComponent', and 'timestamp'.
+   *
    */
   function checkInflation() public virtual override returns (bool success) {
     if (_lastInflationBlockHeight.add(BLOCKS_PER_YEAR) <= block.number) {
@@ -280,8 +295,10 @@ contract PSTAKE is
   }
 
   /**
-   * @dev A token holder contract that will allow a beneficiary to extract
-   */
+  * @dev Set inflation
+  * @param inflationRate: inflation rate.
+  *
+  */
   function setInflation(uint256 inflationRate)
     public
     virtual
@@ -322,7 +339,8 @@ contract PSTAKE is
 
   /**
    * @dev Set 'contract address', called from constructor
-   * @param vestingTimelockAddress: VestingTimelockcontract address
+   * @param vestingTimelockAddress: Vesting timelock contract address
+   *
    * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.
    */
   function setVestingTimelockContract(address vestingTimelockAddress)

@@ -14,19 +14,19 @@ interface IVestingTimelockV2 {
     returns (
       uint256 startTime,
       uint256 endTime,
-      uint256 cliffTime,
+      uint256 cliffPeriod,
       address beneficiary,
       bool isActive,
       uint256 instalmentAmount,
       uint256 instalmentCount,
       uint256 instalmentPeriod,
       uint256 amountReceived,
-      bool isContinuousVesting,
       address grantManager
     );
 
   /**
-   * @dev get the details of the vesting grant for a user
+   * @dev get the details of the vesting grant for a user from id
+   * @param id_: vesting grant for a user id
    */
   function getGrantFromID(uint256 id_)
     external
@@ -34,14 +34,13 @@ interface IVestingTimelockV2 {
     returns (
       uint256 startTime,
       uint256 endTime,
-      uint256 cliffTime,
+      uint256 cliffPeriod,
       address beneficiary,
       bool isActive,
       uint256 instalmentAmount,
       uint256 instalmentCount,
       uint256 instalmentPeriod,
       uint256 amountReceived,
-      bool isContinuousVesting,
       address grantManager
     );
 
@@ -100,35 +99,18 @@ interface IVestingTimelockV2 {
     address token_,
     address beneficiary_,
     uint256 startTime_,
-    uint256 cliffTime_,
+    uint256 cliffPeriod_,
     uint256 totalAmount_,
     uint256 instalmentCount_,
-    uint256 instalmentPeriod_,
-    bool isContinuousVesting_
+    uint256 instalmentPeriod_
   ) external returns (uint256 instalmentAmount);
-
-  /**
-   * @notice Transfers tokens held by beneficiary to timelock.
-   */
-  function addGrantAsInstalment(
-    address token_,
-    address beneficiary_,
-    uint256 startTime_,
-    uint256 cliffTime_,
-    uint256 instalmentAmount_,
-    uint256 instalmentCount_,
-    uint256 instalmentPeriod_,
-    bool isContinuousVesting_
-  ) external returns (uint256 totalVestingAmount);
 
   /**
    * @notice revokeGrant tokens held by timelock to beneficiary.
    */
-  function revokeGrant(
-    address token_,
-    address beneficiary_,
-    address grantManager_
-  ) external returns (uint256 remainingAmount);
+  function revokeGrant(address token_, address beneficiary_)
+    external
+    returns (uint256 remainingAmount);
 
   /**
    * @notice Transfers tokens held by timelock to beneficiary.
@@ -158,25 +140,11 @@ interface IVestingTimelockV2 {
     address token,
     address accountAddress,
     uint256 startTime,
-    uint256 cliffTime,
+    uint256 cliffPeriod,
     uint256 tokens,
+    uint256 instalmentAmount,
     uint256 instalmentCount,
     uint256 instalmentPeriod,
-    bool isContinuousVesting,
-    address grantManager,
-    uint256 timestamp
-  );
-
-  event AddGrantAsInstalment(
-    uint256 id,
-    address token,
-    address accountAddress,
-    uint256 startTime,
-    uint256 cliffTime,
-    uint256 tokens,
-    uint256 instalmentCount,
-    uint256 instalmentPeriod,
-    bool isContinuousVesting,
     address grantManager,
     uint256 timestamp
   );
@@ -184,7 +152,6 @@ interface IVestingTimelockV2 {
   event RevokeGrant(
     address token,
     address accountAddress,
-    address grantManager,
     uint256 tokens,
     uint256 timestamp
   );

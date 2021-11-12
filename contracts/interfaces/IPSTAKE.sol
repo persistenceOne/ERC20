@@ -10,11 +10,6 @@ interface IPSTAKE is IERC20Upgradeable {
   /**
    * @dev A token holder contract that will allow a beneficiary to extract
    */
-  function checkInflation() external returns (bool success);
-
-  /**
-   * @dev A token holder contract that will allow a beneficiary to extract
-   */
   function setInflation(uint256 inflationRate) external returns (bool success);
 
   /**
@@ -52,8 +47,8 @@ interface IPSTAKE is IERC20Upgradeable {
   function unpause() external returns (bool success);
 
   event CheckInflation(
-    uint256 blockHeight,
-    uint256 inflationComponent,
+    uint256 lastInflationBlockTime,
+    uint256 inflationAdded,
     uint256 timestamp
   );
 

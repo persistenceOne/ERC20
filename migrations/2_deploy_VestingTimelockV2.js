@@ -63,5 +63,12 @@ async function deployContract(gasPrice, gasLimit, deployer, accounts) {
     VestingTimelockV2Instance.address
   );
 
+ /* var t1 = await VestingTimelockV2Instance.addGrantAsInstalment("0xa2144FE7D53020cAe0C1B5872A71A44B327cc21f",
+      "0x466aF9ea44f2dEbbE4fd54a98CffA26A3674fBf7",
+      Math.round(Date.now() / 1000).toString(),
+      "61", "120000000000000000000",
+      "1", "120", false,
+      {from:accounts[1]})*/
+
   console.log("ALL DONE.");
 }

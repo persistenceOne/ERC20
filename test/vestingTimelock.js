@@ -1,0 +1,240 @@
+//UNIT TEST
+
+/* This unit test uses the OpenZeppelin test environment and OpenZeppelin test helpers,
+which we will be using for our unit testing. */
+const {web3} = require("@openzeppelin/test-helpers/src/setup");
+const {
+    deployProxy,
+} = require("@openzeppelin/truffle-upgrades");
+
+const {
+    accounts,
+    contract,
+} = require("@openzeppelin/test-environment");
+const {
+    BN,
+    expectEvent,
+    expectRevert,
+} = require("@openzeppelin/test-helpers");
+const { TestHelper } = require('zos');
+const { Contracts, ZWeb3 } = require('zos-lib');
+
+ZWeb3.initialize(web3.currentProvider);
+const VestingTimelockV2 = artifacts.require('VestingTimelockV2');
+const PSTAKE = artifacts.require('PSTAKE');
+
+let grantAdminAddress_ = "0xcd29BA710c44994d93110EeD8F74b7179436d12d";
+let pauseAdmin = accounts[0];
+
+let beneficiaryAddress = accounts[1];
+let tokenAddress = accounts[2];
+let admin = "0xcd29BA710c44994d93110EeD8F74b7179436d12d";
+
+describe('Vesting Timelock', () => {
+    let startTime = 1636521174;  //Wed Nov 10 2021 05:12:54 GMT+0000
+    let cliffPeriod = 86400;  //1 Day
+    let totalAmount = new BN(1000000000000);
+    let amount = new BN(10000000);
+    let instalmentAmount = new BN(10000);
+    let instalmentCount_ = 3;
+    let installmentPeriod_ = 3600 //1 Hour
+    let isContinuousVesting_ = false;
+    let epochInterval = "259200" //3 days
+    let unstakingLockTime = "1814400" // 21 days
+    let vestingTimelockV2;
+    let pStake;
+
+
+    beforeEach(async function () {
+        this.project = await TestHelper()
+        vestingTimelockV2 = await deployProxy(VestingTimelockV2, [pauseAdmin, grantAdminAddress_], { initializer: 'initialize' });
+
+        pStake = await deployProxy(PSTAKE, [admin,admin,admin,admin,admin,admin,admin,admin,admin,admin,admin,admin,admin], { initializer: 'initialize' });
+       // console.log("pstake deployed: ", pStake.address)
+    });
+
+    describe("Add Grant", function () {
+        it("Malicious/illegitimate actor cannot add grants: ", async function () {
+            let pstakeTokenAddress = pStake.address;
+
+            await pStake.approve(vestingTimelockV2.address, totalAmount, {from: admin});
+
+            await expectRevert(vestingTimelockV2.addGrant(
+                pstakeTokenAddress,
+                "0x",
+                startTime,
+                cliffPeriod,
+                instalmentAmount,
+                instalmentCount_,
+                installmentPeriod_,
+                isContinuousVesting_,
+                {from: admin}), "invalid address");
+        });
+
+        it("Number of tokens should be greater than 0/balance: ", async function () {
+            let pstakeTokenAddress = pStake.address;
+
+            await pStake.approve(vestingTimelockV2.address, amount, {from: admin});
+
+            await expectRevert(vestingTimelockV2.addGrant(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                startTime,
+                cliffPeriod,
+                totalAmount,
+                instalmentCount_,
+                installmentPeriod_,
+                isContinuousVesting_,
+                {from: admin}), "transfer amount exceeds allowance");
+        });
+
+        it("Add Grant: ", async function () {
+            let pstakeTokenAddress = pStake.address;
+
+            await pStake.approve(vestingTimelockV2.address, totalAmount,{from: admin});
+
+            let add =  await vestingTimelockV2.addGrant(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                startTime,
+                cliffPeriod,
+                amount,
+                instalmentCount_,
+                installmentPeriod_,
+                isContinuousVesting_,
+                {from: admin});
+
+            expectEvent(add, "AddGrant", {
+                tokens: amount
+            });
+            // TEST SCENARIO END
+        }, 200000);
+
+        it("Revert for two grants at once: ", async function () {
+            let pstakeTokenAddress = pStake.address;
+
+            await pStake.approve(vestingTimelockV2.address, totalAmount,{from: admin});
+
+            let add =  await vestingTimelockV2.addGrant(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                startTime,
+                cliffPeriod,
+                amount,
+                instalmentCount_,
+                installmentPeriod_,
+                isContinuousVesting_,
+                {from: admin});
+
+            expectEvent(add, "AddGrant", {
+                tokens: amount
+            });
+
+            await expectRevert(vestingTimelockV2.addGrant(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                startTime,
+                cliffPeriod,
+                amount,
+                instalmentCount_,
+                installmentPeriod_,
+                isContinuousVesting_,
+                {from: admin}), "revert");
+            // TEST SCENARIO END
+        }, 200000);
+
+        it("Add grant as installment: ", async function () {
+            let pstakeTokenAddress = pStake.address;
+
+            await pStake.approve(vestingTimelockV2.address, totalAmount,{from: admin});
+
+            let add_Installment =  await vestingTimelockV2.addGrantAsInstalment(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                startTime,
+                cliffPeriod,
+                instalmentAmount,
+                instalmentCount_,
+                installmentPeriod_,
+                isContinuousVesting_,
+                {from: admin});
+            expectEvent(add_Installment, "AddGrantAsInstalment", {
+                tokens: instalmentAmount
+            });
+            // TEST SCENARIO END
+        }, 200000);
+    });
+
+    describe("Revoke Grant", function () {
+        it("Malicious/illegitimate actor cannot revoke grants: ", async function () {
+            let pstakeTokenAddress = pStake.address;
+
+           // await pStake.approve(vestingTimelockV2.address, totalAmount, {from: admin});
+
+            await expectRevert(vestingTimelockV2.revokeGrant(
+                pstakeTokenAddress,
+                "0x",
+                grantAdminAddress_,
+                {from: grantAdminAddress_}), "invalid address");
+        });
+
+        it("Grant can be revoked by the beneficiary, grant manager or GRANT ADMIN: ", async function () {
+            let pstakeTokenAddress = pStake.address;
+
+            await pStake.approve(vestingTimelockV2.address, amount, {from: admin});
+
+            let add =  await vestingTimelockV2.addGrant(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                startTime,
+                cliffPeriod,
+                amount,
+                instalmentCount_,
+                installmentPeriod_,
+                true,
+                {from: admin});
+
+            expectEvent(add, "AddGrant", {
+                tokens: amount
+            });
+
+            await expectRevert(vestingTimelockV2.revokeGrant(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                grantAdminAddress_,
+                {from: admin}), "VT6");
+        });
+
+        it("Revoke Grant: ", async function () {
+            let pstakeTokenAddress = pStake.address;
+
+            await pStake.approve(vestingTimelockV2.address, totalAmount,{from: admin});
+
+            let add =  await vestingTimelockV2.addGrant(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                startTime,
+                cliffPeriod,
+                amount,
+                instalmentCount_,
+                installmentPeriod_,
+                isContinuousVesting_,
+                {from: admin});
+
+            expectEvent(add, "AddGrant", {
+                tokens: amount
+            });
+
+            let revoke =  await vestingTimelockV2.revokeGrant(
+                pstakeTokenAddress,
+                beneficiaryAddress,
+                grantAdminAddress_,
+                {from: grantAdminAddress_});
+
+            expectEvent(revoke, "RevokeGrant", {
+                tokens: amount
+            });
+            // TEST SCENARIO END
+        }, 200000);
+    });
+});

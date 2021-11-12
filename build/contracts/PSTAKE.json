@@ -201,8 +201,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -215,8 +214,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -229,8 +227,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -243,8 +240,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -257,8 +253,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -271,8 +266,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -285,8 +279,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -299,8 +292,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -313,8 +305,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -327,8 +318,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -341,8 +331,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -355,8 +344,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -369,8 +357,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -383,8 +370,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -397,8 +383,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -411,8 +396,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -425,8 +409,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -439,8 +422,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -453,8 +435,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -467,8 +448,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -481,8 +461,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -495,8 +474,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -520,8 +498,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -564,8 +541,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -578,8 +554,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -622,8 +597,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -647,8 +621,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -667,8 +640,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -710,8 +682,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -748,8 +719,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -762,8 +732,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -812,8 +781,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -826,8 +794,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -1060,7 +1027,7 @@
   "sourceMap": "494:11565:12:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "494:11565:12:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2517:89:3;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;4593:166;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;4593:166:3;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;999:27:12;;;:::i;:::-;;;;-1:-1:-1;;;;;999:27:12;;;;;;;;;;;;;;3584:106:3;;;:::i;:::-;;;;;;;;;;;;;;;;10561:289:12;;;;;;;;;;;;;;;;-1:-1:-1;10561:289:12;-1:-1:-1;;;;;10561:289:12;;:::i;:::-;;5226:317:3;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;5226:317:3;;;;;;;;;;;;;;;;;:::i;4652:112:0:-;;;;;;;;;;;;;;;;-1:-1:-1;4652:112:0;;:::i;1233:35:12:-;;;:::i;5014:223:0:-;;;;;;;;;;;;;;;;-1:-1:-1;5014:223:0;;;;;;-1:-1:-1;;;;;5014:223:0;;:::i;2888:5646:12:-;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;2888:5646:12;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;3435:89:3:-;;;:::i;:::-;;;;;;;;;;;;;;;;;;;6188:205:0;;;;;;;;;;;;;;;;-1:-1:-1;6188:205:0;;;;;;-1:-1:-1;;;;;6188:205:0;;:::i;5938:215:3:-;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;5938:215:3;;;;;;;;:::i;882:23:12:-;;;:::i;11241:160::-;;;:::i;9890:413::-;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;9890:413:12;;;;;;;;:::i;1068:28::-;;;:::i;1305:84:9:-;;;:::i;1100:31:12:-;;;:::i;8677:628::-;;;:::i;3748:125:3:-;;;;;;;;;;;;;;;;-1:-1:-1;3748:125:3;-1:-1:-1;;;;;3748:125:3;;:::i;1347:44:12:-;;;:::i;909:28::-;;;:::i;10969:156::-;;;:::i;4335:136:0:-;;;;;;;;;;;;;;;;-1:-1:-1;4335:136:0;;;;;;;:::i;3320:137::-;;;;;;;;;;;;;;;;-1:-1:-1;3320:137:0;;;;;;-1:-1:-1;;;;;3320:137:0;;:::i;2719:93:3:-;;;:::i;1272:31:12:-;;;:::i;2097:49:0:-;;;:::i;6640:266:3:-;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;6640:266:3;;;;;;;;:::i;4076:172::-;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;4076:172:3;;;;;;;;:::i;1205:24:12:-;;;:::i;1170:31::-;;;:::i;1135:::-;;;:::i;1307:36::-;;;:::i;3625:125:0:-;;;;;;;;;;;;;;;;-1:-1:-1;3625:125:0;;:::i;1531:38:12:-;;;:::i;1771:65::-;;;:::i;1840:58::-;;;:::i;5471:226:0:-;;;;;;;;;;;;;;;;-1:-1:-1;5471:226:0;;;;;;-1:-1:-1;;;;;5471:226:0;;:::i;4306:149:3:-;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;4306:149:3;;;;;;;;;;:::i;9393:234:12:-;;;;;;;;;;;;;;;;-1:-1:-1;9393:234:12;;:::i;1395:54::-;;;:::i;1030:34::-;;;:::i;1727:40::-;;;:::i;740:62::-;;;:::i;1655:35::-;;;:::i;1694:29::-;;;:::i;2517:89:3:-;2594:5;2587:12;;;;;;;;-1:-1:-1;;2587:12:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2562:13;;2587:12;;2594:5;;2587:12;;2594:5;2587:12;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2517:89;:::o;4593:166::-;4676:4;4692:39;4701:12;:10;:12::i;:::-;4715:7;4724:6;4692:8;:39::i;:::-;-1:-1:-1;4748:4:3;4593:166;;;;;:::o;999:27:12:-;;;-1:-1:-1;;;;;999:27:12;;:::o;3584:106:3:-;3671:12;;3584:106;:::o;10561:289:12:-;10681:41;2142:4:0;10709:12:12;:10;:12::i;:::-;10681:7;:41::i;:::-;10673:57;;;;;-1:-1:-1;;;10673:57:12;;;;;;;;;;;;-1:-1:-1;;;10673:57:12;;;;;;;;;;;;;;;10736:23;:48;;-1:-1:-1;;;;;10736:48:12;;-1:-1:-1;;;;;;10736:48:12;;;;;;;;10795:50;;;;;;;;;;;;;;;;10561:289;:::o;5226:317:3:-;5332:4;5348:36;5358:6;5366:9;5377:6;5348:9;:36::i;:::-;5394:121;5403:6;5411:12;:10;:12::i;:::-;5425:89;5463:6;5425:89;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;5425:19:3;;;;;;:11;:19;;;;;;5445:12;:10;:12::i;:::-;-1:-1:-1;;;;;5425:33:3;;;;;;;;;;;;-1:-1:-1;5425:33:3;;;:89;:37;:89::i;:::-;5394:8;:121::i;:::-;-1:-1:-1;5532:4:3;5226:317;;;;;;:::o;4652:112:0:-;4709:7;4735:12;;;:6;:12;;;;;:22;;;;4652:112::o;1233:35:12:-;;;-1:-1:-1;;;;;1233:35:12;;:::o;5014:223:0:-;5105:12;;;;:6;:12;;;;;:22;;;5097:45;;5129:12;:10;:12::i;5097:45::-;5089:105;;;;-1:-1:-1;;;5089:105:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;5205:25;5216:4;5222:7;5205:10;:25::i;:::-;5014:223;;:::o;2888:5646:12:-;1512:13:2;;;;;;;;:33;;;1529:16;:14;:16::i;:::-;1512:50;;;-1:-1:-1;1550:12:2;;;;1549:13;1512:50;1504:109;;;;-1:-1:-1;;;1504:109:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1624:19;1647:13;;;;;;1646:14;1670:98;;;;1704:13;:20;;-1:-1:-1;;;;1704:20:2;;;;;1738:19;1720:4;1738:19;;;1670:98;3363:38:12::1;;;;;;;;;;;;;;-1:-1:-1::0;;;3363:38:12::1;;::::0;::::1;;;;;;;;;;;;;-1:-1:-1::0;;;3363:38:12::1;;::::0;:12:::1;:38::i;:::-;3407:22;:20;:22::i;:::-;3435:17;:15;:17::i;:::-;3458:44;2142:4:0;3489:12:12;:10;:12::i;:::-;3458:10;:44::i;:::-;3508:37;-1:-1:-1::0;;;;;;;;;;;3532:12:12::1;:10;:12::i;3508:37::-;3608:18;3623:2;3608:14;:18::i;:::-;3657:4;3632:14;:30;;;;3692:3;3668:13;:28;;;;3730:12;3702:25;:40;;;;3779:12;3748:20;:44;;;;3865:1;3854:8;:12;;;;3898:22;3872:23;;:48;;;;;-1:-1:-1::0;;;;;3872:48:12::1;;;;;-1:-1:-1::0;;;;;3872:48:12::1;;;;;;4115:11;4100:12;;:26;;;;;-1:-1:-1::0;;;;;4100:26:12::1;;;;;-1:-1:-1::0;;;;;4100:26:12::1;;;;;;4154:18;4132:19;;:40;;;;;-1:-1:-1::0;;;;;4132:40:12::1;;;;;-1:-1:-1::0;;;;;4132:40:12::1;;;;;;4194:12;4178:13;;:28;;;;;-1:-1:-1::0;;;;;4178:28:12::1;;;;;-1:-1:-1::0;;;;;4178:28:12::1;;;;;;4231:15;4212:16;;:34;;;;;-1:-1:-1::0;;;;;4212:34:12::1;;;;;-1:-1:-1::0;;;;;4212:34:12::1;;;;;;4271:15;4252:16;;:34;;;;;-1:-1:-1::0;;;;;4252:34:12::1;;;;;-1:-1:-1::0;;;;;4252:34:12::1;;;;;;4311:15;4292:16;;:34;;;;;-1:-1:-1::0;;;;;4292:34:12::1;;;;;-1:-1:-1::0;;;;;4292:34:12::1;;;;;;4344:8;4332:9;;:20;;;;;-1:-1:-1::0;;;;;4332:20:12::1;;;;;-1:-1:-1::0;;;;;4332:20:12::1;;;;;;4381:19;4358:20;;:42;;;;;-1:-1:-1::0;;;;;4358:42:12::1;;;;;-1:-1:-1::0;;;;;4358:42:12::1;;;;;;4425:15;4406:16;;:34;;;;;-1:-1:-1::0;;;;;4406:34:12::1;;;;;-1:-1:-1::0;;;;;4406:34:12::1;;;;;;4470:20;4446:21;;:44;;;;;-1:-1:-1::0;;;;;4446:44:12::1;;;;;-1:-1:-1::0;;;;;4446:44:12::1;;;;;;4528:28;4496:29;;:60;;;;;-1:-1:-1::0;;;;;4496:60:12::1;;;;;-1:-1:-1::0;;;;;4496:60:12::1;;;;;;4604:38;4562:39;;:80;;;;;-1:-1:-1::0;;;;;4562:80:12::1;;;;;-1:-1:-1::0;;;;;4562:80:12::1;;;;;;4694:40;4700:12;;;;;;;;;-1:-1:-1::0;;;;;4700:12:12::1;4722:10;4694:5;:40::i;:::-;4746:19;::::0;4740:48:::1;::::0;-1:-1:-1;;;;;4746:19:12::1;4775:11;4740:5;:48::i;:::-;4800:20;::::0;4794:49:::1;::::0;-1:-1:-1;;;;;4800:20:12::1;4830:11;4794:5;:49::i;:::-;4855:16;::::0;4849:44:::1;::::0;-1:-1:-1;;;;;4855:16:12::1;4881:10;4849:5;:44::i;:::-;4905:21;::::0;4899:49:::1;::::0;-1:-1:-1;;;;;4905:21:12::1;4936:10;4899:5;:49::i;:::-;4960:29;::::0;4954:57:::1;::::0;-1:-1:-1;;;;;4960:29:12::1;4999:10;4954:5;:57::i;:::-;5023:39;::::0;5017:68:::1;::::0;-1:-1:-1;;;;;5023:39:12::1;5072:11;5017:5;:68::i;:::-;5196:42;5209:4;5224:12;5196:4;:42::i;:::-;-1:-1:-1::0;5333:23:12::1;::::0;5309:71:::1;::::0;5326:4:::1;::::0;-1:-1:-1;;;;;5333:23:12::1;5366:12;5309:8;:71::i;:::-;1794:14:2::0;1790:66;;;1840:5;1824:21;;-1:-1:-1;;1824:21:2;;;1790:66;2888:5646:12;;;;;;;;;;;;;;:::o;3435:89:3:-;3508:9;;;;3435:89;:::o;6188:205:0:-;6285:12;:10;:12::i;:::-;-1:-1:-1;;;;;6274:23:0;:7;-1:-1:-1;;;;;6274:23:0;;6266:83;;;;-1:-1:-1;;;6266:83:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6360:26;6372:4;6378:7;6360:11;:26::i;5938:215:3:-;6026:4;6042:83;6051:12;:10;:12::i;:::-;6065:7;6074:50;6113:10;6074:11;:25;6086:12;:10;:12::i;:::-;-1:-1:-1;;;;;6074:25:3;;;;;;;;;;;;;;;;;-1:-1:-1;6074:25:3;;;:34;;;;;;;;;;;:38;:50::i;882:23:12:-;;;;:::o;11241:160::-;11293:12;11321:34;-1:-1:-1;;;;;;;;;;;11342:12:12;:10;:12::i;11321:34::-;11313:50;;;;;-1:-1:-1;;;11313:50:12;;;;;;;;;;;;-1:-1:-1;;;11313:50:12;;;;;;;;;;;;;;;11369:10;:8;:10::i;:::-;-1:-1:-1;11392:4:12;11241:160;:::o;9890:413::-;9981:12;10011:41;9981:12;10039;:10;:12::i;10011:41::-;10003:57;;;;;-1:-1:-1;;;10003:57:12;;;;;;;;;;;;-1:-1:-1;;;10003:57:12;;;;;;;;;;;;;;;10145:16;:14;:16::i;:::-;;10206:20;;10175:27;10195:6;10176:13;:11;:13::i;:::-;10175:19;;:27::i;:::-;:51;;10167:67;;;;;-1:-1:-1;;;10167:67:12;;;;;;;;;;;;-1:-1:-1;;;10167:67:12;;;;;;;;;;;;;;;10264:17;10270:2;10274:6;10264:5;:17::i;1068:28::-;;;-1:-1:-1;;;;;1068:28:12;;:::o;1305:84:9:-;1375:7;;;;1305:84;:::o;1100:31:12:-;;;-1:-1:-1;;;;;1100:31:12;;:::o;8677:628::-;8736:12;8810;8760:46;1890:7;8760:25;;:29;;:46;;;;:::i;:::-;:62;8756:525;;8890:26;8919:88;8962:14;;8986:13;;1823:12;8919:33;;:88;;;;;:::i;:::-;9038:20;;8890:117;;-1:-1:-1;9038:44:12;;8890:117;9038:24;:44::i;:::-;9015:20;:67;9118:12;9090:25;:40;;;9143:131;;9167:46;;1890:7;9167:29;:46::i;:::-;9143:131;;;;;;;;;;;;9251:15;9143:131;;;;;;;;;;;;;8756:525;-1:-1:-1;9296:4:12;;8677:628::o;3748:125:3:-;-1:-1:-1;;;;;3848:18:3;3822:7;3848:18;;;:9;:18;;;;;;;3748:125::o;1347:44:12:-;;;-1:-1:-1;;;;;1347:44:12;;:::o;909:28::-;;;;:::o;10969:156::-;11019:12;11047:34;-1:-1:-1;;;;;;;;;;;11068:12:12;:10;:12::i;11047:34::-;11039:50;;;;;-1:-1:-1;;;11039:50:12;;;;;;;;;;;;-1:-1:-1;;;11039:50:12;;;;;;;;;;;;;;;11095:8;:6;:8::i;4335:136:0:-;4408:7;4434:12;;;:6;:12;;;;;:30;;4458:5;4434:23;:30::i;3320:137::-;3389:4;3412:12;;;:6;:12;;;;;:38;;3442:7;3412:29;:38::i;2719:93:3:-;2798:7;2791:14;;;;;;;;-1:-1:-1;;2791:14:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2766:13;;2791:14;;2798:7;;2791:14;;2798:7;2791:14;;;;;;;;;;;;;;;;;;;;;;;;1272:31:12;;;-1:-1:-1;;;;;1272:31:12;;:::o;2097:49:0:-;2142:4;2097:49;:::o;6640:266:3:-;6733:4;6749:129;6758:12;:10;:12::i;:::-;6772:7;6781:96;6820:15;6781:96;;;;;;;;;;;;;;;;;:11;:25;6793:12;:10;:12::i;:::-;-1:-1:-1;;;;;6781:25:3;;;;;;;;;;;;;;;;;-1:-1:-1;6781:25:3;;;:34;;;;;;;;;;;:96;:38;:96::i;4076:172::-;4162:4;4178:42;4188:12;:10;:12::i;:::-;4202:9;4213:6;4178:9;:42::i;1205:24:12:-;;;-1:-1:-1;;;;;1205:24:12;;:::o;1170:31::-;;;-1:-1:-1;;;;;1170:31:12;;:::o;1135:::-;;;-1:-1:-1;;;;;1135:31:12;;:::o;1307:36::-;;;-1:-1:-1;;;;;1307:36:12;;:::o;3625:125:0:-;3688:7;3714:12;;;:6;:12;;;;;:29;;:27;:29::i;1531:38:12:-;;;-1:-1:-1;;;;;1531:38:12;;:::o;1771:65::-;1823:12;1771:65;:::o;1840:58::-;1890:7;1840:58;:::o;5471:226:0:-;5563:12;;;;:6;:12;;;;;:22;;;5555:45;;5587:12;:10;:12::i;5555:45::-;5547:106;;;;-1:-1:-1;;;5547:106:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;4306:149:3;-1:-1:-1;;;;;4421:18:3;;;4395:7;4421:18;;;:11;:18;;;;;;;;:27;;;;;;;;;;;;;4306:149::o;9393:234:12:-;9487:12;9517:41;9487:12;9545;:10;:12::i;9517:41::-;9509:57;;;;;-1:-1:-1;;;9509:57:12;;;;;;;;;;;;-1:-1:-1;;;9509:57:12;;;;;;;;;;;;;;;-1:-1:-1;9572:14:12;:30;9618:4;;9393:234::o;1395:54::-;;;-1:-1:-1;;;;;1395:54:12;;:::o;1030:34::-;;;-1:-1:-1;;;;;1030:34:12;;:::o;1727:40::-;;;;:::o;740:62::-;-1:-1:-1;;;;;;;;;;;740:62:12;:::o;1655:35::-;;;;:::o;1694:29::-;;;;:::o;828:104:7:-;915:10;828:104;:::o;9704:340:3:-;-1:-1:-1;;;;;9805:19:3;;9797:68;;;;-1:-1:-1;;;9797:68:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;9883:21:3;;9875:68;;;;-1:-1:-1;;;9875:68:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;9954:18:3;;;;;;;:11;:18;;;;;;;;:27;;;;;;;;;;;;;:36;;;10005:32;;;;;;;;;;;;;;;;;9704:340;;;:::o;7380:530::-;-1:-1:-1;;;;;7485:20:3;;7477:70;;;;-1:-1:-1;;;7477:70:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;7565:23:3;;7557:71;;;;-1:-1:-1;;;7557:71:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;7639:47;7660:6;7668:9;7679:6;7639:20;:47::i;:::-;7717:71;7739:6;7717:71;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;7717:17:3;;;;;;:9;:17;;;;;;;:71;:21;:71::i;:::-;-1:-1:-1;;;;;7697:17:3;;;;;;;:9;:17;;;;;;:91;;;;7821:20;;;;;;;:32;;7846:6;7821:24;:32::i;:::-;-1:-1:-1;;;;;7798:20:3;;;;;;;:9;:20;;;;;;;;;:55;;;;7868:35;;;;;;;7798:20;;7868:35;;;;;;;;;;;;;7380:530;;;:::o;5443:163:1:-;5529:7;5564:12;5556:6;;;;5548:29;;;;-1:-1:-1;;;5548:29:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;5594:5:1;;;5443:163::o;7395:184:0:-;7468:12;;;;:6;:12;;;;;:33;;7493:7;7468:24;:33::i;:::-;7464:109;;;7549:12;:10;:12::i;:::-;-1:-1:-1;;;;;7522:40:0;7540:7;-1:-1:-1;;;;;7522:40:0;7534:4;7522:40;;;;;;;;;;7395:184;;:::o;1952:123:2:-;2000:4;2024:44;2062:4;2024:29;:44::i;:::-;2023:45;2016:52;;1952:123;:::o;2090:178:3:-;1512:13:2;;;;;;;;:33;;;1529:16;:14;:16::i;:::-;1512:50;;;-1:-1:-1;1550:12:2;;;;1549:13;1512:50;1504:109;;;;-1:-1:-1;;;1504:109:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1624:19;1647:13;;;;;;1646:14;1670:98;;;;1704:13;:20;;-1:-1:-1;;;;1704:20:2;;;;;1738:19;1720:4;1738:19;;;1670:98;2187:26:3::1;:24;:26::i;:::-;2223:38;2246:5;2253:7;2223:22;:38::i;:::-;1794:14:2::0;1790:66;;;1840:5;1824:21;;-1:-1:-1;;1824:21:2;;;1790:66;2090:178:3;;;:::o;1599:138:0:-;1512:13:2;;;;;;;;:33;;;1529:16;:14;:16::i;:::-;1512:50;;;-1:-1:-1;1550:12:2;;;;1549:13;1512:50;1504:109;;;;-1:-1:-1;;;1504:109:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1624:19;1647:13;;;;;;1646:14;1670:98;;;;1704:13;:20;;-1:-1:-1;;;;1704:20:2;;;;;1738:19;1720:4;1738:19;;;1670:98;1662:26:0::1;:24;:26::i;:::-;1698:32;:30;:32::i;:::-;1794:14:2::0;1790:66;;;1840:5;1824:21;;-1:-1:-1;;1824:21:2;;;1790:66;1599:138:0;:::o;986:128:9:-;1512:13:2;;;;;;;;:33;;;1529:16;:14;:16::i;:::-;1512:50;;;-1:-1:-1;1550:12:2;;;;1549:13;1512:50;1504:109;;;;-1:-1:-1;;;1504:109:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1624:19;1647:13;;;;;;1646:14;1670:98;;;;1704:13;:20;;-1:-1:-1;;;;1704:20:2;;;;;1738:19;1720:4;1738:19;;;1670:98;1044:26:9::1;:24;:26::i;:::-;1080:27;:25;:27::i;10367:96:3:-:0;10435:9;:21;;-1:-1:-1;;10435:21:3;;;;;;;;;;;;10367:96::o;8181:370::-;-1:-1:-1;;;;;8264:21:3;;8256:65;;;;;-1:-1:-1;;;8256:65:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;8332:49;8361:1;8365:7;8374:6;8332:20;:49::i;:::-;8407:12;;:24;;8424:6;8407:16;:24::i;:::-;8392:12;:39;-1:-1:-1;;;;;8462:18:3;;;;;;:9;:18;;;;;;:30;;8485:6;8462:22;:30::i;:::-;-1:-1:-1;;;;;8441:18:3;;;;;;:9;:18;;;;;;;;:51;;;;8507:37;;;;;;;8441:18;;;;8507:37;;;;;;;;;;8181:370;;:::o;7585:188:0:-;7659:12;;;;:6;:12;;;;;:36;;7687:7;7659:27;:36::i;:::-;7655:112;;;7743:12;:10;:12::i;:::-;-1:-1:-1;;;;;7716:40:0;7734:7;-1:-1:-1;;;;;7716:40:0;7728:4;7716:40;;;;;;;;;;7585:188;;:::o;2701:175:1:-;2759:7;2790:5;;;2813:6;;;;2805:46;;;;;-1:-1:-1;;;2805:46:1;;;;;;;;;;;;;;;;;;;;;;;;;;;2317:117:9;1884:8;:6;:8::i;:::-;1876:41;;;;;-1:-1:-1;;;1876:41:9;;;;;;;;;;;;-1:-1:-1;;;1876:41:9;;;;;;;;;;;;;;;2375:7:::1;:15:::0;;-1:-1:-1;;2375:15:9::1;::::0;;2405:22:::1;2414:12;:10;:12::i;:::-;2405:22;::::0;;-1:-1:-1;;;;;2405:22:9;;::::1;::::0;;;;;;;::::1;::::0;;::::1;2317:117::o:0;761:307:16:-;842:7;856:9;867;880:13;888:1;891;880:7;:13::i;:::-;855:38;;;;898:10;924:1;911:15;;;;;921:1;918;911:15;898:28;;939:1;934:2;:6;930:18;;;947:1;942:6;;;;930:18;952:7;;;;;968:6;964:24;;987:1;983;:5;;;;;;976:12;;;;;;;964:24;1005:1;1001;:5;993:44;;;;;-1:-1:-1;;;993:44:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;1048:16;1056:1;1059;1062;1048:7;:16::i;:::-;1041:23;761:307;-1:-1:-1;;;;;;;761:307:16:o;2070:115:9:-;1619:8;:6;:8::i;:::-;1618:9;1610:38;;;;;-1:-1:-1;;;1610:38:9;;;;;;;;;;;;-1:-1:-1;;;1610:38:9;;;;;;;;;;;;;;;2129:7:::1;:14:::0;;-1:-1:-1;;2129:14:9::1;2139:4;2129:14;::::0;;2158:20:::1;2165:12;:10;:12::i;7688:156:8:-:0;7762:7;7812:22;7816:3;7828:5;7812:3;:22::i;6995:165::-;7075:4;7098:55;7108:3;-1:-1:-1;;;;;7128:23:8;;7098:9;:55::i;7241:115::-;7304:7;7330:19;7338:3;7330:7;:19::i;11857:200:12:-;11986:8;:6;:8::i;:::-;11985:9;11977:25;;;;;-1:-1:-1;;;11977:25:12;;;;;;;;;;;;-1:-1:-1;;;11977:25:12;;;;;;;;;;;;;;;12008:44;12035:4;12041:2;12045:6;12008:26;:44::i;6440:150:8:-;6510:4;6533:50;6538:3;-1:-1:-1;;;;;6558:23:8;;6533:4;:50::i;737:413:6:-;1097:20;1135:8;;;737:413::o;759:64:7:-;1512:13:2;;;;;;;;:33;;;1529:16;:14;:16::i;:::-;1512:50;;;-1:-1:-1;1550:12:2;;;;1549:13;1512:50;1504:109;;;;-1:-1:-1;;;1504:109:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1624:19;1647:13;;;;;;1646:14;1670:98;;;;1704:13;:20;;-1:-1:-1;;;;1704:20:2;;;;;1738:19;1720:4;1738:19;;;1794:14;1790:66;;;1840:5;1824:21;;-1:-1:-1;;1824:21:2;;;759:64:7;:::o;2274:178:3:-;1512:13:2;;;;;;;;:33;;;1529:16;:14;:16::i;:::-;1512:50;;;-1:-1:-1;1550:12:2;;;;1549:13;1512:50;1504:109;;;;-1:-1:-1;;;1504:109:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1624:19;1647:13;;;;;;1646:14;1670:98;;;;1704:13;:20;;-1:-1:-1;;;;1704:20:2;;;;;1738:19;1720:4;1738:19;;;1670:98;2381:13:3;;::::1;::::0;:5:::1;::::0;:13:::1;::::0;::::1;::::0;::::1;:::i;:::-;-1:-1:-1::0;2404:17:3;;::::1;::::0;:7:::1;::::0;:17:::1;::::0;::::1;::::0;::::1;:::i;:::-;-1:-1:-1::0;2431:9:3::1;:14:::0;;-1:-1:-1;;2431:14:3::1;2443:2;2431:14;::::0;;1790:66:2;;;;1840:5;1824:21;;-1:-1:-1;;1824:21:2;;;2274:178:3;;;:::o;1120:90:9:-;1512:13:2;;;;;;;;:33;;;1529:16;:14;:16::i;:::-;1512:50;;;-1:-1:-1;1550:12:2;;;;1549:13;1512:50;1504:109;;;;-1:-1:-1;;;1504:109:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1624:19;1647:13;;;;;;1646:14;1670:98;;;;1704:13;:20;;-1:-1:-1;;;;1704:20:2;;;;;1738:19;1720:4;1738:19;;;1670:98;1188:7:9::1;:15:::0;;-1:-1:-1;;1188:15:9::1;::::0;;1790:66:2;;;;1840:5;1824:21;;-1:-1:-1;;1824:21:2;;;1120:90:9;:::o;6758:156:8:-;6831:4;6854:53;6862:3;-1:-1:-1;;;;;6882:23:8;;6854:7;:53::i;214:186:16:-;282:9;;;-1:-1:-1;;332:1:16;329;322:25;309:38;;359:1;355;:5;351:9;;373:1;368:2;:6;364:10;;387:1;382:2;:6;378:18;;;395:1;390:6;;;;378:18;214:186;;;;;;:::o;403:355::-;484:7;516:2;;;512:6;;;517:1;512:6;522:9;;;;;;;540:4;535:9;;;;;;;;;568:4;560;559:5;;558:14;;;;;603:1;:9;;;625:5;;;621:9;;616:14;643:5;;;639:9;;634:14;661:5;;;657:9;;652:14;679:5;;;675:9;;670:14;697:5;;;693:9;;688:14;715:5;;;711:9;;706:14;733:5;;;729:9;;724:14;;;558;;575:1;558:18;553:24;;;;548:29;;;;749:5;;403:355;-1:-1:-1;;403:355:16:o;4463:201:8:-;4557:18;;4530:7;;4557:26;-1:-1:-1;4549:73:8;;;;-1:-1:-1;;;4549:73:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;4639:3;:11;;4651:5;4639:18;;;;;;;;;;;;;;;;4632:25;;4463:201;;;;:::o;3816:127::-;3889:4;3912:19;;;:12;;;;;:19;;;;;;:24;;;3816:127::o;4024:107::-;4106:18;;4024:107::o;1651:404::-;1714:4;1735:21;1745:3;1750:5;1735:9;:21::i;:::-;1730:319;;-1:-1:-1;1772:23:8;;;;;;;;:11;:23;;;;;;;;;;;;;1952:18;;1930:19;;;:12;;;:19;;;;;;:40;;;;1984:11;;1730:319;-1:-1:-1;2033:5:8;2026:12;;2223:1512;2289:4;2426:19;;;:12;;;:19;;;;;;2460:15;;2456:1273;;2889:18;;-1:-1:-1;;2841:14:8;;;;2889:22;;;;2817:21;;2889:3;;:22;;3171;;;;;;;;;;;;;;3151:42;;3314:9;3285:3;:11;;3297:13;3285:26;;;;;;;;;;;;;;;;;;;:38;;;;3389:23;;;3431:1;3389:12;;;:23;;;;;;3415:17;;;3389:43;;3538:17;;3389:3;;3538:17;;;;;;;;;;;;;;;;;;;;;;3630:3;:12;;:19;3643:5;3630:19;;;;;;;;;;;3623:26;;;3671:4;3664:11;;;;;;;;2456:1273;3713:5;3706:12;;;;;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;",
   "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity >=0.7.0;\n\nimport \"@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol\";\nimport \"./libraries/FullMath.sol\";\nimport \"./interfaces/IVestingTimelockV2.sol\";\nimport \"./interfaces/IPSTAKE.sol\";\n\ncontract PSTAKE is\n  IPSTAKE,\n  ERC20Upgradeable,\n  PausableUpgradeable,\n  AccessControlUpgradeable\n{\n  // including libraries\n  using SafeMathUpgradeable for uint256;\n  using FullMath for uint256;\n\n  // constants defining access control ROLES\n  bytes32 public constant PAUSER_ROLE = keccak256(\"PAUSER_ROLE\");\n\n  // variable pertaining to contract upgrades versioning and value divisor\n  uint256 public _version;\n  uint256 public _valueDivisor;\n\n  // addresses pertaining to various tokenomics strategy\n  address public _airdropPool;\n  address public _alphaLaunchpadPool;\n  address public _seedSalePool;\n  address public _publicSalePool1;\n  address public _publicSalePool2;\n  address public _publicSalePool3;\n  address public _teamPool;\n  address public _incentivisationPool;\n  address public _xprtStakersPool;\n  address public _protocolTreasuryPool;\n  address public _communityDevelopmentFundPool;\n  address public _retroactiveRewardProtocolBootstrapPool;\n\n  // address of vesting timelock contract to enable several vesting strategy\n  address public _vestingTimelockAddress;\n\n  // total inflated supply and the supply limit component to implement inflation\n  uint256 public _totalInflatedSupply;\n  uint256 public _inflationRate;\n  uint256 public _lastInflationBlockHeight;\n  uint256 public constant SUPPLY_AT_GENESIS = uint256(500000000e18);\n  uint256 public constant BLOCKS_PER_YEAR = uint256(2407328);\n\n  /**\n   * @dev Constructor for initializing the PSTAKE contract.\n   * @param vestingTimelockAddress - address of the vesting timelock contract.\n   * @param airdropPool - address of the airdrop pool.\n   * @param alphaLaunchpadPool - address of the alpha launchpad pool.\n   * @param seedSalePool - address of the seed sale pool.\n   * @param publicSalePool1 - address of the public sale pool1.\n   * @param publicSalePool2 - address of the public sale pool2.\n   * @param publicSalePool3 - address of the public sale pool3.\n   * @param teamPool - address of the team pool.\n   * @param incentivisationPool - address of the incentivising pool.\n   * @param xprtStakersPool - address of the xprt stakers pool.\n   * @param protocolTreasuryPool - address of the protocol treasury pool.\n   * @param communityDevelopmentFundPool - address of the community development fund pool.\n   * @param retroactiveRewardProtocolBootstrapPool - address of the retroactive reward protocol bootstrap pool.\n   */\n  function initialize(\n    address vestingTimelockAddress,\n    address airdropPool,\n    address alphaLaunchpadPool,\n    address seedSalePool,\n    address publicSalePool1,\n    address publicSalePool2,\n    address publicSalePool3,\n    address teamPool,\n    address incentivisationPool,\n    address xprtStakersPool,\n    address protocolTreasuryPool,\n    address communityDevelopmentFundPool,\n    address retroactiveRewardProtocolBootstrapPool\n  ) public virtual initializer {\n    __ERC20_init(\"pSTAKE Token\", \"PSTAKE\");\n    __AccessControl_init();\n    __Pausable_init();\n    _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());\n    _setupRole(PAUSER_ROLE, _msgSender());\n\n    // PSTAKE is an erc20 token hence 18 decimal places\n    _setupDecimals(18);\n    _inflationRate = uint256(15e9);\n    _valueDivisor = uint256(1e9);\n    _lastInflationBlockHeight = block.number;\n    _totalInflatedSupply = uint256(500000000e18);\n\n    // setup the version and vesting timelock contract\n    _version = 1;\n    _vestingTimelockAddress = vestingTimelockAddress;\n\n    // allocate the various tokenomics strategy pool addresses\n    // (must be different addresses because each address can have only one active vesting strategy at a time)\n    _airdropPool = airdropPool;\n    _alphaLaunchpadPool = alphaLaunchpadPool;\n    _seedSalePool = seedSalePool;\n    _publicSalePool1 = publicSalePool1;\n    _publicSalePool2 = publicSalePool2;\n    _publicSalePool3 = publicSalePool3;\n    _teamPool = teamPool;\n    _incentivisationPool = incentivisationPool;\n    _xprtStakersPool = xprtStakersPool;\n    _protocolTreasuryPool = protocolTreasuryPool;\n    _communityDevelopmentFundPool = communityDevelopmentFundPool;\n    _retroactiveRewardProtocolBootstrapPool = retroactiveRewardProtocolBootstrapPool;\n\n    // pre-allocate tokens to strategy pools\n    _mint(_airdropPool, uint256(5000000e18));\n    _mint(_alphaLaunchpadPool, uint256(10000000e18));\n    _mint(_incentivisationPool, uint256(13222222e18));\n    _mint(_xprtStakersPool, uint256(1250000e18));\n    _mint(_protocolTreasuryPool, uint256(4250000e18));\n    _mint(_communityDevelopmentFundPool, uint256(1666667e18));\n    _mint(_retroactiveRewardProtocolBootstrapPool, uint256(14500000e18));\n\n    // accumulate tokens to allocate for vesting strategies (total supply - initial circulating supply)\n    mint(address(this), uint256(448541666e18));\n\n    // approve the vesting timelock contract to pull the tokens\n    _approve(address(this), _vestingTimelockAddress, uint256(448541666e18));\n\n    // ALLOCATING VESTING STRATEGIES\n\n    /*  // airdrop pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _airdropPool,\n      block.timestamp,\n      // 1 month\n      (30 days + 10 hours),\n      uint256(5000000e18),\n      5,\n      // 1 month\n      (30 days + 10 hours),\n      false\n    );\n\n    // seedSale pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _seedSalePool,\n      block.timestamp,\n      // 6 months\n      (182 days + 12 hours),\n      uint256(8333333e18),\n      12,\n      // 1 month\n      (30 days + 10 hours),\n      false\n    );\n\n    // publicSalePool1 pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _publicSalePool1,\n      block.timestamp,\n      // 6 months\n      (182 days + 12 hours),\n      uint256(833333e18),\n      6,\n      // 1 month\n      (30 days + 10 hours),\n      false\n    );\n\n    // publicSalePool2 pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _publicSalePool2,\n      block.timestamp,\n      // 3 months\n      (91 days + 6 hours),\n      uint256(1666667e18),\n      6,\n      // 1 month\n      (30 days + 10 hours),\n      false\n    );\n\n    // publicSalePool3 pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _publicSalePool3,\n      block.timestamp,\n      // 1 month\n      (30 days + 10 hours),\n      uint256(10000000e18),\n      1,\n      // 0 month\n      0,\n      false\n    );\n\n    // team pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _teamPool,\n      block.timestamp,\n      // 18 months\n      (547 days + 12 hours),\n      uint256(4444444e18),\n      18,\n      // 1 month\n      (30 days + 10 hours),\n      false\n    );\n\n    // incentivisation pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _incentivisationPool,\n      block.timestamp,\n      // 3 months\n      (91 days + 6 hours),\n      uint256(13222222e18),\n      8,\n      // 3 months\n      (91 days + 6 hours),\n      false\n    );\n\n    // xprtStakers pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _xprtStakersPool,\n      block.timestamp,\n      // 1 month\n      (30 days + 10 hours),\n      uint256(1250000e18),\n      11,\n      // 1 month\n      (30 days + 10 hours),\n      false\n    );\n\n    // protocolTreasury pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _protocolTreasuryPool,\n      block.timestamp,\n      // 2 months\n      (60 days + 20 hours),\n      uint256(4250000e18),\n      17,\n      // 2 months\n      (60 days + 20 hours),\n      false\n    );\n\n    // communityDevelopmentFund pool\n    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(\n      address(this),\n      _communityDevelopmentFundPool,\n      block.timestamp,\n      // 3 months\n      (91 days + 6 hours),\n      uint256(1666667e18),\n      17,\n      // 3 months\n      (91 days + 6 hours),\n      false\n    ); */\n  }\n\n  /**\n   * @dev Check inflation\n   * Emits a {CheckInflation} event with 'block height', 'inflationComponent', and 'timestamp'.\n   *\n   */\n  function checkInflation() public virtual override returns (bool success) {\n    if (_lastInflationBlockHeight.add(BLOCKS_PER_YEAR) <= block.number) {\n      // add inflation component to total inflated supply\n      uint256 inflationComponent = uint256(SUPPLY_AT_GENESIS).mulDiv(\n        _inflationRate,\n        _valueDivisor\n      );\n      _totalInflatedSupply = _totalInflatedSupply.add(inflationComponent);\n      _lastInflationBlockHeight = block.number;\n      emit CheckInflation(\n        _lastInflationBlockHeight.add(BLOCKS_PER_YEAR),\n        inflationComponent,\n        block.timestamp\n      );\n    }\n    success = true;\n  }\n\n  /**\n   * @dev Set inflation\n   * @param inflationRate: inflation rate.\n   *\n   */\n  function setInflation(uint256 inflationRate)\n    public\n    virtual\n    override\n    returns (bool success)\n  {\n    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), \"PS0\");\n    _inflationRate = inflationRate;\n    success = true;\n  }\n\n  /**\n   * @dev Mint new PSTAKE for the provided 'address' and 'amount'\n   *\n   *\n   * Emits a {MintTokens} event with 'to' set to address and 'tokens' set to amount of tokens.\n   *\n   * Requirements:\n   *\n   * - `amount` cannot be less than zero.\n   *\n   */\n  function mint(address to, uint256 tokens)\n    public\n    virtual\n    override\n    returns (bool success)\n  {\n    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), \"PS1\");\n    // condition to check if the total supply doesnt cross the inflated supply\n    checkInflation();\n    require((totalSupply()).add(tokens) <= _totalInflatedSupply, \"PS2\");\n\n    // mint the tokens\n    _mint(to, tokens);\n    return true;\n  }\n\n  /**\n   * @dev Set 'contract address', called from constructor\n   * @param vestingTimelockAddress: Vesting timelock contract address\n   *\n   * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.\n   */\n  function setVestingTimelockContract(address vestingTimelockAddress)\n    public\n    virtual\n    override\n  {\n    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), \"PS6\");\n    _vestingTimelockAddress = vestingTimelockAddress;\n    emit SetVestingTimelockContract(vestingTimelockAddress);\n  }\n\n  /**\n   * @dev Triggers stopped state.\n   *\n   * Requirements:\n   *\n   * - The contract must not be paused.\n   */\n  function pause() public virtual override returns (bool success) {\n    require(hasRole(PAUSER_ROLE, _msgSender()), \"PS3\");\n    _pause();\n    return true;\n  }\n\n  /**\n   * @dev Returns to normal state.\n   *\n   * Requirements:\n   *\n   * - The contract must be paused.\n   */\n  function unpause() public virtual override returns (bool success) {\n    require(hasRole(PAUSER_ROLE, _msgSender()), \"PS4\");\n    _unpause();\n    return true;\n  }\n\n  /**\n   * @dev Hook that is called before any transfer of tokens. This includes\n   * minting and burning.\n   *\n   * Calling conditions:\n   *\n   * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens\n   * will be to transferred to `to`.\n   * - when `from` is zero, `amount` tokens will be minted for `to`.\n   * - when `to` is zero, `amount` of ``from``'s tokens will be burned.\n   * - `from` and `to` are never both zero.\n   *\n   */\n  function _beforeTokenTransfer(\n    address from,\n    address to,\n    uint256 amount\n  ) internal virtual override {\n    require(!paused(), \"PS5\");\n    super._beforeTokenTransfer(from, to, amount);\n  }\n}\n",
-  "sourcePath": "C:\\Users\\Kamlesh\\Persistence\\pStake\\codebase\\erc20\\contracts\\PSTAKE.sol",
+  "sourcePath": "/home/aditimahesh/Documents/Work/Persistence/go/src/github.com/persistenceOne/ERC20/contracts/PSTAKE.sol",
   "ast": {
     "absolutePath": "project:/contracts/PSTAKE.sol",
     "exportedSymbols": {
@@ -1080,16 +1047,16 @@
         2330
       ],
       "FullMath": [
-        5277
+        5279
       ],
       "IERC20Upgradeable": [
         1336
       ],
       "IPSTAKE": [
-        4796
+        4798
       ],
       "IVestingTimelockV2": [
-        5056
+        5058
       ],
       "Initializable": [
         728
@@ -1169,7 +1136,7 @@
         "id": 2541,
         "nodeType": "ImportDirective",
         "scope": 3053,
-        "sourceUnit": 5278,
+        "sourceUnit": 5280,
         "src": "377:34:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1180,7 +1147,7 @@
         "id": 2542,
         "nodeType": "ImportDirective",
         "scope": 3053,
-        "sourceUnit": 5057,
+        "sourceUnit": 5059,
         "src": "412:45:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1191,7 +1158,7 @@
         "id": 2543,
         "nodeType": "ImportDirective",
         "scope": 3053,
-        "sourceUnit": 4797,
+        "sourceUnit": 4799,
         "src": "458:34:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1204,10 +1171,10 @@
               "id": 2544,
               "name": "IPSTAKE",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4796,
+              "referencedDeclaration": 4798,
               "src": "515:7:12",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IPSTAKE_$4796",
+                "typeIdentifier": "t_contract$_IPSTAKE_$4798",
                 "typeString": "contract IPSTAKE"
               }
             },
@@ -1271,7 +1238,7 @@
           1336,
           1838,
           2443,
-          4796
+          4798
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
@@ -1281,7 +1248,7 @@
           307,
           2443,
           1258,
-          4796,
+          4798,
           1336,
           1838,
           728
@@ -1321,10 +1288,10 @@
               "id": 2555,
               "name": "FullMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5277,
+              "referencedDeclaration": 5279,
               "src": "670:8:12",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_FullMath_$5277",
+                "typeIdentifier": "t_contract$_FullMath_$5279",
                 "typeString": "library FullMath"
               }
             },
@@ -4975,7 +4942,7 @@
           },
           {
             "baseFunctions": [
-              4747
+              4749
             ],
             "body": {
               "id": 2884,
@@ -5232,7 +5199,7 @@
                             "lValueRequested": false,
                             "memberName": "mulDiv",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 5276,
+                            "referencedDeclaration": 5278,
                             "src": "8919:33:12",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -5532,7 +5499,7 @@
                             "name": "CheckInflation",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4791,
+                            "referencedDeclaration": 4793,
                             "src": "9143:14:12",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
@@ -5676,7 +5643,7 @@
           },
           {
             "baseFunctions": [
-              4755
+              4757
             ],
             "body": {
               "id": 2911,
@@ -6014,7 +5981,7 @@
           },
           {
             "baseFunctions": [
-              4765
+              4767
             ],
             "body": {
               "id": 2954,
@@ -6606,7 +6573,7 @@
           },
           {
             "baseFunctions": [
-              4771
+              4773
             ],
             "body": {
               "id": 2979,
@@ -6829,7 +6796,7 @@
                       "name": "SetVestingTimelockContract",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4795,
+                      "referencedDeclaration": 4797,
                       "src": "10795:26:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
@@ -6924,7 +6891,7 @@
           },
           {
             "baseFunctions": [
-              4777
+              4779
             ],
             "body": {
               "id": 3001,
@@ -7202,7 +7169,7 @@
           },
           {
             "baseFunctions": [
-              4783
+              4785
             ],
             "body": {
               "id": 3023,
@@ -7842,16 +7809,16 @@
           2330
         ],
         "FullMath": [
-          5277
+          5279
         ],
         "IERC20Upgradeable": [
           1336
         ],
         "IPSTAKE": [
-          4796
+          4798
         ],
         "IVestingTimelockV2": [
-          5056
+          5058
         ],
         "Initializable": [
           728
@@ -7944,7 +7911,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 5278,
+          "SourceUnit": 5280,
           "absolutePath": "project:/contracts/libraries/FullMath.sol",
           "file": "./libraries/FullMath.sol",
           "scope": 3053,
@@ -7959,7 +7926,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 5057,
+          "SourceUnit": 5059,
           "absolutePath": "project:/contracts/interfaces/IVestingTimelockV2.sol",
           "file": "./interfaces/IVestingTimelockV2.sol",
           "scope": 3053,
@@ -7974,7 +7941,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 4797,
+          "SourceUnit": 4799,
           "absolutePath": "project:/contracts/interfaces/IPSTAKE.sol",
           "file": "./interfaces/IPSTAKE.sol",
           "scope": 3053,
@@ -7997,7 +7964,7 @@
             1336,
             1838,
             2443,
-            4796
+            4798
           ],
           "contractKind": "contract",
           "fullyImplemented": true,
@@ -8006,7 +7973,7 @@
             307,
             2443,
             1258,
-            4796,
+            4798,
             1336,
             1838,
             728
@@ -8021,7 +7988,7 @@
               {
                 "attributes": {
                   "name": "IPSTAKE",
-                  "referencedDeclaration": 4796,
+                  "referencedDeclaration": 4798,
                   "type": "contract IPSTAKE"
                 },
                 "id": 2544,
@@ -8118,7 +8085,7 @@
               {
                 "attributes": {
                   "name": "FullMath",
-                  "referencedDeclaration": 5277,
+                  "referencedDeclaration": 5279,
                   "type": "library FullMath"
                 },
                 "id": 2555,
@@ -12040,7 +12007,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4747
+                4749
               ],
               "functionSelector": "6789dafd",
               "implemented": true,
@@ -12305,7 +12272,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "mulDiv",
-                                      "referencedDeclaration": 5276,
+                                      "referencedDeclaration": 5278,
                                       "type": "function (uint256,uint256,uint256) pure returns (uint256)"
                                     },
                                     "children": [
@@ -12613,7 +12580,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 4791,
+                                      "referencedDeclaration": 4793,
                                       "type": "function (uint256,uint256,uint256)",
                                       "value": "CheckInflation"
                                     },
@@ -12813,7 +12780,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4755
+                4757
               ],
               "functionSelector": "e0a8ed52",
               "implemented": true,
@@ -13187,7 +13154,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4765
+                4767
               ],
               "functionSelector": "40c10f19",
               "implemented": true,
@@ -13844,7 +13811,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4771
+                4773
               ],
               "functionSelector": "20dd4868",
               "implemented": true,
@@ -14162,7 +14129,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 4795,
+                              "referencedDeclaration": 4797,
                               "type": "function (address)",
                               "value": "SetVestingTimelockContract"
                             },
@@ -14206,7 +14173,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4777
+                4779
               ],
               "functionSelector": "8456cb59",
               "implemented": true,
@@ -14531,7 +14498,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                4783
+                4785
               ],
               "functionSelector": "3f4ba83a",
               "implemented": true,
@@ -15252,8 +15219,7 @@
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-12T11:00:33.016Z",
-  "networkType": "ethereum",
+  "updatedAt": "2021-11-12T11:26:40.867Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

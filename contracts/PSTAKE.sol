@@ -51,21 +51,21 @@ contract PSTAKE is
   uint256 public constant BLOCKS_PER_YEAR = uint256(2407328);
 
   /**
-  * @dev Constructor for initializing the PSTAKE contract.
-  * @param vestingTimelockAddress - address of the vesting timelock contract.
-  * @param airdropPool - address of the airdrop pool.
-  * @param alphaLaunchpadPool - address of the alpha launchpad pool.
-  * @param seedSalePool - address of the seed sale pool.
-  * @param publicSalePool1 - address of the public sale pool1.
-  * @param publicSalePool2 - address of the public sale pool2.
-  * @param publicSalePool3 - address of the public sale pool3.
-  * @param teamPool - address of the team pool.
-  * @param incentivisationPool - address of the incentivising pool.
-  * @param xprtStakersPool - address of the xprt stakers pool.
-  * @param protocolTreasuryPool - address of the protocol treasury pool.
-  * @param communityDevelopmentFundPool - address of the community development fund pool.
-  * @param retroactiveRewardProtocolBootstrapPool - address of the retroactive reward protocol bootstrap pool.
-  */
+   * @dev Constructor for initializing the PSTAKE contract.
+   * @param vestingTimelockAddress - address of the vesting timelock contract.
+   * @param airdropPool - address of the airdrop pool.
+   * @param alphaLaunchpadPool - address of the alpha launchpad pool.
+   * @param seedSalePool - address of the seed sale pool.
+   * @param publicSalePool1 - address of the public sale pool1.
+   * @param publicSalePool2 - address of the public sale pool2.
+   * @param publicSalePool3 - address of the public sale pool3.
+   * @param teamPool - address of the team pool.
+   * @param incentivisationPool - address of the incentivising pool.
+   * @param xprtStakersPool - address of the xprt stakers pool.
+   * @param protocolTreasuryPool - address of the protocol treasury pool.
+   * @param communityDevelopmentFundPool - address of the community development fund pool.
+   * @param retroactiveRewardProtocolBootstrapPool - address of the retroactive reward protocol bootstrap pool.
+   */
   function initialize(
     address vestingTimelockAddress,
     address airdropPool,
@@ -127,10 +127,10 @@ contract PSTAKE is
 
     // approve the vesting timelock contract to pull the tokens
     _approve(address(this), _vestingTimelockAddress, uint256(448541666e18));
-    
+
     // ALLOCATING VESTING STRATEGIES
 
-     // airdrop pool
+    /*  // airdrop pool
     IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
       address(this),
       _airdropPool,
@@ -268,7 +268,7 @@ contract PSTAKE is
       // 3 months
       (91 days + 6 hours),
       false
-    );
+    ); */
   }
 
   /**
@@ -295,10 +295,10 @@ contract PSTAKE is
   }
 
   /**
-  * @dev Set inflation
-  * @param inflationRate: inflation rate.
-  *
-  */
+   * @dev Set inflation
+   * @param inflationRate: inflation rate.
+   *
+   */
   function setInflation(uint256 inflationRate)
     public
     virtual

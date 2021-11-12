@@ -58,10 +58,10 @@ contract VestingTimelockV2 is
   mapping(uint256 => uint256) public _lastClaimedTimestamp;
 
   /**
-  * @dev Constructor for initializing the Vesting Timelock contract.
-  * @param pauserAddress_ - address of the pauser admin.
-  * @param grantAdminAddress_ - address of the grant admin.
-  */
+   * @dev Constructor for initializing the Vesting Timelock contract.
+   * @param pauserAddress_ - address of the pauser admin.
+   * @param grantAdminAddress_ - address of the grant admin.
+   */
   function initialize(address pauserAddress_, address grantAdminAddress_)
     public
     virtual
@@ -197,9 +197,9 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev calculate the pending time in the currently vesting installment
-    * @param id_: vesting grant for a user id
-    */
+   * @dev calculate the pending time in the currently vesting installment
+   * @param id_: vesting grant for a user id
+   */
   function _getPending(uint256 id_)
     internal
     view
@@ -285,10 +285,10 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev calculate the pending time in the currently vesting installment
-    * @param token_: token address
-    * @param beneficiary_: beneficiary address
-    */
+   * @dev calculate the pending time in the currently vesting installment
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   */
   function getPending(address token_, address beneficiary_)
     public
     view
@@ -308,9 +308,9 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev calculate the pending time in the currently vesting installment from user id
-    * @param id_: user id
-    */
+   * @dev calculate the pending time in the currently vesting installment from user id
+   * @param id_: user id
+   */
   function getPendingFromID(uint256 id_)
     public
     view
@@ -327,9 +327,9 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev calculate the remaining amount
-    * @param id_: user id
-    */
+   * @dev calculate the remaining amount
+   * @param id_: user id
+   */
   function _getRemaining(uint256 id_)
     internal
     view
@@ -387,10 +387,10 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev calculate the remaining amount
-    * @param token_: token address
-    * @param beneficiary_: beneficiary address
-    */
+   * @dev calculate the remaining amount
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   */
   function getRemaining(address token_, address beneficiary_)
     public
     view
@@ -410,9 +410,9 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev calculate the remaining amount from user id
-    * @param id_: user id
-    */
+   * @dev calculate the remaining amount from user id
+   * @param id_: user id
+   */
   function getRemainingFromID(uint256 id_)
     public
     view
@@ -429,17 +429,17 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev Transfers tokens held by beneficiary to timelock.
-    * @param id_: user id
-    * @param beneficiary_: beneficiary address
-    * @param startTime_: start time
-    * @param cliffPeriod_: initial waiting period
-    * @param instalmentAmount_: instalment amount
-    * @param instalmentCount_: instalment count
-    * @param instalmentPeriod_: instalment period
-    * @param isContinuousVesting_: vesting required or not
-    * @param grantManager: grant manager address
-    */
+   * @dev Transfers tokens held by beneficiary to timelock.
+   * @param id_: user id
+   * @param beneficiary_: beneficiary address
+   * @param startTime_: start time
+   * @param cliffPeriod_: initial waiting period
+   * @param instalmentAmount_: instalment amount
+   * @param instalmentCount_: instalment count
+   * @param instalmentPeriod_: instalment period
+   * @param isContinuousVesting_: vesting required or not
+   * @param grantManager: grant manager address
+   */
   function _addGrant(
     uint256 id_,
     address beneficiary_,
@@ -470,18 +470,18 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev Transfers tokens held by beneficiary to timelock.
-    * @param token_: token address
-    * @param beneficiary_: beneficiary address
-    * @param startTime_: start time
-    * @param cliffPeriod_: initial waiting period
-    * @param totalAmount_: amount
-    * @param instalmentCount_: instalment count
-    * @param instalmentPeriod_: instalment period
-    * @param isContinuousVesting_: vesting required or not
-    *
-    * Emits a {AddGrant} event.
-    */
+   * @dev Transfers tokens held by beneficiary to timelock.
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   * @param startTime_: start time
+   * @param cliffPeriod_: initial waiting period
+   * @param totalAmount_: amount
+   * @param instalmentCount_: instalment count
+   * @param instalmentPeriod_: instalment period
+   * @param isContinuousVesting_: vesting required or not
+   *
+   * Emits a {AddGrant} event.
+   */
   function addGrant(
     address token_,
     address beneficiary_,
@@ -503,7 +503,12 @@ contract VestingTimelockV2 is
 
     // check the calling address has sufficient tokens and then transfer tokens to this contract
     instalmentAmount = totalAmount_.div(instalmentCount_);
-    require(IERC20Upgradeable(token_).balanceOf(beneficiary_) >= totalAmount_);
+
+    require(
+      IERC20Upgradeable(token_).balanceOf(_msgSender()) >= totalAmount_,
+      "VT13"
+    );
+
     IERC20Upgradeable(token_).safeTransferFrom(
       _msgSender(),
       address(this),
@@ -544,18 +549,18 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev Transfers tokens held by beneficiary to timelock in installments
-    * @param token_: token address
-    * @param beneficiary_: beneficiary address
-    * @param startTime_: start time
-    * @param cliffPeriod_: initial waiting period
-    * @param instalmentAmount_: installment amount
-    * @param instalmentCount_: instalment count
-    * @param instalmentPeriod_: instalment period
-    * @param isContinuousVesting_: vesting required or not
-    *
-    * Emits a {AddGrantAsInstalment} event.
-    */
+   * @dev Transfers tokens held by beneficiary to timelock in installments
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   * @param startTime_: start time
+   * @param cliffPeriod_: initial waiting period
+   * @param instalmentAmount_: installment amount
+   * @param instalmentCount_: instalment count
+   * @param instalmentPeriod_: instalment period
+   * @param isContinuousVesting_: vesting required or not
+   *
+   * Emits a {AddGrantAsInstalment} event.
+   */
   function addGrantAsInstalment(
     address token_,
     address beneficiary_,
@@ -623,11 +628,11 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev Revoke grant tokens held by timelock to beneficiary.
-    * @param id_: user id
-    *
-    * Emits a {AddGrantAsInstalment} event.
-    */
+   * @dev Revoke grant tokens held by timelock to beneficiary.
+   * @param id_: user id
+   *
+   * Emits a {AddGrantAsInstalment} event.
+   */
   function _revokeGrant(uint256 id_)
     internal
     returns (uint256 remainingAmount)
@@ -641,13 +646,13 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev Revoke grant tokens held by timelock to beneficiary.
-    * @param token_: token address
-    * @param beneficiary_: beneficiary address
-    * @param grantManager_: grant manager address
-    *
-    * Emits a {RevokeGrant} event.
-    */
+   * @dev Revoke grant tokens held by timelock to beneficiary.
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   * @param grantManager_: grant manager address
+   *
+   * Emits a {RevokeGrant} event.
+   */
   function revokeGrant(
     address token_,
     address beneficiary_,
@@ -695,12 +700,12 @@ contract VestingTimelockV2 is
   }
 
   /**
-    * @dev Transfers tokens held by timelock to beneficiary.
-    * @param token_: token address
-    * @param beneficiary_: beneficiary address
-    *
-    * Emits a {ClaimGrant} event.
-    */
+   * @dev Transfers tokens held by timelock to beneficiary.
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   *
+   * Emits a {ClaimGrant} event.
+   */
   function claimGrant(address token_, address beneficiary_)
     external
     virtual

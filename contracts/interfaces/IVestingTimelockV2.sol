@@ -6,12 +6,14 @@ pragma solidity >=0.7.0;
  */
 interface IVestingTimelockV2 {
   /**
-   * @dev get the details of the vesting grant for a user
+   * @dev Get the details of the vesting grant for a user
+   * @param token_: address of token
+   * @param beneficiary_: address of beneficiary
    */
   function getGrant(address token_, address beneficiary_)
     external
-    view
     returns (
+      address token,
       uint256 startTime,
       uint256 endTime,
       uint256 cliffPeriod,
@@ -30,8 +32,8 @@ interface IVestingTimelockV2 {
    */
   function getGrantFromID(uint256 id_)
     external
-    view
     returns (
+      address token,
       uint256 startTime,
       uint256 endTime,
       uint256 cliffPeriod,
@@ -113,6 +115,16 @@ interface IVestingTimelockV2 {
     returns (uint256 remainingAmount);
 
   /**
+   * @dev Revoke grant tokens held by timelock to beneficiary.
+   * @param id_: grant ID
+   *
+   * Emits a {RevokeGrant} event.
+   */
+  function revokeGrantFromID(uint256 id_)
+    external
+    returns (uint256 remainingAmount);
+
+  /**
    * @notice Transfers tokens held by timelock to beneficiary.
    */
   function claimGrant(address token_, address beneficiary_) external;
@@ -150,13 +162,17 @@ interface IVestingTimelockV2 {
   );
 
   event RevokeGrant(
+    uint256 id,
     address token,
+    address sender,
     address accountAddress,
+    address grantManager,
     uint256 tokens,
     uint256 timestamp
   );
 
   event ClaimGrant(
+    uint256 id,
     address token,
     address accountAddress,
     uint256 tokens,

@@ -39,9 +39,11 @@ contract VestingTimelockV2 is
   // Vesting grant identifier
   uint256 public _id;
   mapping(address => uint256) public _grantCount;
-  mapping(address => mapping(address => uint256)) public _beneficiaryID;
+  // ID from the token and beneficiary
+  mapping(address => mapping(address => uint256)) public _grantID;
 
   // Vesting grant parameters mapped to grant ID
+  mapping(uint256 => address) _token;
   mapping(uint256 => uint256) _startTime;
   mapping(uint256 => uint256) _endTime;
   mapping(uint256 => uint256) _cliffPeriod;
@@ -82,6 +84,7 @@ contract VestingTimelockV2 is
     internal
     view
     returns (
+      address token,
       uint256 startTime,
       uint256 endTime,
       uint256 cliffPeriod,
@@ -96,6 +99,7 @@ contract VestingTimelockV2 is
   {
     if (id_ == 0) {
       return (
+        token,
         startTime,
         endTime,
         cliffPeriod,
@@ -110,6 +114,7 @@ contract VestingTimelockV2 is
     }
 
     return (
+      _token[_id],
       _startTime[_id],
       _endTime[_id],
       _cliffPeriod[_id],
@@ -134,6 +139,7 @@ contract VestingTimelockV2 is
     virtual
     override
     returns (
+      address token,
       uint256 startTime,
       uint256 endTime,
       uint256 cliffPeriod,
@@ -148,6 +154,7 @@ contract VestingTimelockV2 is
   {
     if (token_ == address(0) || beneficiary_ == address(0)) {
       return (
+        token,
         startTime,
         endTime,
         cliffPeriod,
@@ -160,7 +167,7 @@ contract VestingTimelockV2 is
         grantManager
       );
     }
-    uint256 id = _beneficiaryID[token_][beneficiary_];
+    uint256 id = _grantID[token_][beneficiary_];
     return _getGrant(id);
   }
 
@@ -174,6 +181,7 @@ contract VestingTimelockV2 is
     virtual
     override
     returns (
+      address token,
       uint256 startTime,
       uint256 endTime,
       uint256 cliffPeriod,
@@ -229,7 +237,7 @@ contract VestingTimelockV2 is
     // calculate the pending amount
     uint256 cumulativeInstalments = (
       (
-        ((block.timestamp).sub(_startTime[id_].add(_cliffPeriod[id_]))).div(
+        (higherTimestamp.sub(_startTime[id_].add(_cliffPeriod[id_]))).div(
           _instalmentPeriod[id_]
         )
       ).add(1)
@@ -262,7 +270,7 @@ contract VestingTimelockV2 is
     if (token_ == address(0) || beneficiary_ == address(0))
       return (pendingAmount, pendingTime, pendingInstalment);
 
-    uint256 id = _beneficiaryID[token_][beneficiary_];
+    uint256 id = _grantID[token_][beneficiary_];
     (pendingAmount, pendingTime, pendingInstalment) = _getPending(id);
   }
 
@@ -302,13 +310,13 @@ contract VestingTimelockV2 is
     uint256 totalAmount = (_instalmentAmount[id_]).mul(_instalmentCount[id_]);
 
     remainingAmount = totalAmount.sub(_amountReceived[id_]);
-    remainingInstalment = remainingAmount.div(_instalmentPeriod[id_]);
+    remainingInstalment = remainingAmount.div(_instalmentAmount[id_]);
 
     // get the lastClaimedTimestamp as a value inside range _startTime[id_] & _endTime[id_]
     lastClaimedTimestamp = _lastClaimedTimestamp[id_] < _startTime[id_]
       ? _startTime[id_]
       : _lastClaimedTimestamp[id_];
-    lastClaimedTimestamp = _lastClaimedTimestamp[id_] > _endTime[id_]
+    lastClaimedTimestamp = lastClaimedTimestamp > _endTime[id_]
       ? _endTime[id_]
       : _lastClaimedTimestamp[id_];
 
@@ -335,7 +343,7 @@ contract VestingTimelockV2 is
     if (token_ == address(0) || beneficiary_ == address(0))
       return (remainingAmount, remainingTime, remainingInstalment);
 
-    uint256 id = _beneficiaryID[token_][beneficiary_];
+    uint256 id = _grantID[token_][beneficiary_];
     (remainingAmount, remainingTime, remainingInstalment) = _getRemaining(id);
   }
 
@@ -361,6 +369,7 @@ contract VestingTimelockV2 is
   /**
    * @dev Transfers tokens held by beneficiary to timelock.
    * @param id_: user id
+   * @param token_: token contract address
    * @param beneficiary_: beneficiary address
    * @param startTime_: start time
    * @param cliffPeriod_: initial waiting period
@@ -371,6 +380,7 @@ contract VestingTimelockV2 is
    */
   function _addGrant(
     uint256 id_,
+    address token_,
     address beneficiary_,
     uint256 startTime_,
     uint256 cliffPeriod_,
@@ -386,6 +396,7 @@ contract VestingTimelockV2 is
       instalmentPeriod_.mul(instalmentCount_.sub(1))
     );
 
+    _token[id_] = token_;
     _startTime[id_] = startTime_;
     _endTime[id_] = endTime;
     _cliffPeriod[id_] = cliffPeriod_;
@@ -435,8 +446,9 @@ contract VestingTimelockV2 is
     );
 
     // check if the grant is not already active
-    uint256 existingID = _beneficiaryID[token_][beneficiary_];
-    require(!_isActive[existingID], "VT14");
+    uint256 existingID = _grantID[token_][beneficiary_];
+    // check if an existing active grant is not already in effect
+    require(!_isActive[existingID], "VT17");
 
     IERC20Upgradeable(token_).safeTransferFrom(
       _msgSender(),
@@ -448,10 +460,11 @@ contract VestingTimelockV2 is
     uint256 id = ++_id;
     _grantCount[token_]++;
     // add beneficiary to beneficiaryID
-    _beneficiaryID[token_][beneficiary_] = id;
+    _grantID[token_][beneficiary_] = id;
 
     _addGrant(
       id,
+      token_,
       beneficiary_,
       startTime_,
       cliffPeriod_,
@@ -487,7 +500,10 @@ contract VestingTimelockV2 is
     returns (uint256 remainingAmount)
   {
     // require the end date for grant to not have passed
-    require(_isActive[id_] && _endTime[id_] > block.timestamp, "VT4");
+    require(
+      _isActive[id_] && _lastClaimedTimestamp[id_] < _endTime[id_],
+      "VT4"
+    );
 
     (remainingAmount, , ) = _getRemaining(id_);
     // deactivate the grant (keep other values intact)
@@ -512,7 +528,7 @@ contract VestingTimelockV2 is
     require(token_ != address(0) && beneficiary_ != (address(0)), "VT5");
 
     // get the ID and retrieve grantManager to compare with the msgSender()
-    uint256 id = _beneficiaryID[token_][beneficiary_];
+    uint256 id = _grantID[token_][beneficiary_];
     require(id != 0, "VT7");
     address grantManager = _grantManager[id];
 
@@ -526,17 +542,70 @@ contract VestingTimelockV2 is
 
     // find the remaining amount after revoke and transfer it back to the grant manager
     remainingAmount = _revokeGrant(id);
-    assert(
-      remainingAmount <= IERC20Upgradeable(token_).balanceOf(address(this))
-    );
-
     if (remainingAmount > 0) {
-      // delete _beneficiaryID[token_][beneficiary_];
+      // delete _grantID[token_][beneficiary_];
       IERC20Upgradeable(token_).safeTransfer(grantManager, remainingAmount);
     }
 
     // emit an event for record
-    emit RevokeGrant(token_, beneficiary_, remainingAmount, block.timestamp);
+    emit RevokeGrant(
+      id,
+      token_,
+      _msgSender(),
+      beneficiary_,
+      grantManager,
+      remainingAmount,
+      block.timestamp
+    );
+  }
+
+  /**
+   * @dev Revoke grant tokens held by timelock to beneficiary.
+   * @param id_: grant ID
+   *
+   * Emits a {RevokeGrant} event.
+   */
+  function revokeGrantFromID(uint256 id_)
+    public
+    virtual
+    override
+    nonReentrant
+    returns (uint256 remainingAmount)
+  {
+    require(id_ != 0, "VT15");
+    // get grantManager and beneficiary
+    address grantManager = _grantManager[id_];
+    address beneficiary = _beneficiary[id_];
+
+    // Grant can be revoked by the beneficiary, grant manager or GRANT ADMIN defined in the contract
+    require(
+      _msgSender() == beneficiary ||
+        _msgSender() == grantManager ||
+        hasRole(GRANT_ADMIN_ROLE, _msgSender()),
+      "VT16"
+    );
+
+    // find the remaining amount after revoke and transfer it back to the grant manager
+    remainingAmount = _revokeGrant(id_);
+
+    if (remainingAmount > 0) {
+      // delete _grantID[token_][beneficiary_];
+      IERC20Upgradeable(_token[id_]).safeTransfer(
+        grantManager,
+        remainingAmount
+      );
+    }
+
+    // emit an event for record
+    emit RevokeGrant(
+      id_,
+      _token[id_],
+      _msgSender(),
+      beneficiary,
+      grantManager,
+      remainingAmount,
+      block.timestamp
+    );
   }
 
   /**
@@ -557,7 +626,7 @@ contract VestingTimelockV2 is
     require(token_ != address(0) && beneficiary_ != (address(0)), "VT8");
 
     // get the ID and grant manager from the grant data
-    uint256 id = _beneficiaryID[token_][beneficiary_];
+    uint256 id = _grantID[token_][beneficiary_];
     require(id != 0, "VT9");
     address grantManager = _grantManager[id];
 
@@ -569,7 +638,7 @@ contract VestingTimelockV2 is
       "VT10"
     );
 
-    // require the grant to be active and vesting amount still pening to be credited to beneficiary for claiming
+    // require the grant to be active and vesting amount still pending to be credited to beneficiary for claiming
     require(
       _isActive[id] &&
         (_instalmentAmount[id].mul(_instalmentCount[id]) > _amountReceived[id]),
@@ -592,7 +661,7 @@ contract VestingTimelockV2 is
       _isActive[id] = false;
     }
 
-    emit ClaimGrant(token_, beneficiary_, pendingAmount, block.timestamp);
+    emit ClaimGrant(id, token_, beneficiary_, pendingAmount, block.timestamp);
   }
 
   /**

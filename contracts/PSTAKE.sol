@@ -114,7 +114,9 @@ contract PSTAKE is
     _inflationPeriod = INFLATION_PERIOD;
     _valueDivisor = VALUE_DIVISOR;
     _lastInflationBlockTime = block.timestamp;
-    _totalInflatedSupply = SUPPLY_AT_GENESIS;
+    _totalInflatedSupply = uint256(SUPPLY_AT_GENESIS).add(
+      uint256(SUPPLY_AT_GENESIS).mulDiv(_inflationRate, _valueDivisor)
+    );
     _supplyMaxLimit = SUPPLY_MAX_LIMIT;
 
     // setup the version and vesting timelock contract

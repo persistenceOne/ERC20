@@ -696,7 +696,7 @@ contract VestingTimelockV2 is
   function pause() public virtual override returns (bool success) {
     require(
       hasRole(PAUSER_ROLE, _msgSender()),
-      "VestingTimelock: Unauthorized User"
+      "VT19"
     );
     _pause();
     return true;
@@ -712,7 +712,7 @@ contract VestingTimelockV2 is
   function unpause() public virtual override returns (bool success) {
     require(
       hasRole(PAUSER_ROLE, _msgSender()),
-      "VestingTimelock: Unauthorized User"
+      "VT20"
     );
     _unpause();
     return true;

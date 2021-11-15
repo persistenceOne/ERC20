@@ -162,7 +162,7 @@ contract PSTAKE is
     // ALLOCATING VESTING STRATEGIES
 
     /*  // airdrop pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _airdropPool,
       block.timestamp,
@@ -176,7 +176,7 @@ contract PSTAKE is
     );
 
     // seedSale pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _seedSalePool,
       block.timestamp,
@@ -190,7 +190,7 @@ contract PSTAKE is
     );
 
     // publicSalePool1 pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _publicSalePool1,
       block.timestamp,
@@ -204,7 +204,7 @@ contract PSTAKE is
     );
 
     // publicSalePool2 pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _publicSalePool2,
       block.timestamp,
@@ -218,7 +218,7 @@ contract PSTAKE is
     );
 
     // publicSalePool3 pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _publicSalePool3,
       block.timestamp,
@@ -232,7 +232,7 @@ contract PSTAKE is
     );
 
     // team pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _teamPool,
       block.timestamp,
@@ -246,7 +246,7 @@ contract PSTAKE is
     );
 
     // incentivisation pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _incentivisationPool,
       block.timestamp,
@@ -260,7 +260,7 @@ contract PSTAKE is
     );
 
     // xprtStakers pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _xprtStakersPool,
       block.timestamp,
@@ -274,7 +274,7 @@ contract PSTAKE is
     );
 
     // protocolTreasury pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _protocolTreasuryPool,
       block.timestamp,
@@ -288,7 +288,7 @@ contract PSTAKE is
     );
 
     // communityDevelopmentFund pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrantAsInstalment(
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _communityDevelopmentFundPool,
       block.timestamp,

@@ -10,7 +10,7 @@ interface IPSTAKE is IERC20Upgradeable {
   /**
    * @dev A token holder contract that will allow a beneficiary to extract
    */
-  function setInflation(uint256 inflationRate) external returns (bool success);
+  function setInflation(uint256 inflationRate, uint256 inflationPeriod) external returns (bool success);
 
   /**
    * @dev Set supply max limit of the inflation component
@@ -63,7 +63,7 @@ interface IPSTAKE is IERC20Upgradeable {
 
   event SetVestingTimelockContract(address vestingTimelockAddress);
 
-  event SetInflationRate(address accountAddress, uint256 inflationRate);
+  event SetInflationRate(address accountAddress, uint256 inflationRate, uint256 inflationPeriod);
 
   event SetSupplyMaxLimit(address accountAddress, uint256 supplyMaxLimit);
 }

@@ -17,7 +17,7 @@ const {
     expectRevert,
 } = require("@openzeppelin/test-helpers");
 const { TestHelper } = require('zos');
-const { Contracts, ZWeb3 } = require('zos-lib');
+const { ZWeb3 } = require('zos-lib');
 
 ZWeb3.initialize(web3.currentProvider);
 const VestingTimelockV2 = artifacts.require('VestingTimelockV2');
@@ -34,6 +34,7 @@ describe('pSTAKE', () => {
     let amount = new BN(1000000);
     let inflationRate = new BN(3000000);
     let inflationRate_ = new BN(12000000000);
+    let inflationPeriod = new BN(1);
     let toAddress = accounts[4];
     let vestingTimelockV2;
     let pStake;
@@ -50,24 +51,25 @@ describe('pSTAKE', () => {
     describe("Inflation Rate", function () {
         it("Malicious/illegitimate actor cannot set inflation rate: ", async function () {
             await expectRevert(pStake.setInflation(
-                inflationRate,
+                inflationRate, inflationPeriod,
                 {from: otherAddress}), "PS0");
         });
 
         it("Inflation rate to be not more than 100: ", async function () {
             await expectRevert(pStake.setInflation(
-                inflationRate_,
+                inflationRate_, inflationPeriod,
                 {from: admin}), "PS7");
         });
 
         it("Set inflation rate: ", async function () {
 
             let set =  await pStake.setInflation(
-                inflationRate,
+                inflationRate, inflationPeriod,
                 {from: admin});
 
             expectEvent(set, "SetInflationRate", {
-                inflationRate: inflationRate
+                inflationRate: inflationRate,
+                inflationPeriod: inflationPeriod
             });
             // TEST SCENARIO END
         }, 200000);
@@ -115,11 +117,12 @@ describe('pSTAKE', () => {
         it("Mint tokens", async function () {
 
             let set =  await pStake.setInflation(
-                inflationRate,
+                inflationRate, inflationPeriod,
                 {from: admin});
 
             expectEvent(set, "SetInflationRate", {
-                inflationRate: inflationRate
+                inflationRate: inflationRate,
+                inflationPeriod: inflationPeriod
             });
 
             let mint =  await pStake.mint(

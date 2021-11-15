@@ -366,7 +366,7 @@ contract PSTAKE is
    * @param inflationRate: inflation rate.
    *
    */
-  function setInflation(uint256 inflationRate)
+  function setInflation(uint256 inflationRate, uint256 inflationPeriod)
     public
     virtual
     override
@@ -375,9 +375,11 @@ contract PSTAKE is
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS0");
     // require inflation rate to be not more than 100 since it is a percentage
     require(inflationRate <= _valueDivisor, "PS7");
+    require(inflationPeriod > 0, "PS8");
     _inflationRate = inflationRate;
+    _inflationPeriod = inflationPeriod;
     success = true;
-    emit SetInflationRate(_msgSender(), inflationRate);
+    emit SetInflationRate(_msgSender(), inflationRate, inflationPeriod);
   }
 
   /**

@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ededac13-512e-4607-a987-e41e37e72738" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.openzeppelin/unknown-1337.json" beforeDir="false" afterPath="$PROJECT_DIR$/.openzeppelin/unknown-1337.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/PSTAKE.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/PSTAKE.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/interfaces/IPSTAKE.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/interfaces/IPSTAKE.sol" afterDir="false" />
-    </list>
+    <list default="true" id="ededac13-512e-4607-a987-e41e37e72738" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +63,7 @@
       <workItem from="1620297784400" duration="623000" />
       <workItem from="1636619799061" duration="8584000" />
       <workItem from="1636697635060" duration="10299000" />
-      <workItem from="1636958737466" duration="9851000" />
+      <workItem from="1636958737466" duration="10293000" />
     </task>
     <servers />
   </component>

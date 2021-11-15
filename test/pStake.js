@@ -97,9 +97,7 @@ describe('pSTAKE', () => {
     });
 
     describe("Mint", function () {
-
         it("Only admin can mint tokens", async function () {
-
             await expectRevert(pStake.mint(
                 toAddress,
                 amount,
@@ -107,32 +105,10 @@ describe('pSTAKE', () => {
         });
 
         it("Check if the total supply doesnt cross the inflated supply", async function () {
-
             await expectRevert(pStake.mint(
                 toAddress,
                 amount,
                 {from: admin}), "PS2");
-        });
-
-        it("Mint tokens", async function () {
-
-            let set =  await pStake.setInflation(
-                inflationRate, inflationPeriod,
-                {from: admin});
-
-            expectEvent(set, "SetInflationRate", {
-                inflationRate: inflationRate,
-                inflationPeriod: inflationPeriod
-            });
-
-            let mint =  await pStake.mint(
-                toAddress,
-                amount,
-                {from: admin});
-
-            expectEvent(mint, "Mint", {
-                supplyMaxLimit: totalAmount
-            });
         });
     });
 });

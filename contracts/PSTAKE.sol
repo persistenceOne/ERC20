@@ -375,7 +375,7 @@ contract PSTAKE is
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS0");
     // require inflation rate to be not more than 100 since it is a percentage
     require(inflationRate <= _valueDivisor, "PS7");
-    require(inflationPeriod > 0, "PS8");
+    require(inflationPeriod > 0, "PS9");
     _inflationRate = inflationRate;
     _inflationPeriod = inflationPeriod;
     success = true;

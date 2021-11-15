@@ -218,6 +218,7 @@ contract VestingTimelockV2 is
     if (
       !_isActive[id_] ||
       _lastClaimedTimestamp[id_] >= _endTime[id_] ||
+      _instalmentAmount[id_] <= 0 ||
       block.timestamp <= _startTime[id_].add(_cliffPeriod[id_])
     ) return (pendingAmount, pendingTime, pendingInstalment);
 
@@ -235,20 +236,24 @@ contract VestingTimelockV2 is
     pendingTime = higherTimestamp.sub(lowerTimestamp);
 
     // calculate the pending amount
-    uint256 cumulativeInstalments = (
-      (
-        (higherTimestamp.sub(_startTime[id_].add(_cliffPeriod[id_]))).div(
-          _instalmentPeriod[id_]
-        )
-      ).add(1)
-    );
+    uint256 cumulativeInstalments = _instalmentPeriod[id_] > 0
+      ? (
+        (
+          (higherTimestamp.sub(_startTime[id_].add(_cliffPeriod[id_]))).div(
+            _instalmentPeriod[id_]
+          )
+        ).add(1)
+      )
+      : 1;
 
     pendingAmount = (cumulativeInstalments.mul(_instalmentAmount[id_])).sub(
       _amountReceived[id_]
     );
 
     // calculate the pendingInstalment from the pendingAmount calculated above
-    pendingInstalment = pendingAmount.div(_instalmentAmount[id_]);
+    pendingInstalment = _instalmentAmount[id_] > 0
+      ? pendingAmount.div(_instalmentAmount[id_])
+      : 0;
   }
 
   /**
@@ -306,6 +311,10 @@ contract VestingTimelockV2 is
       uint256 remainingInstalment
     )
   {
+    // if the instalment amount is 0 then return
+    if (_instalmentAmount[id_] <= 0 || _instalmentCount[id_] <= 0)
+      return (remainingAmount, remainingTime, remainingInstalment);
+
     uint256 lastClaimedTimestamp;
     uint256 totalAmount = (_instalmentAmount[id_]).mul(_instalmentCount[id_]);
 
@@ -318,7 +327,7 @@ contract VestingTimelockV2 is
       : _lastClaimedTimestamp[id_];
     lastClaimedTimestamp = lastClaimedTimestamp > _endTime[id_]
       ? _endTime[id_]
-      : _lastClaimedTimestamp[id_];
+      : lastClaimedTimestamp;
 
     // calculate remainingTime by subtracting lastClaimedTimestamp from the end tim
     remainingTime = (_endTime[id_]).sub(lastClaimedTimestamp);
@@ -433,10 +442,22 @@ contract VestingTimelockV2 is
     require(
       token_ != address(0) &&
         beneficiary_ != (address(0)) &&
-        instalmentAmount_ != 0 &&
-        instalmentCount_ != 0,
+        // max limit of cliff period is 10 years (in seconds)
+        cliffPeriod_ < (3650 days) &&
+        // min range for start time starts from 10 years in the past
+        startTime_ > ((block.timestamp).sub(3650 days)) &&
+        // max range for start time starts from 10 years in the future
+        startTime_ < ((block.timestamp).add(3650 days)) &&
+        instalmentAmount_ > 0 &&
+        instalmentCount_ > 0 &&
+        instalmentCount_ < 1200 &&
+        // max limit of instalment period is 10 years (in seconds)
+        instalmentPeriod_ < (3650 days),
       "VT3"
     );
+
+    // require instalmentPeriod to be set when the instalmentCount is more than 1
+    require(!(instalmentCount_ > 1 && instalmentPeriod_ == 0), "VT18");
 
     // check the calling address has suffecient tokens and then transfer tokens to this contract
     totalVestingAmount = instalmentAmount_.mul(instalmentCount_);
@@ -621,6 +642,7 @@ contract VestingTimelockV2 is
     override
     nonReentrant
     whenNotPaused
+    returns (uint256 pendingAmount)
   {
     // require beneficiary not be address(0)
     require(token_ != address(0) && beneficiary_ != (address(0)), "VT8");
@@ -646,7 +668,7 @@ contract VestingTimelockV2 is
     );
 
     // get the pending amount to be credited to beneficiary
-    (uint256 pendingAmount, , ) = _getPending(id);
+    (pendingAmount, , ) = _getPending(id);
 
     if (pendingAmount > 0) {
       IERC20Upgradeable(token_).safeTransfer(beneficiary_, pendingAmount);

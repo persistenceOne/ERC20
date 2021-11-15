@@ -127,7 +127,9 @@ interface IVestingTimelockV2 {
   /**
    * @notice Transfers tokens held by timelock to beneficiary.
    */
-  function claimGrant(address token_, address beneficiary_) external;
+  function claimGrant(address token_, address beneficiary_)
+    external
+    returns (uint256 pendingAmount);
 
   /**
    * @dev Triggers stopped state.

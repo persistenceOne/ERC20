@@ -13,6 +13,15 @@ interface IPSTAKE is IERC20Upgradeable {
   function setInflation(uint256 inflationRate) external returns (bool success);
 
   /**
+   * @dev Set supply max limit of the inflation component
+   * @param supplyMaxLimit: supply max limit value
+   *
+   */
+  function setSupplyMaxLimit(uint256 supplyMaxLimit)
+    external
+    returns (bool success);
+
+  /**
    * @dev Mints `amount` tokens to the caller's address `to`.
    *
    * Returns a boolean value indicating whether the operation succeeded.

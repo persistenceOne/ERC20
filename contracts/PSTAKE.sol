@@ -21,6 +21,7 @@ contract PSTAKE is
 
   // constants defining access control ROLES
   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+  bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
   // variable pertaining to contract upgrades versioning and value divisor
   uint256 public _version;
@@ -105,6 +106,7 @@ contract PSTAKE is
     __Pausable_init();
     _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
     _setupRole(PAUSER_ROLE, _msgSender());
+    _setupRole(MINTER_ROLE, _msgSender());
 
     // PSTAKE is an erc20 token hence 18 decimal places
     _setupDecimals(18);
@@ -320,22 +322,33 @@ contract PSTAKE is
 
     // get the number of cycles/instalments of inflation that are pending to be updated
     uint256 inflationInstalments = timeSinceLastInflation.div(_inflationPeriod);
+    uint256 additionalInflation = inflationInstalments.mul(
+      inflationPerInstalment
+    );
+    uint256 additionalBlockTime = inflationInstalments.mul(_inflationPeriod);
 
     if (inflationInstalments > 0) {
       // add inflationPerInstalment to total inflated supply
-      _totalInflatedSupply = _totalInflatedSupply.add(
-        inflationInstalments.mul(inflationPerInstalment)
-      );
+      uint256 inflationDiff = _supplyMaxLimit.sub(_totalInflatedSupply);
+      _totalInflatedSupply = _totalInflatedSupply.add(additionalInflation);
 
-      // if total inflated supply crosses the SUPPLY_MAX_LIMIT then update till SUPPLY_MAX_LIMIT
-      _totalInflatedSupply = _totalInflatedSupply > _supplyMaxLimit
-        ? _supplyMaxLimit
-        : _totalInflatedSupply;
+      if (_totalInflatedSupply > _supplyMaxLimit) {
+        // set totalInflatedSupply as supply max limit
+        _totalInflatedSupply = _supplyMaxLimit;
+        _lastInflationBlockTime = 0;
 
-      // update _lastInflationBlockTime with the time period pertaining to inflationInstalments
-      _lastInflationBlockTime = _lastInflationBlockTime.add(
-        inflationInstalments.mul(inflationPerInstalment)
-      );
+        // update the _lastInflationBlockTime value
+        uint256 blockTimeDiff = additionalBlockTime.mulDiv(
+          inflationDiff,
+          additionalInflation
+        );
+        _lastInflationBlockTime = _lastInflationBlockTime.add(blockTimeDiff);
+      } else {
+        // update _lastInflationBlockTime with the time period pertaining to inflationInstalments
+        _lastInflationBlockTime = _lastInflationBlockTime.add(
+          additionalBlockTime
+        );
+      }
 
       // emit an event
       emit CheckInflation(
@@ -360,7 +373,26 @@ contract PSTAKE is
     returns (bool success)
   {
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS0");
+    // require inflation rate to be not more than 100 since it is a percentage
+    require(inflationRate <= _valueDivisor, "PS7");
     _inflationRate = inflationRate;
+    success = true;
+  }
+
+  /**
+   * @dev Set supply max limit of the inflation component
+   * @param supplyMaxLimit: supply max limit value
+   *
+   */
+  function setSupplyMaxLimit(uint256 supplyMaxLimit)
+    public
+    virtual
+    override
+    returns (bool success)
+  {
+    // require this function to be callable only by the admin
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS8");
+    _supplyMaxLimit = supplyMaxLimit;
     success = true;
   }
 
@@ -381,7 +413,7 @@ contract PSTAKE is
     override
     returns (bool success)
   {
-    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS1");
+    require(hasRole(MINTER_ROLE, _msgSender()), "PS1");
 
     // condition to check if the total supply doesnt cross the inflated supply
     _checkInflation();

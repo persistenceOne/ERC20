@@ -104,11 +104,15 @@ describe('pSTAKE', () => {
                 {from: otherAddress}), "PS1");
         });
 
-        it("Check if the total supply doesnt cross the inflated supply", async function () {
-            await expectRevert(pStake.mint(
+        it("Mint", async function () {
+
+            let mint = await pStake.mint(
                 toAddress,
                 amount,
-                {from: admin}), "PS2");
+                {from: admin});
+            expectEvent(mint, "Transfer", {
+                to: toAddress
+            });
         });
     });
 });

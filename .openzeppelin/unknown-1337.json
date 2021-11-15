@@ -1,0 +1,709 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xA0208F14ad427D93ba18A53dDf47FB9876BCD591",
+    "txHash": "0x9e068eb58d3a4f982a2233bf64f1b14e856ebfa44ce2d05b76a9171e573428b9"
+  },
+  "proxies": [
+    {
+      "address": "0x5B0062fd648c97f863b8EaB7e83B6eD91EbaA04E",
+      "txHash": "0x9654aac4e0fae3f6c053819a08d1515b0bb70880063a90ea4a27466cf5e13349",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x653D0EbaC8ba29a73F5d9F99C7005F9839Cd1815",
+      "txHash": "0xd55a520f68d3c04e06c68d2e9ebaa7a1324d17675bd2258d65aabf61e967a63e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x2d85428FF07c9ad8e9c29499f98E620fb79afb1E",
+      "txHash": "0xfe3ec1707e95fbaafd504a6ff9581225a3464fc21d18bbedbb52a050c1cc8fe9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6a0e03EF535A8081BA7B778eD93Dd2B212dBa7Fa",
+      "txHash": "0xfe49de665f4247ba2db64109e1125d00ceb10456df34a4ce87a7442a8e5e999c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x4231C92F0959eBA505a3833ed8cfc1e76c0465BA",
+      "txHash": "0x6f719b593f39a3868c242cbb6d0ecfd16d5047194639f01a53483fb428db64fc",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0DdCC636F65c66d66031d083703aC7a4b7Fa7F77",
+      "txHash": "0x2d4f8a6be5d56886134a09d1a1dbe508796af7025702c6b1734deab0a3dda829",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x2e9322Ec5B298a7C4DC19537005663715b184eE7",
+      "txHash": "0x874ae9d02a7241501bf6ec4006e25d1901b9d7fdd92193e166124b683b26954d",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0423A77CE19a6234234203649FCEea066f762BBf",
+      "txHash": "0x8e1073604a447a582307ec0b8b4de93864f9a492c4f0b53432ba7cf96ed65e3e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6871B2D869FBD37627185409458Bf2423B4Cf389",
+      "txHash": "0x069968b3d0236cae4fcae291566b5a3fe0b6bccab61ae4792d40997a0a4c1c95",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xf5C78138B0F5a21F887c45008b850ce6E314a96d",
+      "txHash": "0xf14c246465a4982023f9533e2a67421084cf643b9496e6726c13be648b1337b6",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xED39fCD1Ca4aC2fD194Fc8B57f7c9506C3dab3E7",
+      "txHash": "0xd7c52d40612e4b7acd7f673181927c9220153b3fec38c8b13ef64817e6602aa1",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x09f9Cf5111C885FD0448584845d75E3a60eD5CEC",
+      "txHash": "0xbe4521002d5dcb9db54db2ebd1bf10ef8dd571d5cac5b36237e4a52cfd6a201a",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6354aDdd9e46A11dc4c48cDdcBdE4Cb53E7c92A6",
+      "txHash": "0xe522242ec8ed4dea0a9a650c2ec9c4f39827725e9fc09779fc501aee47fc641e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0fC603D86578f3f01e7415A4a2fbb6943F02c92D",
+      "txHash": "0x69c4cea5cc11a5e8b133be77a4e50969211e2f44cbec4e41b56ecd94bdcd1bc4",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x3a75ac9eb60d2271aa50a9363d1F8d921487be40",
+      "txHash": "0x76bbe4b591891d59b7c33c85f6ed3b578b249d085296412dc793f4eec35af7df",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x08cea77E57b60b3bf9A8933B8bc5b1D379C0609a",
+      "txHash": "0x8cdc6e09a22495aca70efa98d3447b1bf2be522023e9062ad68aa1c20fa3fe54",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x7313FBc0211c9c335A68DC5399A0975864CcC583",
+      "txHash": "0xfd1a33d59f10f4d95559a4b24c1dc265a218f370b688e05143d6472ccb718d9c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xeb1f6bd2b80C83cddA367ecD10E12940A981Ac32",
+      "txHash": "0x4f60a00e710d5226ef305807b3010e77249ad1836dbc233fe0c2986244ca96b8",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x621cE7956b0a13c0DD4fe55a228f793a130906ee",
+      "txHash": "0x64074628758d4305b26c4a30750a7788cd468d2abfd3f9250f4eb49cee4d09ba",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0699901f7255d3dC5E95812C81fFD67BDCB3faa8",
+      "txHash": "0x79033c79b83827926af6668e553dbd1662f317ecc7c1775eaae1756772f4fb89",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6b31Da0C8757F95A30234d94DC134e1c0775dE9A",
+      "txHash": "0x92304e0e8530aa325d43b79df69ce276e5c6873b7267ec6a82cca9971ab50202",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xc5723923600Bc433aFF2E18F30064798dD08fE85",
+      "txHash": "0x29a49b621e9308f3333b7055a875e8b143bdf0275ba5734444f616b51c40f0e0",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xddAe823103dc69A9974648f2f1235c22A0Bd688c",
+      "txHash": "0x375a59b85712d0179ed312827f7916a5157ac14e01847cbd9431043045a79943",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xFb843732625c87a6FEd03b9946660f46f586A378",
+      "txHash": "0x4f85e207e6a298ed5b3974bfe6953b084711aeecfef9d83eb7fa176cef464264",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x05Ed8f177BDfa17386d6f78f2777DAcE1494d01A",
+      "txHash": "0x2318f7aa0e0e9122185d756bdb621f2150773b8e8963c1da4d0178d6154bb9e0",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9df38dcEBD794eB1c92a0f99097849f74b5CA19a",
+      "txHash": "0x4a2dba4bda8d2a332c3c58d2aa310a86c9902e3817835a6a00cd10f92e955bfa",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x890437aDa6B3A7E5cb598b47a3CF7EEC3AB4c3C1",
+      "txHash": "0x1ddb8fb776881edd4c967fbaefa81246e039bb7e46863dbd44446a87bfd48e92",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6Ab9Df529b483eB87ef99d3568690BE40DCf0200",
+      "txHash": "0xd7cc03b60fcabe8eb6bd8495d9daf2b58331dd633af129396a4b9e6746a216e4",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xd9e9A89bd32085EBD303D85A97b9B17FeEB1561A",
+      "txHash": "0x55cf898c4e0648b7c11cb7910108719feb366629d1e67de83434b09714735a6e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x82eE791CA591e156837a3031BeAE08e5f72c20C6",
+      "txHash": "0xe88a66a74e4177157d65712d68cbd92a3e68936c311c53b9d79375e631c761ec",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xAD58D6FDb78C1da165C5ab82E84517e99b794993",
+      "txHash": "0xb8413b98d650eb690e7f1ea756003699072edbf1f7af8d6d6a2858b86fd3d696",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9d080BD33092c01b694F9f179945992F52dC2A4a",
+      "txHash": "0x88091a11e2b65dfa9cb3db056d36b297b240a669a73959cf0556eefb6496aada",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x33671D89510cA3c505D010dEDd509B9C0D49bC04",
+      "txHash": "0x2ca0efef6d22d73106483fc7a7b037af48a39ef9b7fb7bf3a0cf9a6b61588ce9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x2E191aA05b61E7bCe54d89146487F11CF7fCcec2",
+      "txHash": "0x1dd9b074028edc28bb24fe983a73c42ca025747b53c6ed55bcf01e2ec5377b7c",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "eb3da5c370236d3a2017fef652f498cd11df1377f2abe727f16861b88719da1b": {
+      "address": "0xf2D8e174E4AbDd9a2BCECCe218C5E5F8164d1368",
+      "txHash": "0xf6cf170e9ccf166be2a6ca30b90a6745639e14ff04e6137fabf60752e856fcfe",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol:37"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol:67"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol:28"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol:96"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)39_storage)",
+            "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:225"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_version",
+            "type": "t_uint256",
+            "src": "../project:/contracts/VestingTimelockV2.sol:37"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_id",
+            "type": "t_uint256",
+            "src": "../project:/contracts/VestingTimelockV2.sol:40"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_grantCount",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:41"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_grantID",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "../project:/contracts/VestingTimelockV2.sol:43"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_token",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:46"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_startTime",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:47"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_endTime",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:48"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_cliffPeriod",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:49"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_beneficiary",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:50"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_isActive",
+            "type": "t_mapping(t_uint256,t_bool)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:51"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_instalmentAmount",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:52"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_instalmentCount",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:53"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_instalmentPeriod",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:54"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_amountReceived",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:55"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_grantManager",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:56"
+          },
+          {
+            "contract": "VestingTimelockV2",
+            "label": "_lastClaimedTimestamp",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "../project:/contracts/VestingTimelockV2.sol:59"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)"
+          },
+          "t_mapping(t_uint256,t_bool)": {
+            "label": "mapping(uint256 => bool)"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)39_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_struct(RoleData)39_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_struct(AddressSet)2114_storage"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          },
+          "t_struct(AddressSet)2114_storage": {
+            "label": "struct EnumerableSetUpgradeable.AddressSet",
+            "members": [
+              {
+                "label": "_inner",
+                "type": "t_struct(Set)1849_storage"
+              }
+            ]
+          },
+          "t_struct(Set)1849_storage": {
+            "label": "struct EnumerableSetUpgradeable.Set",
+            "members": [
+              {
+                "label": "_values",
+                "type": "t_array(t_bytes32)dyn_storage"
+              },
+              {
+                "label": "_indexes",
+                "type": "t_mapping(t_bytes32,t_uint256)"
+              }
+            ]
+          },
+          "t_array(t_bytes32)dyn_storage": {
+            "label": "bytes32[]"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "7d706e94cabc2a38f8eb4a1073fdce7a73e082849e11acb43cf6640d8ea008ad": {
+      "address": "0x4d4F142bf83d715950eF28e654cFa98568bE9D6D",
+      "txHash": "0x78f41acc8fbc099a19a48449163ad5fe404a27e4535a74b6ce2569a1fa8fdaea",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "../@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:37"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_allowances",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "../@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:39"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_totalSupply",
+            "type": "t_uint256",
+            "src": "../@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:41"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:43"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:44"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_decimals",
+            "type": "t_uint8",
+            "src": "../@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:45"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)44_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:312"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol:28"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol:96"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)39_storage)",
+            "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:225"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_version",
+            "type": "t_uint256",
+            "src": "../project:/contracts/PSTAKE.sol:27"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_valueDivisor",
+            "type": "t_uint256",
+            "src": "../project:/contracts/PSTAKE.sol:28"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_airdropPool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:31"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_alphaLaunchpadPool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:32"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_seedSalePool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:33"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_publicSalePool1",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:34"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_publicSalePool2",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:35"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_publicSalePool3",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:36"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_teamPool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:37"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_incentivisationPool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:38"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_xprtStakersPool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:39"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_protocolTreasuryPool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:40"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_communityDevelopmentFundPool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:41"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_retroactiveRewardProtocolBootstrapPool",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:42"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_vestingTimelockAddress",
+            "type": "t_address",
+            "src": "../project:/contracts/PSTAKE.sol:45"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_totalInflatedSupply",
+            "type": "t_uint256",
+            "src": "../project:/contracts/PSTAKE.sol:48"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_inflationRate",
+            "type": "t_uint256",
+            "src": "../project:/contracts/PSTAKE.sol:49"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_inflationPeriod",
+            "type": "t_uint256",
+            "src": "../project:/contracts/PSTAKE.sol:50"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_lastInflationBlockTime",
+            "type": "t_uint256",
+            "src": "../project:/contracts/PSTAKE.sol:51"
+          },
+          {
+            "contract": "PSTAKE",
+            "label": "_supplyMaxLimit",
+            "type": "t_uint256",
+            "src": "../project:/contracts/PSTAKE.sol:52"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)39_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_struct(RoleData)39_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_struct(AddressSet)2114_storage"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          },
+          "t_struct(AddressSet)2114_storage": {
+            "label": "struct EnumerableSetUpgradeable.AddressSet",
+            "members": [
+              {
+                "label": "_inner",
+                "type": "t_struct(Set)1849_storage"
+              }
+            ]
+          },
+          "t_struct(Set)1849_storage": {
+            "label": "struct EnumerableSetUpgradeable.Set",
+            "members": [
+              {
+                "label": "_values",
+                "type": "t_array(t_bytes32)dyn_storage"
+              },
+              {
+                "label": "_indexes",
+                "type": "t_mapping(t_bytes32,t_uint256)"
+              }
+            ]
+          },
+          "t_array(t_bytes32)dyn_storage": {
+            "label": "bytes32[]"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    }
+  }
+}

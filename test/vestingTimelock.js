@@ -23,24 +23,21 @@ ZWeb3.initialize(web3.currentProvider);
 const VestingTimelockV2 = artifacts.require('VestingTimelockV2');
 const PSTAKE = artifacts.require('PSTAKE');
 
-let grantAdminAddress_ = "0xcd29BA710c44994d93110EeD8F74b7179436d12d";
+let grantAdminAddress_ = "0xC03A2dD82F036dC5140815604c0f169ED4e97E0f";
 let pauseAdmin = accounts[0];
 
 let beneficiaryAddress = accounts[1];
-let tokenAddress = accounts[2];
-let admin = "0xcd29BA710c44994d93110EeD8F74b7179436d12d";
+let admin = "0xC03A2dD82F036dC5140815604c0f169ED4e97E0f";
+let otherAddress = "0xDdB6f64c001d45FAA9Df3F16099370B28678A19E";
 
 describe('Vesting Timelock', () => {
     let startTime = 1636521174;  //Wed Nov 10 2021 05:12:54 GMT+0000
     let cliffPeriod = 86400;  //1 Day
     let totalAmount = new BN(1000000000000);
-    let amount = new BN(10000000);
+    let amount = new BN(100000);
     let instalmentAmount = new BN(10000);
     let instalmentCount_ = 3;
     let installmentPeriod_ = 3600 //1 Hour
-    let isContinuousVesting_ = false;
-    let epochInterval = "259200" //3 days
-    let unstakingLockTime = "1814400" // 21 days
     let vestingTimelockV2;
     let pStake;
 
@@ -67,11 +64,10 @@ describe('Vesting Timelock', () => {
                 instalmentAmount,
                 instalmentCount_,
                 installmentPeriod_,
-                isContinuousVesting_,
                 {from: admin}), "invalid address");
         });
 
-        it("Number of tokens should be greater than 0/balance: ", async function () {
+        it("Number of instalmentAmount should be greater than 0/balance: ", async function () {
             let pstakeTokenAddress = pStake.address;
 
             await pStake.approve(vestingTimelockV2.address, amount, {from: admin});
@@ -84,7 +80,6 @@ describe('Vesting Timelock', () => {
                 totalAmount,
                 instalmentCount_,
                 installmentPeriod_,
-                isContinuousVesting_,
                 {from: admin}), "transfer amount exceeds allowance");
         });
 
@@ -98,19 +93,18 @@ describe('Vesting Timelock', () => {
                 beneficiaryAddress,
                 startTime,
                 cliffPeriod,
-                amount,
+                instalmentAmount,
                 instalmentCount_,
                 installmentPeriod_,
-                isContinuousVesting_,
                 {from: admin});
 
             expectEvent(add, "AddGrant", {
-                tokens: amount
+                instalmentAmount: instalmentAmount
             });
             // TEST SCENARIO END
         }, 200000);
 
-        it("Revert for two grants at once: ", async function () {
+        it("Check if an existing active grant is not already in effect: ", async function () {
             let pstakeTokenAddress = pStake.address;
 
             await pStake.approve(vestingTimelockV2.address, totalAmount,{from: admin});
@@ -120,14 +114,13 @@ describe('Vesting Timelock', () => {
                 beneficiaryAddress,
                 startTime,
                 cliffPeriod,
-                amount,
+                instalmentAmount,
                 instalmentCount_,
                 installmentPeriod_,
-                isContinuousVesting_,
                 {from: admin});
 
             expectEvent(add, "AddGrant", {
-                tokens: amount
+                instalmentAmount: instalmentAmount
             });
 
             await expectRevert(vestingTimelockV2.addGrant(
@@ -135,20 +128,22 @@ describe('Vesting Timelock', () => {
                 beneficiaryAddress,
                 startTime,
                 cliffPeriod,
-                amount,
+                instalmentAmount,
                 instalmentCount_,
                 installmentPeriod_,
-                isContinuousVesting_,
-                {from: admin}), "revert");
+                {from: admin}), "VT17");
             // TEST SCENARIO END
         }, 200000);
+    });
 
-        it("Add grant as installment: ", async function () {
+    describe("Revoke Grant", function () {
+
+        it("Get the ID and retrieve grantManager to compare with the msgSender ", async function () {
             let pstakeTokenAddress = pStake.address;
 
-            await pStake.approve(vestingTimelockV2.address, totalAmount,{from: admin});
+            await pStake.approve(vestingTimelockV2.address, amount, {from: admin});
 
-            let add_Installment =  await vestingTimelockV2.addGrantAsInstalment(
+            let add =  await vestingTimelockV2.addGrant(
                 pstakeTokenAddress,
                 beneficiaryAddress,
                 startTime,
@@ -156,26 +151,16 @@ describe('Vesting Timelock', () => {
                 instalmentAmount,
                 instalmentCount_,
                 installmentPeriod_,
-                isContinuousVesting_,
                 {from: admin});
-            expectEvent(add_Installment, "AddGrantAsInstalment", {
-                tokens: instalmentAmount
+
+            expectEvent(add, "AddGrant", {
+                instalmentAmount: instalmentAmount
             });
-            // TEST SCENARIO END
-        }, 200000);
-    });
-
-    describe("Revoke Grant", function () {
-        it("Malicious/illegitimate actor cannot revoke grants: ", async function () {
-            let pstakeTokenAddress = pStake.address;
-
-           // await pStake.approve(vestingTimelockV2.address, totalAmount, {from: admin});
 
             await expectRevert(vestingTimelockV2.revokeGrant(
                 pstakeTokenAddress,
-                "0x",
-                grantAdminAddress_,
-                {from: grantAdminAddress_}), "invalid address");
+                otherAddress,
+                {from: otherAddress}), "VT7");
         });
 
         it("Grant can be revoked by the beneficiary, grant manager or GRANT ADMIN: ", async function () {
@@ -188,21 +173,19 @@ describe('Vesting Timelock', () => {
                 beneficiaryAddress,
                 startTime,
                 cliffPeriod,
-                amount,
+                instalmentAmount,
                 instalmentCount_,
                 installmentPeriod_,
-                true,
                 {from: admin});
 
             expectEvent(add, "AddGrant", {
-                tokens: amount
+                instalmentAmount: instalmentAmount
             });
 
             await expectRevert(vestingTimelockV2.revokeGrant(
                 pstakeTokenAddress,
                 beneficiaryAddress,
-                grantAdminAddress_,
-                {from: admin}), "VT6");
+                {from: otherAddress}), "VT6");
         });
 
         it("Revoke Grant: ", async function () {
@@ -215,24 +198,22 @@ describe('Vesting Timelock', () => {
                 beneficiaryAddress,
                 startTime,
                 cliffPeriod,
-                amount,
+                instalmentAmount,
                 instalmentCount_,
                 installmentPeriod_,
-                isContinuousVesting_,
                 {from: admin});
 
             expectEvent(add, "AddGrant", {
-                tokens: amount
+                instalmentAmount: instalmentAmount
             });
 
             let revoke =  await vestingTimelockV2.revokeGrant(
                 pstakeTokenAddress,
                 beneficiaryAddress,
-                grantAdminAddress_,
                 {from: grantAdminAddress_});
 
             expectEvent(revoke, "RevokeGrant", {
-                tokens: amount
+                tokens: instalmentAmount.mul(new BN(instalmentCount_))
             });
             // TEST SCENARIO END
         }, 200000);

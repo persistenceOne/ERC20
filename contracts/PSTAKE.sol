@@ -377,6 +377,7 @@ contract PSTAKE is
     require(inflationRate <= _valueDivisor, "PS7");
     _inflationRate = inflationRate;
     success = true;
+    emit SetInflationRate(_msgSender(), inflationRate);
   }
 
   /**
@@ -394,6 +395,7 @@ contract PSTAKE is
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS8");
     _supplyMaxLimit = supplyMaxLimit;
     success = true;
+    emit SetSupplyMaxLimit(_msgSender(), supplyMaxLimit);
   }
 
   /**

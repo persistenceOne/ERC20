@@ -62,4 +62,8 @@ interface IPSTAKE is IERC20Upgradeable {
   );
 
   event SetVestingTimelockContract(address vestingTimelockAddress);
+
+  event SetInflationRate(address accountAddress, uint256 inflationRate);
+
+  event SetSupplyMaxLimit(address accountAddress, uint256 supplyMaxLimit);
 }

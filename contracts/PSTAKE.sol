@@ -108,21 +108,17 @@ contract PSTAKE is
     _setupRole(PAUSER_ROLE, _msgSender());
     _setupRole(MINTER_ROLE, _msgSender());
 
-    // PSTAKE is an erc20 token hence 18 decimal places
-    _setupDecimals(18);
-    _inflationRate = INFLATION_RATE;
-    _inflationPeriod = INFLATION_PERIOD;
-    _valueDivisor = VALUE_DIVISOR;
-    _lastInflationBlockTime = block.timestamp;
-    _totalInflatedSupply = uint256(SUPPLY_AT_GENESIS).add(
-      uint256(SUPPLY_AT_GENESIS).mulDiv(_inflationRate, _valueDivisor)
-    );
-    _supplyMaxLimit = SUPPLY_MAX_LIMIT;
-
     // setup the version and vesting timelock contract
     _version = 1;
     _vestingTimelockAddress = vestingTimelockAddress;
-
+    // PSTAKE is an erc20 token hence 18 decimal places
+    _setupDecimals(18);
+    _valueDivisor = VALUE_DIVISOR;
+    // _inflationRate = INFLATION_RATE;
+    // _inflationPeriod = INFLATION_PERIOD;
+    // _lastInflationBlockTime = block.timestamp;
+    _totalInflatedSupply = uint256(SUPPLY_AT_GENESIS);
+    _supplyMaxLimit = SUPPLY_MAX_LIMIT;
     // allocate the various tokenomics strategy pool addresses
     // (must be different addresses because each address can have only one active vesting strategy at a time)
     _airdropPool = airdropPool;
@@ -308,8 +304,12 @@ contract PSTAKE is
    *
    */
   function _checkInflation() internal returns (uint256 totalInflatedSupply) {
-    // if the _totalInflatedSupply has already reacted _supplyMaxLimit then return
-    if (_totalInflatedSupply >= _supplyMaxLimit) return (totalInflatedSupply);
+    // if the _totalInflatedSupply has already reacted _supplyMaxLimit or inflation properties not set, then return
+    if (
+      _totalInflatedSupply >= _supplyMaxLimit ||
+      _inflationRate == 0 ||
+      _inflationPeriod == 0
+    ) return (totalInflatedSupply);
 
     // get the time since last inflation
     uint256 timeSinceLastInflation = (block.timestamp).sub(
@@ -380,6 +380,15 @@ contract PSTAKE is
     require(inflationPeriod > 0, "PS9");
     _inflationRate = inflationRate;
     _inflationPeriod = inflationPeriod;
+    // if this is the first time inflation values are being set (inflation activation) then
+    // initialize _totalInflatedSupply with the inflated value and update _lastInflationBlockTime
+    // the inflation cycle begins just as these values are set
+    if (_lastInflationBlockTime == 0) {
+      _totalInflatedSupply = _totalInflatedSupply.add(
+        _totalInflatedSupply.mulDiv(_inflationRate, _valueDivisor)
+      );
+      _lastInflationBlockTime = block.timestamp;
+    }
     success = true;
     emit SetInflationRate(_msgSender(), inflationRate, inflationPeriod);
   }

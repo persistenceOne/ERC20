@@ -378,6 +378,7 @@ contract PSTAKE is
     // require inflation rate to be not more than 100 since it is a percentage
     require(inflationRate <= _valueDivisor, "PS7");
     require(inflationPeriod > 0, "PS9");
+    // after enabling inflation, one way to arrest inflation can be to set a large inflationPeriod value
     _inflationRate = inflationRate;
     _inflationPeriod = inflationPeriod;
     // if this is the first time inflation values are being set (inflation activation) then
@@ -406,6 +407,8 @@ contract PSTAKE is
   {
     // require this function to be callable only by the admin
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS8");
+    // new supply max limit cannot be less than _totalInflatedSupply
+    require(supplyMaxLimit >= _totalInflatedSupply, "PS10");
     _supplyMaxLimit = supplyMaxLimit;
     success = true;
     emit SetSupplyMaxLimit(_msgSender(), supplyMaxLimit);
@@ -451,6 +454,7 @@ contract PSTAKE is
     override
   {
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS6");
+    require(vestingTimelockAddress != address(0), "PS11");
     _vestingTimelockAddress = vestingTimelockAddress;
     emit SetVestingTimelockContract(vestingTimelockAddress);
   }

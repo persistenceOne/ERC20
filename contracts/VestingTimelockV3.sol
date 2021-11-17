@@ -52,20 +52,6 @@ contract VestingTimelockV3 is
     address grantManager;
   }
 
-  // Vesting grant parameters
-  /*  struct Grant {
-    bool isActive;
-    uint256 cliffPeriod;
-    uint256 instalmentPeriod;
-    uint256 startTime;
-    uint256 endTime;
-    uint256 lastClaimedTime;
-    uint256 instalmentCount;
-    uint256 instalmentAmount;
-    uint256 amountReceived;
-    address grantManager;
-  } */
-
   // ID from the token and beneficiary
   mapping(address => mapping(address => Grant)) public _grantData;
 
@@ -304,19 +290,6 @@ contract VestingTimelockV3 is
         instalmentPeriod_.mul(instalmentCount_.sub(1))
       )
     );
-
-    /*   struct Grant {
-    bool isActive;
-    uint32 cliffPeriod;
-    uint32 instalmentPeriod;
-    uint48 startTime;
-    uint48 endTime;
-    uint48 lastClaimedTime;
-    uint40 instalmentCount;
-    uint256 instalmentAmount;
-    uint256 amountReceived;
-    address grantManager;
-  } */
 
     // create a new grant and set it to the mapping
     Grant memory newGrant;

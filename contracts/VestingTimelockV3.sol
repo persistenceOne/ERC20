@@ -39,7 +39,7 @@ contract VestingTimelockV3 is
   mapping(address => uint256) public _grantCount;
 
   // Vesting grant parameters (tightly packed)
-  /* struct Grant {
+  struct Grant {
     bool isActive;
     uint32 cliffPeriod;
     uint32 instalmentPeriod;
@@ -50,10 +50,10 @@ contract VestingTimelockV3 is
     uint256 instalmentAmount;
     uint256 amountReceived;
     address grantManager;
-  } */
+  }
 
   // Vesting grant parameters
-  struct Grant {
+  /*  struct Grant {
     bool isActive;
     uint256 cliffPeriod;
     uint256 instalmentPeriod;
@@ -64,7 +64,7 @@ contract VestingTimelockV3 is
     uint256 instalmentAmount;
     uint256 amountReceived;
     address grantManager;
-  }
+  } */
 
   // ID from the token and beneficiary
   mapping(address => mapping(address => Grant)) public _grantData;
@@ -148,6 +148,9 @@ contract VestingTimelockV3 is
     uint256 lowerTimestamp;
     uint256 higherTimestamp;
     Grant memory grant = _grantData[token_][beneficiary_];
+    uint256 vestingStartTime = uint256(grant.startTime).add(
+      uint256(grant.cliffPeriod)
+    );
 
     // if the last claimed timstamp has crossed the endTime or if cliff time is not
     // crossed by _lastClaimedTime[id_], return zero
@@ -155,17 +158,17 @@ contract VestingTimelockV3 is
       !grant.isActive ||
       grant.lastClaimedTime >= grant.endTime ||
       grant.instalmentAmount <= 0 ||
-      block.timestamp <= grant.startTime.add(grant.cliffPeriod)
+      block.timestamp <= vestingStartTime
     ) return (pendingAmount, pendingTime, pendingInstalment);
 
-    higherTimestamp = (block.timestamp > grant.endTime)
-      ? grant.endTime
+    higherTimestamp = (block.timestamp > uint256(grant.endTime))
+      ? uint256(grant.endTime)
       : block.timestamp;
 
     lowerTimestamp = (
       grant.lastClaimedTime < grant.startTime
-        ? grant.startTime
-        : grant.lastClaimedTime
+        ? uint256(grant.startTime)
+        : uint256(grant.lastClaimedTime)
     );
 
     // calculate pending time between last claimed and current time, counter starting from startTime
@@ -175,8 +178,8 @@ contract VestingTimelockV3 is
     uint256 cumulativeInstalments = grant.instalmentPeriod > 0
       ? (
         (
-          (higherTimestamp.sub(grant.startTime.add(grant.cliffPeriod))).div(
-            grant.instalmentPeriod
+          (higherTimestamp.sub(vestingStartTime)).div(
+            uint256(grant.instalmentPeriod)
           )
         ).add(1)
       )
@@ -217,21 +220,23 @@ contract VestingTimelockV3 is
       return (remainingAmount, remainingTime, remainingInstalment);
 
     uint256 lastClaimedTime;
-    uint256 totalAmount = (grant.instalmentAmount).mul(grant.instalmentCount);
+    uint256 totalAmount = (grant.instalmentAmount).mul(
+      uint256(grant.instalmentCount)
+    );
 
     remainingAmount = totalAmount.sub(grant.amountReceived);
     remainingInstalment = remainingAmount.div(grant.instalmentAmount);
 
     // get the lastClaimedTime as a value inside range grant.startTime & grant.endTime
-    lastClaimedTime = grant.lastClaimedTime < grant.startTime
-      ? grant.startTime
-      : grant.lastClaimedTime;
-    lastClaimedTime = lastClaimedTime > grant.endTime
-      ? grant.endTime
+    lastClaimedTime = uint256(grant.lastClaimedTime) < uint256(grant.startTime)
+      ? uint256(grant.startTime)
+      : uint256(grant.lastClaimedTime);
+    lastClaimedTime = lastClaimedTime > uint256(grant.endTime)
+      ? uint256(grant.endTime)
       : lastClaimedTime;
 
     // calculate remainingTime by subtracting lastClaimedTime from the end tim
-    remainingTime = (grant.endTime).sub(lastClaimedTime);
+    remainingTime = uint256(grant.endTime).sub(lastClaimedTime);
   }
 
   /**
@@ -294,19 +299,34 @@ contract VestingTimelockV3 is
       totalVestingAmount
     );
 
-    uint256 endTime = startTime_.add(cliffPeriod_).add(
-      instalmentPeriod_.mul(instalmentCount_.sub(1))
+    uint48 endTime = uint48(
+      startTime_.add(cliffPeriod_).add(
+        instalmentPeriod_.mul(instalmentCount_.sub(1))
+      )
     );
+
+    /*   struct Grant {
+    bool isActive;
+    uint32 cliffPeriod;
+    uint32 instalmentPeriod;
+    uint48 startTime;
+    uint48 endTime;
+    uint48 lastClaimedTime;
+    uint40 instalmentCount;
+    uint256 instalmentAmount;
+    uint256 amountReceived;
+    address grantManager;
+  } */
 
     // create a new grant and set it to the mapping
     Grant memory newGrant;
-    newGrant.startTime = startTime_;
+    newGrant.startTime = uint48(startTime_);
     newGrant.endTime = endTime;
-    newGrant.cliffPeriod = cliffPeriod_;
+    newGrant.cliffPeriod = uint32(cliffPeriod_);
     newGrant.isActive = true;
     newGrant.instalmentAmount = instalmentAmount_;
-    newGrant.instalmentCount = instalmentCount_;
-    newGrant.instalmentPeriod = instalmentPeriod_;
+    newGrant.instalmentCount = uint40(instalmentCount_);
+    newGrant.instalmentPeriod = uint32(instalmentPeriod_);
     newGrant.grantManager = _msgSender();
     _grantData[token_][beneficiary_] = newGrant;
 
@@ -409,7 +429,7 @@ contract VestingTimelockV3 is
     // require the grant to be active and vesting amount still pending to be credited to beneficiary for claiming
     require(
       grant.isActive &&
-        (grant.instalmentAmount.mul(grant.instalmentCount) >
+        (grant.instalmentAmount.mul(uint256(grant.instalmentCount)) >
           grant.amountReceived),
       "VT12"
     );
@@ -422,11 +442,11 @@ contract VestingTimelockV3 is
       grant.amountReceived = grant.amountReceived.add(pendingAmount);
 
       // set last claimed for the grant to current time
-      grant.lastClaimedTime = block.timestamp;
+      grant.lastClaimedTime = uint48(block.timestamp);
     }
 
     // if all the vesting amount has been claimed, then deactivate grant
-    if (block.timestamp >= grant.endTime) {
+    if (block.timestamp >= uint256(grant.endTime)) {
       grant.isActive = false;
     }
 

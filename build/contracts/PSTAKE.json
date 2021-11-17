@@ -245,7 +245,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -258,7 +259,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -271,7 +273,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -284,7 +287,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -297,7 +301,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -310,7 +315,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -323,7 +329,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -336,7 +343,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -349,7 +357,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -362,7 +371,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -375,7 +385,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -388,7 +399,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -401,7 +413,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -414,7 +427,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -427,7 +441,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -440,7 +455,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -453,7 +469,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -466,7 +483,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -479,7 +497,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -492,7 +511,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -505,7 +525,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -518,7 +539,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -531,7 +553,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -544,7 +567,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -557,7 +581,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -570,7 +595,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -583,7 +609,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -596,7 +623,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -609,7 +637,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -622,7 +651,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -635,7 +665,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -648,7 +679,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -661,7 +693,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -674,7 +707,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -687,7 +721,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -700,7 +735,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -724,7 +760,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -767,7 +804,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -780,7 +818,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -823,7 +862,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -847,7 +887,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -866,7 +907,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -908,7 +950,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -945,7 +988,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -958,7 +1002,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -1007,7 +1052,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -1020,7 +1066,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -1284,16 +1331,16 @@
         2330
       ],
       "FullMath": [
-        7273
+        7340
       ],
       "IERC20Upgradeable": [
         1336
       ],
       "IPSTAKE": [
-        6668
+        6735
       ],
       "IVestingTimelockV2": [
-        6894
+        6961
       ],
       "Initializable": [
         728
@@ -1373,7 +1420,7 @@
         "id": 2541,
         "nodeType": "ImportDirective",
         "scope": 3252,
-        "sourceUnit": 7274,
+        "sourceUnit": 7341,
         "src": "377:34:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1384,7 +1431,7 @@
         "id": 2542,
         "nodeType": "ImportDirective",
         "scope": 3252,
-        "sourceUnit": 6895,
+        "sourceUnit": 6962,
         "src": "412:45:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1395,7 +1442,7 @@
         "id": 2543,
         "nodeType": "ImportDirective",
         "scope": 3252,
-        "sourceUnit": 6669,
+        "sourceUnit": 6736,
         "src": "458:34:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1408,10 +1455,10 @@
               "id": 2544,
               "name": "IPSTAKE",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 6668,
+              "referencedDeclaration": 6735,
               "src": "515:7:12",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IPSTAKE_$6668",
+                "typeIdentifier": "t_contract$_IPSTAKE_$6735",
                 "typeString": "contract IPSTAKE"
               }
             },
@@ -1475,7 +1522,7 @@
           1336,
           1838,
           2443,
-          6668
+          6735
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
@@ -1485,7 +1532,7 @@
           307,
           2443,
           1258,
-          6668,
+          6735,
           1336,
           1838,
           728
@@ -1525,10 +1572,10 @@
               "id": 2555,
               "name": "FullMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7273,
+              "referencedDeclaration": 7340,
               "src": "670:8:12",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_FullMath_$7273",
+                "typeIdentifier": "t_contract$_FullMath_$7340",
                 "typeString": "library FullMath"
               }
             },
@@ -6200,7 +6247,7 @@
                       "lValueRequested": false,
                       "memberName": "mulDiv",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7272,
+                      "referencedDeclaration": 7339,
                       "src": "10438:33:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -7102,7 +7149,7 @@
                                   "lValueRequested": false,
                                   "memberName": "mulDiv",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 7272,
+                                  "referencedDeclaration": 7339,
                                   "src": "11391:26:12",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -7348,7 +7395,7 @@
                             "name": "CheckInflation",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 6649,
+                            "referencedDeclaration": 6716,
                             "src": "11823:14:12",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
@@ -7481,7 +7528,7 @@
           },
           {
             "baseFunctions": [
-              6605
+              6672
             ],
             "body": {
               "id": 3077,
@@ -8071,7 +8118,7 @@
                                   "lValueRequested": false,
                                   "memberName": "mulDiv",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 7272,
+                                  "referencedDeclaration": 7339,
                                   "src": "12907:27:12",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -8336,7 +8383,7 @@
                       "name": "SetInflationRate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6661,
+                      "referencedDeclaration": 6728,
                       "src": "13059:16:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
@@ -8483,7 +8530,7 @@
           },
           {
             "baseFunctions": [
-              6613
+              6680
             ],
             "body": {
               "id": 3110,
@@ -8787,7 +8834,7 @@
                       "name": "SetSupplyMaxLimit",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6667,
+                      "referencedDeclaration": 6734,
                       "src": "13566:17:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -8908,7 +8955,7 @@
           },
           {
             "baseFunctions": [
-              6623
+              6690
             ],
             "body": {
               "id": 3153,
@@ -9500,7 +9547,7 @@
           },
           {
             "baseFunctions": [
-              6629
+              6696
             ],
             "body": {
               "id": 3178,
@@ -9723,7 +9770,7 @@
                       "name": "SetVestingTimelockContract",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6653,
+                      "referencedDeclaration": 6720,
                       "src": "14781:26:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
@@ -9818,7 +9865,7 @@
           },
           {
             "baseFunctions": [
-              6635
+              6702
             ],
             "body": {
               "id": 3200,
@@ -10096,7 +10143,7 @@
           },
           {
             "baseFunctions": [
-              6641
+              6708
             ],
             "body": {
               "id": 3222,
@@ -10736,16 +10783,16 @@
           2330
         ],
         "FullMath": [
-          7273
+          7340
         ],
         "IERC20Upgradeable": [
           1336
         ],
         "IPSTAKE": [
-          6668
+          6735
         ],
         "IVestingTimelockV2": [
-          6894
+          6961
         ],
         "Initializable": [
           728
@@ -10838,7 +10885,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 7274,
+          "SourceUnit": 7341,
           "absolutePath": "project:/contracts/libraries/FullMath.sol",
           "file": "./libraries/FullMath.sol",
           "scope": 3252,
@@ -10853,7 +10900,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6895,
+          "SourceUnit": 6962,
           "absolutePath": "project:/contracts/interfaces/IVestingTimelockV2.sol",
           "file": "./interfaces/IVestingTimelockV2.sol",
           "scope": 3252,
@@ -10868,7 +10915,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6669,
+          "SourceUnit": 6736,
           "absolutePath": "project:/contracts/interfaces/IPSTAKE.sol",
           "file": "./interfaces/IPSTAKE.sol",
           "scope": 3252,
@@ -10891,7 +10938,7 @@
             1336,
             1838,
             2443,
-            6668
+            6735
           ],
           "contractKind": "contract",
           "fullyImplemented": true,
@@ -10900,7 +10947,7 @@
             307,
             2443,
             1258,
-            6668,
+            6735,
             1336,
             1838,
             728
@@ -10915,7 +10962,7 @@
               {
                 "attributes": {
                   "name": "IPSTAKE",
-                  "referencedDeclaration": 6668,
+                  "referencedDeclaration": 6735,
                   "type": "contract IPSTAKE"
                 },
                 "id": 2544,
@@ -11012,7 +11059,7 @@
               {
                 "attributes": {
                   "name": "FullMath",
-                  "referencedDeclaration": 7273,
+                  "referencedDeclaration": 7340,
                   "type": "library FullMath"
                 },
                 "id": 2555,
@@ -15989,7 +16036,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "mulDiv",
-                              "referencedDeclaration": 7272,
+                              "referencedDeclaration": 7339,
                               "type": "function (uint256,uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -16886,7 +16933,7 @@
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "member_name": "mulDiv",
-                                              "referencedDeclaration": 7272,
+                                              "referencedDeclaration": 7339,
                                               "type": "function (uint256,uint256,uint256) pure returns (uint256)"
                                             },
                                             "children": [
@@ -17203,7 +17250,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 6649,
+                                      "referencedDeclaration": 6716,
                                       "type": "function (uint256,uint256,uint256)",
                                       "value": "CheckInflation"
                                     },
@@ -17401,7 +17448,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6605
+                6672
               ],
               "functionSelector": "453c69cb",
               "implemented": true,
@@ -18169,7 +18216,7 @@
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "member_name": "mulDiv",
-                                              "referencedDeclaration": 7272,
+                                              "referencedDeclaration": 7339,
                                               "type": "function (uint256,uint256,uint256) pure returns (uint256)"
                                             },
                                             "children": [
@@ -18396,7 +18443,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 6661,
+                              "referencedDeclaration": 6728,
                               "type": "function (address,uint256,uint256)",
                               "value": "SetInflationRate"
                             },
@@ -18492,7 +18539,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6613
+                6680
               ],
               "functionSelector": "8321296d",
               "implemented": true,
@@ -18885,7 +18932,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 6667,
+                              "referencedDeclaration": 6734,
                               "type": "function (address,uint256)",
                               "value": "SetSupplyMaxLimit"
                             },
@@ -18968,7 +19015,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6623
+                6690
               ],
               "functionSelector": "40c10f19",
               "implemented": true,
@@ -19625,7 +19672,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6629
+                6696
               ],
               "functionSelector": "20dd4868",
               "implemented": true,
@@ -19943,7 +19990,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 6653,
+                              "referencedDeclaration": 6720,
                               "type": "function (address)",
                               "value": "SetVestingTimelockContract"
                             },
@@ -19987,7 +20034,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6635
+                6702
               ],
               "functionSelector": "8456cb59",
               "implemented": true,
@@ -20312,7 +20359,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6641
+                6708
               ],
               "functionSelector": "3f4ba83a",
               "implemented": true,
@@ -21028,12 +21075,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x60dE5E7cAfbFBf936FCf72eeeFB2a3D3efb1fC1B",
-      "transactionHash": "0x95c7606b11ae50d769183a7dafcbd16131ca739c128353bf5398527a3dc094d6"
+      "address": "0xa2144FE7D53020cAe0C1B5872A71A44B327cc21f",
+      "transactionHash": "0x43319374a590388a150a5a3f84adef177b7d72e6ef272bf3c9dc59f6c1fcc0c2"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-17T03:02:18.740Z",
+  "updatedAt": "2021-11-17T08:51:41.460Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {

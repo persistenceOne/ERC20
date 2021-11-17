@@ -1,25 +1,25 @@
 {
   "manifestVersion": "3.2",
   "admin": {
-    "address": "0xB1AFD39148Ae28FE47634a134C308fC9cc4f7Fe9",
-    "txHash": "0x6b5b75152fc4892500325f3ac63cdfa87223e39ea52a7a6fa867a0887720feb9"
+    "address": "0x466c7b7B92662f0212cAB30bf2ad12a8c366A688",
+    "txHash": "0xd6f6314e7f22e06052b1e509397aaf8eff24bee82abebf57f8f8486b9c496848"
   },
   "proxies": [
     {
-      "address": "0xe7016e9936047f86a4e16814ae351FBC7F694c4c",
-      "txHash": "0x7d0e8dd6d81b9dbe8508a164c25e722d4b98189aea764fe078412ac3d77427da",
+      "address": "0x32Fa22A3D3Fbdd7Dc4Fa5Ec4CF75c62151Fc3f9c",
+      "txHash": "0xfae3a5108e90d6cf7f7d89c16d25fe65f176be309bc496afccfe43c7137050e1",
       "kind": "transparent"
     },
     {
-      "address": "0x60dE5E7cAfbFBf936FCf72eeeFB2a3D3efb1fC1B",
-      "txHash": "0x7766e7718a79dab35e2d7e40b89c8e6c0f094ad2f90c2839573f773d298d5710",
+      "address": "0xa2144FE7D53020cAe0C1B5872A71A44B327cc21f",
+      "txHash": "0x010b3d58143c3c4544eaeec3111db8b2769ee7e606e94a8a7cda87597262ead8",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "18d4d5e7e58b482e1b02aebc1de149429d55c217345127623ee19c105f5a9d1f": {
-      "address": "0x98cAbd1E6cA8cc33Fa587Da6e0b5398fFf8E5994",
-      "txHash": "0x1a7a1b1e13bf493c4f5796d902176ecd3abaf77bc5c7169e53dcde22b469e383",
+    "d610737585cca90b03b4e6db46e7e3b329f1f2668f90090d4c7db755d1c02e48": {
+      "address": "0x2D9da1BD8275Ff634F32499C50D3E929bCce364A",
+      "txHash": "0x8dd0b9a2fc5e10d49934336f2e241de78ea9c8b48bef1a8c535759dd25afbcd0",
       "layout": {
         "storage": [
           {
@@ -92,7 +92,7 @@
             "contract": "VestingTimelockV3",
             "label": "_grantData",
             "type": "t_mapping(t_address,t_mapping(t_address,t_struct(Grant)5450_storage))",
-            "src": "..\\project:\\contracts\\VestingTimelockV3.sol:56"
+            "src": "..\\project:\\contracts\\VestingTimelockV3.sol:70"
           }
         ],
         "types": {
@@ -115,31 +115,35 @@
             "label": "struct VestingTimelockV3.Grant",
             "members": [
               {
-                "label": "startTime",
-                "type": "t_uint256"
-              },
-              {
-                "label": "endTime",
-                "type": "t_uint256"
-              },
-              {
-                "label": "cliffPeriod",
-                "type": "t_uint256"
-              },
-              {
                 "label": "isActive",
                 "type": "t_bool"
               },
               {
-                "label": "instalmentAmount",
-                "type": "t_uint256"
-              },
-              {
-                "label": "instalmentCount",
-                "type": "t_uint256"
+                "label": "cliffPeriod",
+                "type": "t_uint32"
               },
               {
                 "label": "instalmentPeriod",
+                "type": "t_uint32"
+              },
+              {
+                "label": "startTime",
+                "type": "t_uint48"
+              },
+              {
+                "label": "endTime",
+                "type": "t_uint48"
+              },
+              {
+                "label": "lastClaimedTime",
+                "type": "t_uint48"
+              },
+              {
+                "label": "instalmentCount",
+                "type": "t_uint40"
+              },
+              {
+                "label": "instalmentAmount",
                 "type": "t_uint256"
               },
               {
@@ -149,15 +153,20 @@
               {
                 "label": "grantManager",
                 "type": "t_address"
-              },
-              {
-                "label": "lastClaimedTimestamp",
-                "type": "t_uint256"
               }
             ]
           },
           "t_bool": {
             "label": "bool"
+          },
+          "t_uint32": {
+            "label": "uint32"
+          },
+          "t_uint48": {
+            "label": "uint48"
+          },
+          "t_uint40": {
+            "label": "uint40"
           },
           "t_mapping(t_bytes32,t_struct(RoleData)39_storage)": {
             "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
@@ -216,8 +225,8 @@
       }
     },
     "89a633320ad8d1cd59d971f8942a947a0e8b2d87e84f825953ba778b0722c3a6": {
-      "address": "0xC749942fc68F3c58E1dc4a78c96C4EcD910cBD4D",
-      "txHash": "0x95c7606b11ae50d769183a7dafcbd16131ca739c128353bf5398527a3dc094d6",
+      "address": "0x8c8657F3e9B2A7f58cB4ED9Ce4446bdC79cF31F7",
+      "txHash": "0x43319374a590388a150a5a3f84adef177b7d72e6ef272bf3c9dc59f6c1fcc0c2",
       "layout": {
         "storage": [
           {

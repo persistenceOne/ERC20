@@ -390,15 +390,15 @@
         1336
       ],
       "IPSTAKE": [
-        6668
+        6735
       ]
     },
-    "id": 6669,
+    "id": 6736,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 6591,
+        "id": 6658,
         "literals": [
           "solidity",
           ">=",
@@ -411,9 +411,9 @@
       {
         "absolutePath": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
         "file": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
-        "id": 6592,
+        "id": 6659,
         "nodeType": "ImportDirective",
-        "scope": 6669,
+        "scope": 6736,
         "sourceUnit": 1337,
         "src": "65:79:17",
         "symbolAliases": [],
@@ -424,7 +424,7 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 6594,
+              "id": 6661,
               "name": "IERC20Upgradeable",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 1336,
@@ -434,7 +434,7 @@
                 "typeString": "contract IERC20Upgradeable"
               }
             },
-            "id": 6595,
+            "id": 6662,
             "nodeType": "InheritanceSpecifier",
             "src": "209:17:17"
           }
@@ -444,15 +444,15 @@
         ],
         "contractKind": "interface",
         "documentation": {
-          "id": 6593,
+          "id": 6660,
           "nodeType": "StructuredDocumentation",
           "src": "146:41:17",
           "text": " @dev Interface of the IPSTAKE."
         },
         "fullyImplemented": false,
-        "id": 6668,
+        "id": 6735,
         "linearizedBaseContracts": [
-          6668,
+          6735,
           1336
         ],
         "name": "IPSTAKE",
@@ -460,29 +460,29 @@
         "nodes": [
           {
             "documentation": {
-              "id": 6596,
+              "id": 6663,
               "nodeType": "StructuredDocumentation",
               "src": "231:84:17",
               "text": " @dev A token holder contract that will allow a beneficiary to extract"
             },
             "functionSelector": "453c69cb",
-            "id": 6605,
+            "id": 6672,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setInflation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6601,
+              "id": 6668,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6598,
+                  "id": 6665,
                   "mutability": "mutable",
                   "name": "inflationRate",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6605,
+                  "scope": 6672,
                   "src": "340:21:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -491,7 +491,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6597,
+                    "id": 6664,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "340:7:17",
@@ -504,11 +504,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6600,
+                  "id": 6667,
                   "mutability": "mutable",
                   "name": "inflationPeriod",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6605,
+                  "scope": 6672,
                   "src": "363:23:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -517,7 +517,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6599,
+                    "id": 6666,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "363:7:17",
@@ -532,16 +532,16 @@
               "src": "339:48:17"
             },
             "returnParameters": {
-              "id": 6604,
+              "id": 6671,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6603,
+                  "id": 6670,
                   "mutability": "mutable",
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6605,
+                  "scope": 6672,
                   "src": "406:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -550,7 +550,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6602,
+                    "id": 6669,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "406:4:17",
@@ -564,7 +564,7 @@
               ],
               "src": "405:14:17"
             },
-            "scope": 6668,
+            "scope": 6735,
             "src": "318:102:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -572,29 +572,29 @@
           },
           {
             "documentation": {
-              "id": 6606,
+              "id": 6673,
               "nodeType": "StructuredDocumentation",
               "src": "424:123:17",
               "text": " @dev Set supply max limit of the inflation component\n @param supplyMaxLimit: supply max limit value"
             },
             "functionSelector": "8321296d",
-            "id": 6613,
+            "id": 6680,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setSupplyMaxLimit",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6609,
+              "id": 6676,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6608,
+                  "id": 6675,
                   "mutability": "mutable",
                   "name": "supplyMaxLimit",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6613,
+                  "scope": 6680,
                   "src": "577:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -603,7 +603,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6607,
+                    "id": 6674,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "577:7:17",
@@ -618,16 +618,16 @@
               "src": "576:24:17"
             },
             "returnParameters": {
-              "id": 6612,
+              "id": 6679,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6611,
+                  "id": 6678,
                   "mutability": "mutable",
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6613,
+                  "scope": 6680,
                   "src": "627:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -636,7 +636,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6610,
+                    "id": 6677,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "627:4:17",
@@ -650,7 +650,7 @@
               ],
               "src": "626:14:17"
             },
-            "scope": 6668,
+            "scope": 6735,
             "src": "550:91:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -658,29 +658,29 @@
           },
           {
             "documentation": {
-              "id": 6614,
+              "id": 6681,
               "nodeType": "StructuredDocumentation",
               "src": "645:185:17",
               "text": " @dev Mints `amount` tokens to the caller's address `to`.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
             },
             "functionSelector": "40c10f19",
-            "id": 6623,
+            "id": 6690,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6619,
+              "id": 6686,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6616,
+                  "id": 6683,
                   "mutability": "mutable",
                   "name": "to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6623,
+                  "scope": 6690,
                   "src": "847:10:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -689,7 +689,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6615,
+                    "id": 6682,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "847:7:17",
@@ -703,11 +703,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6618,
+                  "id": 6685,
                   "mutability": "mutable",
                   "name": "tokens",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6623,
+                  "scope": 6690,
                   "src": "859:14:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -716,7 +716,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6617,
+                    "id": 6684,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "859:7:17",
@@ -731,16 +731,16 @@
               "src": "846:28:17"
             },
             "returnParameters": {
-              "id": 6622,
+              "id": 6689,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6621,
+                  "id": 6688,
                   "mutability": "mutable",
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6623,
+                  "scope": 6690,
                   "src": "893:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -749,7 +749,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6620,
+                    "id": 6687,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "893:4:17",
@@ -763,7 +763,7 @@
               ],
               "src": "892:14:17"
             },
-            "scope": 6668,
+            "scope": 6735,
             "src": "833:74:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -771,29 +771,29 @@
           },
           {
             "documentation": {
-              "id": 6624,
+              "id": 6691,
               "nodeType": "StructuredDocumentation",
               "src": "911:244:17",
               "text": " @dev Set 'contract address', called from constructor\n @param vestingTimelockAddress: VestingTimelockcontract address\n Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address."
             },
             "functionSelector": "20dd4868",
-            "id": 6629,
+            "id": 6696,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setVestingTimelockContract",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6627,
+              "id": 6694,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6626,
+                  "id": 6693,
                   "mutability": "mutable",
                   "name": "vestingTimelockAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6629,
+                  "scope": 6696,
                   "src": "1194:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -802,7 +802,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6625,
+                    "id": 6692,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1194:7:17",
@@ -818,12 +818,12 @@
               "src": "1193:32:17"
             },
             "returnParameters": {
-              "id": 6628,
+              "id": 6695,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1234:0:17"
             },
-            "scope": 6668,
+            "scope": 6735,
             "src": "1158:77:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -831,35 +831,35 @@
           },
           {
             "documentation": {
-              "id": 6630,
+              "id": 6697,
               "nodeType": "StructuredDocumentation",
               "src": "1239:112:17",
               "text": " @dev Triggers stopped state.\n Requirements:\n - The contract must not be paused."
             },
             "functionSelector": "8456cb59",
-            "id": 6635,
+            "id": 6702,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "pause",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6631,
+              "id": 6698,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1368:2:17"
             },
             "returnParameters": {
-              "id": 6634,
+              "id": 6701,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6633,
+                  "id": 6700,
                   "mutability": "mutable",
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6635,
+                  "scope": 6702,
                   "src": "1389:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -868,7 +868,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6632,
+                    "id": 6699,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1389:4:17",
@@ -882,7 +882,7 @@
               ],
               "src": "1388:14:17"
             },
-            "scope": 6668,
+            "scope": 6735,
             "src": "1354:49:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -890,35 +890,35 @@
           },
           {
             "documentation": {
-              "id": 6636,
+              "id": 6703,
               "nodeType": "StructuredDocumentation",
               "src": "1407:109:17",
               "text": " @dev Returns to normal state.\n Requirements:\n - The contract must be paused."
             },
             "functionSelector": "3f4ba83a",
-            "id": 6641,
+            "id": 6708,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "unpause",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6637,
+              "id": 6704,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1535:2:17"
             },
             "returnParameters": {
-              "id": 6640,
+              "id": 6707,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6639,
+                  "id": 6706,
                   "mutability": "mutable",
                   "name": "success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6641,
+                  "scope": 6708,
                   "src": "1556:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -927,7 +927,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6638,
+                    "id": 6705,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1556:4:17",
@@ -941,7 +941,7 @@
               ],
               "src": "1555:14:17"
             },
-            "scope": 6668,
+            "scope": 6735,
             "src": "1519:51:17",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -949,21 +949,21 @@
           },
           {
             "anonymous": false,
-            "id": 6649,
+            "id": 6716,
             "name": "CheckInflation",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6648,
+              "id": 6715,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6643,
+                  "id": 6710,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "lastInflationBlockTime",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6649,
+                  "scope": 6716,
                   "src": "1600:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -972,7 +972,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6642,
+                    "id": 6709,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1600:7:17",
@@ -985,12 +985,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6645,
+                  "id": 6712,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "inflationAdded",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6649,
+                  "scope": 6716,
                   "src": "1636:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -999,7 +999,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6644,
+                    "id": 6711,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1636:7:17",
@@ -1012,12 +1012,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6647,
+                  "id": 6714,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "timestamp",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6649,
+                  "scope": 6716,
                   "src": "1664:17:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1026,7 +1026,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6646,
+                    "id": 6713,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1664:7:17",
@@ -1044,21 +1044,21 @@
           },
           {
             "anonymous": false,
-            "id": 6653,
+            "id": 6720,
             "name": "SetVestingTimelockContract",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6652,
+              "id": 6719,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6651,
+                  "id": 6718,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "vestingTimelockAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6653,
+                  "scope": 6720,
                   "src": "1723:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1067,7 +1067,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6650,
+                    "id": 6717,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1723:7:17",
@@ -1086,21 +1086,21 @@
           },
           {
             "anonymous": false,
-            "id": 6661,
+            "id": 6728,
             "name": "SetInflationRate",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6660,
+              "id": 6727,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6655,
+                  "id": 6722,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "accountAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6661,
+                  "scope": 6728,
                   "src": "1782:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1109,7 +1109,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6654,
+                    "id": 6721,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1782:7:17",
@@ -1123,12 +1123,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6657,
+                  "id": 6724,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "inflationRate",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6661,
+                  "scope": 6728,
                   "src": "1806:21:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1137,7 +1137,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6656,
+                    "id": 6723,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1806:7:17",
@@ -1150,12 +1150,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6659,
+                  "id": 6726,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "inflationPeriod",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6661,
+                  "scope": 6728,
                   "src": "1829:23:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1164,7 +1164,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6658,
+                    "id": 6725,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1829:7:17",
@@ -1182,21 +1182,21 @@
           },
           {
             "anonymous": false,
-            "id": 6667,
+            "id": 6734,
             "name": "SetSupplyMaxLimit",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6666,
+              "id": 6733,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6663,
+                  "id": 6730,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "accountAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6667,
+                  "scope": 6734,
                   "src": "1882:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1205,7 +1205,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6662,
+                    "id": 6729,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1882:7:17",
@@ -1219,12 +1219,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6665,
+                  "id": 6732,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "supplyMaxLimit",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6667,
+                  "scope": 6734,
                   "src": "1906:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1233,7 +1233,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6664,
+                    "id": 6731,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1906:7:17",
@@ -1250,7 +1250,7 @@
             "src": "1858:72:17"
           }
         ],
-        "scope": 6669,
+        "scope": 6736,
         "src": "188:1744:17"
       }
     ],
@@ -1264,7 +1264,7 @@
           1336
         ],
         "IPSTAKE": [
-          6668
+          6735
         ]
       },
       "license": "UNLICENSED"
@@ -1279,7 +1279,7 @@
             ".0"
           ]
         },
-        "id": 6591,
+        "id": 6658,
         "name": "PragmaDirective",
         "src": "39:24:17"
       },
@@ -1288,13 +1288,13 @@
           "SourceUnit": 1337,
           "absolutePath": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
           "file": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
-          "scope": 6669,
+          "scope": 6736,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 6592,
+        "id": 6659,
         "name": "ImportDirective",
         "src": "65:79:17"
       },
@@ -1307,18 +1307,18 @@
           "contractKind": "interface",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            6668,
+            6735,
             1336
           ],
           "name": "IPSTAKE",
-          "scope": 6669
+          "scope": 6736
         },
         "children": [
           {
             "attributes": {
               "text": " @dev Interface of the IPSTAKE."
             },
-            "id": 6593,
+            "id": 6660,
             "name": "StructuredDocumentation",
             "src": "146:41:17"
           },
@@ -1331,12 +1331,12 @@
                   "referencedDeclaration": 1336,
                   "type": "contract IERC20Upgradeable"
                 },
-                "id": 6594,
+                "id": 6661,
                 "name": "UserDefinedTypeName",
                 "src": "209:17:17"
               }
             ],
-            "id": 6595,
+            "id": 6662,
             "name": "InheritanceSpecifier",
             "src": "209:17:17"
           },
@@ -1350,7 +1350,7 @@
                 null
               ],
               "name": "setInflation",
-              "scope": 6668,
+              "scope": 6735,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -1360,7 +1360,7 @@
                 "attributes": {
                   "text": " @dev A token holder contract that will allow a beneficiary to extract"
                 },
-                "id": 6596,
+                "id": 6663,
                 "name": "StructuredDocumentation",
                 "src": "231:84:17"
               },
@@ -1371,7 +1371,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "inflationRate",
-                      "scope": 6605,
+                      "scope": 6672,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1383,12 +1383,12 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6597,
+                        "id": 6664,
                         "name": "ElementaryTypeName",
                         "src": "340:7:17"
                       }
                     ],
-                    "id": 6598,
+                    "id": 6665,
                     "name": "VariableDeclaration",
                     "src": "340:21:17"
                   },
@@ -1397,7 +1397,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "inflationPeriod",
-                      "scope": 6605,
+                      "scope": 6672,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1409,17 +1409,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6599,
+                        "id": 6666,
                         "name": "ElementaryTypeName",
                         "src": "363:7:17"
                       }
                     ],
-                    "id": 6600,
+                    "id": 6667,
                     "name": "VariableDeclaration",
                     "src": "363:23:17"
                   }
                 ],
-                "id": 6601,
+                "id": 6668,
                 "name": "ParameterList",
                 "src": "339:48:17"
               },
@@ -1430,7 +1430,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "success",
-                      "scope": 6605,
+                      "scope": 6672,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1442,22 +1442,22 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 6602,
+                        "id": 6669,
                         "name": "ElementaryTypeName",
                         "src": "406:4:17"
                       }
                     ],
-                    "id": 6603,
+                    "id": 6670,
                     "name": "VariableDeclaration",
                     "src": "406:12:17"
                   }
                 ],
-                "id": 6604,
+                "id": 6671,
                 "name": "ParameterList",
                 "src": "405:14:17"
               }
             ],
-            "id": 6605,
+            "id": 6672,
             "name": "FunctionDefinition",
             "src": "318:102:17"
           },
@@ -1471,7 +1471,7 @@
                 null
               ],
               "name": "setSupplyMaxLimit",
-              "scope": 6668,
+              "scope": 6735,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -1481,7 +1481,7 @@
                 "attributes": {
                   "text": " @dev Set supply max limit of the inflation component\n @param supplyMaxLimit: supply max limit value"
                 },
-                "id": 6606,
+                "id": 6673,
                 "name": "StructuredDocumentation",
                 "src": "424:123:17"
               },
@@ -1492,7 +1492,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "supplyMaxLimit",
-                      "scope": 6613,
+                      "scope": 6680,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1504,17 +1504,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6607,
+                        "id": 6674,
                         "name": "ElementaryTypeName",
                         "src": "577:7:17"
                       }
                     ],
-                    "id": 6608,
+                    "id": 6675,
                     "name": "VariableDeclaration",
                     "src": "577:22:17"
                   }
                 ],
-                "id": 6609,
+                "id": 6676,
                 "name": "ParameterList",
                 "src": "576:24:17"
               },
@@ -1525,7 +1525,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "success",
-                      "scope": 6613,
+                      "scope": 6680,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1537,22 +1537,22 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 6610,
+                        "id": 6677,
                         "name": "ElementaryTypeName",
                         "src": "627:4:17"
                       }
                     ],
-                    "id": 6611,
+                    "id": 6678,
                     "name": "VariableDeclaration",
                     "src": "627:12:17"
                   }
                 ],
-                "id": 6612,
+                "id": 6679,
                 "name": "ParameterList",
                 "src": "626:14:17"
               }
             ],
-            "id": 6613,
+            "id": 6680,
             "name": "FunctionDefinition",
             "src": "550:91:17"
           },
@@ -1566,7 +1566,7 @@
                 null
               ],
               "name": "mint",
-              "scope": 6668,
+              "scope": 6735,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -1576,7 +1576,7 @@
                 "attributes": {
                   "text": " @dev Mints `amount` tokens to the caller's address `to`.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
                 },
-                "id": 6614,
+                "id": 6681,
                 "name": "StructuredDocumentation",
                 "src": "645:185:17"
               },
@@ -1587,7 +1587,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "to",
-                      "scope": 6623,
+                      "scope": 6690,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1600,12 +1600,12 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 6615,
+                        "id": 6682,
                         "name": "ElementaryTypeName",
                         "src": "847:7:17"
                       }
                     ],
-                    "id": 6616,
+                    "id": 6683,
                     "name": "VariableDeclaration",
                     "src": "847:10:17"
                   },
@@ -1614,7 +1614,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "tokens",
-                      "scope": 6623,
+                      "scope": 6690,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1626,17 +1626,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6617,
+                        "id": 6684,
                         "name": "ElementaryTypeName",
                         "src": "859:7:17"
                       }
                     ],
-                    "id": 6618,
+                    "id": 6685,
                     "name": "VariableDeclaration",
                     "src": "859:14:17"
                   }
                 ],
-                "id": 6619,
+                "id": 6686,
                 "name": "ParameterList",
                 "src": "846:28:17"
               },
@@ -1647,7 +1647,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "success",
-                      "scope": 6623,
+                      "scope": 6690,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1659,22 +1659,22 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 6620,
+                        "id": 6687,
                         "name": "ElementaryTypeName",
                         "src": "893:4:17"
                       }
                     ],
-                    "id": 6621,
+                    "id": 6688,
                     "name": "VariableDeclaration",
                     "src": "893:12:17"
                   }
                 ],
-                "id": 6622,
+                "id": 6689,
                 "name": "ParameterList",
                 "src": "892:14:17"
               }
             ],
-            "id": 6623,
+            "id": 6690,
             "name": "FunctionDefinition",
             "src": "833:74:17"
           },
@@ -1688,7 +1688,7 @@
                 null
               ],
               "name": "setVestingTimelockContract",
-              "scope": 6668,
+              "scope": 6735,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -1698,7 +1698,7 @@
                 "attributes": {
                   "text": " @dev Set 'contract address', called from constructor\n @param vestingTimelockAddress: VestingTimelockcontract address\n Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address."
                 },
-                "id": 6624,
+                "id": 6691,
                 "name": "StructuredDocumentation",
                 "src": "911:244:17"
               },
@@ -1709,7 +1709,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "vestingTimelockAddress",
-                      "scope": 6629,
+                      "scope": 6696,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1722,17 +1722,17 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 6625,
+                        "id": 6692,
                         "name": "ElementaryTypeName",
                         "src": "1194:7:17"
                       }
                     ],
-                    "id": 6626,
+                    "id": 6693,
                     "name": "VariableDeclaration",
                     "src": "1194:30:17"
                   }
                 ],
-                "id": 6627,
+                "id": 6694,
                 "name": "ParameterList",
                 "src": "1193:32:17"
               },
@@ -1743,12 +1743,12 @@
                   ]
                 },
                 "children": [],
-                "id": 6628,
+                "id": 6695,
                 "name": "ParameterList",
                 "src": "1234:0:17"
               }
             ],
-            "id": 6629,
+            "id": 6696,
             "name": "FunctionDefinition",
             "src": "1158:77:17"
           },
@@ -1762,7 +1762,7 @@
                 null
               ],
               "name": "pause",
-              "scope": 6668,
+              "scope": 6735,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -1772,7 +1772,7 @@
                 "attributes": {
                   "text": " @dev Triggers stopped state.\n Requirements:\n - The contract must not be paused."
                 },
-                "id": 6630,
+                "id": 6697,
                 "name": "StructuredDocumentation",
                 "src": "1239:112:17"
               },
@@ -1783,7 +1783,7 @@
                   ]
                 },
                 "children": [],
-                "id": 6631,
+                "id": 6698,
                 "name": "ParameterList",
                 "src": "1368:2:17"
               },
@@ -1794,7 +1794,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "success",
-                      "scope": 6635,
+                      "scope": 6702,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1806,22 +1806,22 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 6632,
+                        "id": 6699,
                         "name": "ElementaryTypeName",
                         "src": "1389:4:17"
                       }
                     ],
-                    "id": 6633,
+                    "id": 6700,
                     "name": "VariableDeclaration",
                     "src": "1389:12:17"
                   }
                 ],
-                "id": 6634,
+                "id": 6701,
                 "name": "ParameterList",
                 "src": "1388:14:17"
               }
             ],
-            "id": 6635,
+            "id": 6702,
             "name": "FunctionDefinition",
             "src": "1354:49:17"
           },
@@ -1835,7 +1835,7 @@
                 null
               ],
               "name": "unpause",
-              "scope": 6668,
+              "scope": 6735,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -1845,7 +1845,7 @@
                 "attributes": {
                   "text": " @dev Returns to normal state.\n Requirements:\n - The contract must be paused."
                 },
-                "id": 6636,
+                "id": 6703,
                 "name": "StructuredDocumentation",
                 "src": "1407:109:17"
               },
@@ -1856,7 +1856,7 @@
                   ]
                 },
                 "children": [],
-                "id": 6637,
+                "id": 6704,
                 "name": "ParameterList",
                 "src": "1535:2:17"
               },
@@ -1867,7 +1867,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "success",
-                      "scope": 6641,
+                      "scope": 6708,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1879,22 +1879,22 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 6638,
+                        "id": 6705,
                         "name": "ElementaryTypeName",
                         "src": "1556:4:17"
                       }
                     ],
-                    "id": 6639,
+                    "id": 6706,
                     "name": "VariableDeclaration",
                     "src": "1556:12:17"
                   }
                 ],
-                "id": 6640,
+                "id": 6707,
                 "name": "ParameterList",
                 "src": "1555:14:17"
               }
             ],
-            "id": 6641,
+            "id": 6708,
             "name": "FunctionDefinition",
             "src": "1519:51:17"
           },
@@ -1912,7 +1912,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "lastInflationBlockTime",
-                      "scope": 6649,
+                      "scope": 6716,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1924,12 +1924,12 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6642,
+                        "id": 6709,
                         "name": "ElementaryTypeName",
                         "src": "1600:7:17"
                       }
                     ],
-                    "id": 6643,
+                    "id": 6710,
                     "name": "VariableDeclaration",
                     "src": "1600:30:17"
                   },
@@ -1939,7 +1939,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "inflationAdded",
-                      "scope": 6649,
+                      "scope": 6716,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1951,12 +1951,12 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6644,
+                        "id": 6711,
                         "name": "ElementaryTypeName",
                         "src": "1636:7:17"
                       }
                     ],
-                    "id": 6645,
+                    "id": 6712,
                     "name": "VariableDeclaration",
                     "src": "1636:22:17"
                   },
@@ -1966,7 +1966,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "timestamp",
-                      "scope": 6649,
+                      "scope": 6716,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1978,22 +1978,22 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6646,
+                        "id": 6713,
                         "name": "ElementaryTypeName",
                         "src": "1664:7:17"
                       }
                     ],
-                    "id": 6647,
+                    "id": 6714,
                     "name": "VariableDeclaration",
                     "src": "1664:17:17"
                   }
                 ],
-                "id": 6648,
+                "id": 6715,
                 "name": "ParameterList",
                 "src": "1594:91:17"
               }
             ],
-            "id": 6649,
+            "id": 6716,
             "name": "EventDefinition",
             "src": "1574:112:17"
           },
@@ -2011,7 +2011,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "vestingTimelockAddress",
-                      "scope": 6653,
+                      "scope": 6720,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2024,22 +2024,22 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 6650,
+                        "id": 6717,
                         "name": "ElementaryTypeName",
                         "src": "1723:7:17"
                       }
                     ],
-                    "id": 6651,
+                    "id": 6718,
                     "name": "VariableDeclaration",
                     "src": "1723:30:17"
                   }
                 ],
-                "id": 6652,
+                "id": 6719,
                 "name": "ParameterList",
                 "src": "1722:32:17"
               }
             ],
-            "id": 6653,
+            "id": 6720,
             "name": "EventDefinition",
             "src": "1690:65:17"
           },
@@ -2057,7 +2057,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "accountAddress",
-                      "scope": 6661,
+                      "scope": 6728,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2070,12 +2070,12 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 6654,
+                        "id": 6721,
                         "name": "ElementaryTypeName",
                         "src": "1782:7:17"
                       }
                     ],
-                    "id": 6655,
+                    "id": 6722,
                     "name": "VariableDeclaration",
                     "src": "1782:22:17"
                   },
@@ -2085,7 +2085,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "inflationRate",
-                      "scope": 6661,
+                      "scope": 6728,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2097,12 +2097,12 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6656,
+                        "id": 6723,
                         "name": "ElementaryTypeName",
                         "src": "1806:7:17"
                       }
                     ],
-                    "id": 6657,
+                    "id": 6724,
                     "name": "VariableDeclaration",
                     "src": "1806:21:17"
                   },
@@ -2112,7 +2112,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "inflationPeriod",
-                      "scope": 6661,
+                      "scope": 6728,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2124,22 +2124,22 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6658,
+                        "id": 6725,
                         "name": "ElementaryTypeName",
                         "src": "1829:7:17"
                       }
                     ],
-                    "id": 6659,
+                    "id": 6726,
                     "name": "VariableDeclaration",
                     "src": "1829:23:17"
                   }
                 ],
-                "id": 6660,
+                "id": 6727,
                 "name": "ParameterList",
                 "src": "1781:72:17"
               }
             ],
-            "id": 6661,
+            "id": 6728,
             "name": "EventDefinition",
             "src": "1759:95:17"
           },
@@ -2157,7 +2157,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "accountAddress",
-                      "scope": 6667,
+                      "scope": 6734,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2170,12 +2170,12 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 6662,
+                        "id": 6729,
                         "name": "ElementaryTypeName",
                         "src": "1882:7:17"
                       }
                     ],
-                    "id": 6663,
+                    "id": 6730,
                     "name": "VariableDeclaration",
                     "src": "1882:22:17"
                   },
@@ -2185,7 +2185,7 @@
                       "indexed": false,
                       "mutability": "mutable",
                       "name": "supplyMaxLimit",
-                      "scope": 6667,
+                      "scope": 6734,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2197,32 +2197,32 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 6664,
+                        "id": 6731,
                         "name": "ElementaryTypeName",
                         "src": "1906:7:17"
                       }
                     ],
-                    "id": 6665,
+                    "id": 6732,
                     "name": "VariableDeclaration",
                     "src": "1906:22:17"
                   }
                 ],
-                "id": 6666,
+                "id": 6733,
                 "name": "ParameterList",
                 "src": "1881:48:17"
               }
             ],
-            "id": 6667,
+            "id": 6734,
             "name": "EventDefinition",
             "src": "1858:72:17"
           }
         ],
-        "id": 6668,
+        "id": 6735,
         "name": "ContractDefinition",
         "src": "188:1744:17"
       }
     ],
-    "id": 6669,
+    "id": 6736,
     "name": "SourceUnit",
     "src": "39:1894:17"
   },
@@ -2232,7 +2232,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-17T03:02:18.796Z",
+  "updatedAt": "2021-11-17T08:50:34.729Z",
   "devdoc": {
     "details": "Interface of the IPSTAKE.",
     "kind": "dev",

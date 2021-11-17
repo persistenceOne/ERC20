@@ -18,19 +18,21 @@ const {
 } = require("@openzeppelin/test-helpers");
 const { TestHelper } = require('zos');
 const { ZWeb3 } = require('zos-lib');
+const BigNumber = require('big-number');
 
 ZWeb3.initialize(web3.currentProvider);
 const VestingTimelockV2 = artifacts.require('VestingTimelockV2');
 const PSTAKE = artifacts.require('PSTAKE');
 
-let grantAdminAddress_ = "0xe741AC1aBd506C001C680169d453985B3b6a260B";
+let grantAdminAddress_ = "0x811F34E9Ad663a3E56A2deFAE73EA81eE89a80E6";
 let pauseAdmin = accounts[0];
 
-let admin = "0xC03A2dD82F036dC5140815604c0f169ED4e97E0f";
-let otherAddress = "0xDdB6f64c001d45FAA9Df3F16099370B28678A19E";
+let admin = "0x811F34E9Ad663a3E56A2deFAE73EA81eE89a80E6";
+let otherAddress = "0xB0931cd7801F94DDfEa514b4E4A06c94Fa656BFb";
 
 describe('pSTAKE', () => {
     let totalAmount = new BN(1000000000000);
+    let val = BigNumber("600000000000000000000000000");
     let amount = new BN(1000000);
     let inflationRate = new BN(3000000);
     let inflationRate_ = new BN(12000000000);
@@ -84,14 +86,21 @@ describe('pSTAKE', () => {
                 {from: otherAddress}), "PS8");
         });
 
+        it("New supply max limit cannot be less than totalInflatedSupply", async function () {
+
+            await expectRevert(pStake.setSupplyMaxLimit(
+                totalAmount,
+                {from: admin}), "PS10");
+        });
+
         it("Set supply max limit", async function () {
 
             let set =  await pStake.setSupplyMaxLimit(
-                totalAmount,
+                val,
                 {from: admin});
 
             expectEvent(set, "SetSupplyMaxLimit", {
-                supplyMaxLimit: totalAmount
+                supplyMaxLimit: val.toString()
             });
         });
     });
@@ -105,6 +114,14 @@ describe('pSTAKE', () => {
         });
 
         it("Mint", async function () {
+            let set =  await pStake.setInflation(
+                inflationRate, inflationPeriod,
+                {from: admin});
+
+            expectEvent(set, "SetInflationRate", {
+                inflationRate: inflationRate,
+                inflationPeriod: inflationPeriod
+            });
 
             let mint = await pStake.mint(
                 toAddress,

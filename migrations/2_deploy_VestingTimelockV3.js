@@ -1,10 +1,9 @@
 const VestingTimelockV3Artifact = artifacts.require("VestingTimelockV3");
-const PSTAKEArtifact = artifacts.require("PSTAKE");
 var networkID;
 
 const { BN } = web3.utils.BN;
 const { deployProxy } = require("@openzeppelin/truffle-upgrades");
-var PSTAKEInstance;
+var VestingTimelockV3Instance;
 
 module.exports = async function (deployer, network, accounts) {
   if (network === "development") {
@@ -49,46 +48,27 @@ async function deployContract(gasPrice, gasLimit, deployer, accounts) {
     accounts
   );
   // init parameters
-  // let pauseAdmin = accounts[0];
+  let pauseAdmin = accounts[0];
+  let grantAdmin = accounts[0];
   // let from_defaultAdmin = accounts[0];
-  let airdropPool = accounts[1];
-  let alphaLaunchpadPool = accounts[2];
-  let seedSalePool = accounts[3];
-  let publicSalePool1 = accounts[4];
-  let publicSalePool2 = accounts[5];
-  let publicSalePool3 = accounts[6];
-  let teamPool = accounts[7];
-  let incentivisationPool = accounts[8];
-  let xprtStakersPool = accounts[9];
-  let protocolTreasuryPool = accounts[9];
-  let communityDevelopmentFundPool = accounts[9];
-  let retroactiveRewardProtocolBootstrapPool = accounts[9];
 
-  console.log("Vesting Timelock address: ", VestingTimelockV3Artifact.address);
-  console.log("airdropPool address: ", airdropPool);
-  console.log("protocolTreasuryPool address: ", protocolTreasuryPool);
-
-
-  PSTAKEInstance = await deployProxy(
-    PSTAKEArtifact,
-    [
-      VestingTimelockV3Artifact.address,
-      airdropPool,
-      alphaLaunchpadPool,
-      seedSalePool,
-      publicSalePool1,
-      publicSalePool2,
-      publicSalePool3,
-      teamPool,
-      incentivisationPool,
-      xprtStakersPool,
-      protocolTreasuryPool,
-      communityDevelopmentFundPool,
-      retroactiveRewardProtocolBootstrapPool,
-    ],
+  VestingTimelockV3Instance = await deployProxy(
+    VestingTimelockV3Artifact,
+    [pauseAdmin, grantAdmin],
     { deployer, initializer: "initialize" }
   );
-  console.log("PSTAKE deployed: ", PSTAKEInstance.address);
+
+  console.log(
+    "VestingTimelockV3 deployed: ",
+    VestingTimelockV3Instance.address
+  );
+
+ /* var t1 = await VestingTimelockV3Instance.addGrantAsInstalment("0xa2144FE7D53020cAe0C1B5872A71A44B327cc21f",
+      "0x466aF9ea44f2dEbbE4fd54a98CffA26A3674fBf7",
+      Math.round(Date.now() / 1000).toString(),
+      "61", "120000000000000000000",
+      "1", "120", false,
+      {from:accounts[1]})*/
 
   console.log("ALL DONE.");
 }

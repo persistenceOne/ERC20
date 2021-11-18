@@ -157,18 +157,15 @@ contract PSTAKE is
 
     // ALLOCATING VESTING STRATEGIES
 
-    /*  // airdrop pool
+    /* // airdrop pool
     IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       _airdropPool,
       block.timestamp,
-      // 1 month
       (30 days + 10 hours),
       uint256(5000000e18),
       5,
-      // 1 month
-      (30 days + 10 hours),
-      false
+      (30 days + 10 hours)
     );
 
     // seedSale pool
@@ -180,9 +177,7 @@ contract PSTAKE is
       (182 days + 12 hours),
       uint256(8333333e18),
       12,
-      // 1 month
-      (30 days + 10 hours),
-      false
+      (30 days + 10 hours)
     );
 
     // publicSalePool1 pool
@@ -194,9 +189,7 @@ contract PSTAKE is
       (182 days + 12 hours),
       uint256(833333e18),
       6,
-      // 1 month
-      (30 days + 10 hours),
-      false
+      (30 days + 10 hours)
     );
 
     // publicSalePool2 pool
@@ -208,9 +201,7 @@ contract PSTAKE is
       (91 days + 6 hours),
       uint256(1666667e18),
       6,
-      // 1 month
-      (30 days + 10 hours),
-      false
+      (30 days + 10 hours)
     );
 
     // publicSalePool3 pool
@@ -218,13 +209,10 @@ contract PSTAKE is
       address(this),
       _publicSalePool3,
       block.timestamp,
-      // 1 month
       (30 days + 10 hours),
       uint256(10000000e18),
       1,
-      // 0 month
-      0,
-      false
+      0
     );
 
     // team pool
@@ -236,9 +224,7 @@ contract PSTAKE is
       (547 days + 12 hours),
       uint256(4444444e18),
       18,
-      // 1 month
-      (30 days + 10 hours),
-      false
+      (30 days + 10 hours)
     );
 
     // incentivisation pool
@@ -251,8 +237,7 @@ contract PSTAKE is
       uint256(13222222e18),
       8,
       // 3 months
-      (91 days + 6 hours),
-      false
+      (91 days + 6 hours)
     );
 
     // xprtStakers pool
@@ -260,13 +245,10 @@ contract PSTAKE is
       address(this),
       _xprtStakersPool,
       block.timestamp,
-      // 1 month
       (30 days + 10 hours),
       uint256(1250000e18),
       11,
-      // 1 month
-      (30 days + 10 hours),
-      false
+      (30 days + 10 hours)
     );
 
     // protocolTreasury pool
@@ -279,8 +261,7 @@ contract PSTAKE is
       uint256(4250000e18),
       17,
       // 2 months
-      (60 days + 20 hours),
-      false
+      (60 days + 20 hours)
     );
 
     // communityDevelopmentFund pool
@@ -293,8 +274,7 @@ contract PSTAKE is
       uint256(1666667e18),
       17,
       // 3 months
-      (91 days + 6 hours),
-      false
+      (91 days + 6 hours)
     ); */
   }
 
@@ -409,6 +389,11 @@ contract PSTAKE is
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS8");
     // new supply max limit cannot be less than _totalInflatedSupply
     require(supplyMaxLimit >= _totalInflatedSupply, "PS10");
+    // if the total inflated supply has already reached supply max limit then update _lastInflationBlockTime
+    // to restart the inflation cycle again
+    if (_supplyMaxLimit == _totalInflatedSupply) {
+      _lastInflationBlockTime = block.timestamp;
+    }
     _supplyMaxLimit = supplyMaxLimit;
     success = true;
     emit SetSupplyMaxLimit(_msgSender(), supplyMaxLimit);
@@ -457,6 +442,38 @@ contract PSTAKE is
     require(vestingTimelockAddress != address(0), "PS11");
     _vestingTimelockAddress = vestingTimelockAddress;
     emit SetVestingTimelockContract(vestingTimelockAddress);
+  }
+
+  /**
+   * @dev adds a vesting grant initiated by this contract as manager
+   * @param beneficiary beneficiary address
+   * @param startTime start time
+   * @param cliffPeriod initial waiting period
+   * @param instalmentAmount installment amount
+   * @param instalmentCount instalment count
+   * @param instalmentPeriod instalment period
+   *
+   * Emits a {AddGrantAsInstalment} event.
+   */
+  function addVesting(
+    address beneficiary,
+    uint256 startTime,
+    uint256 cliffPeriod,
+    uint256 instalmentAmount,
+    uint256 instalmentCount,
+    uint256 instalmentPeriod
+  ) public virtual override nonReentrant returns (uint256 totalVestingAmount) {
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS12");
+
+    totalVestingAmount = IVestingTimelockV2(_vestingTimelockAddress).addGrant(
+      address(this),
+      beneficiary,
+      startTime,
+      cliffPeriod,
+      instalmentAmount,
+      instalmentCount,
+      instalmentPeriod
+    );
   }
 
   /**

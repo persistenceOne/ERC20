@@ -316,20 +316,21 @@ contract PSTAKE is
 
     if (inflationInstalments > 0) {
       // add inflationPerInstalment to total inflated supply
-      uint256 inflationDiff = _supplyMaxLimit.sub(_totalInflatedSupply);
+      uint256 currentInflationDiff = _supplyMaxLimit.sub(_totalInflatedSupply);
       _totalInflatedSupply = _totalInflatedSupply.add(additionalInflation);
 
       if (_totalInflatedSupply > _supplyMaxLimit) {
         // set totalInflatedSupply as supply max limit
         _totalInflatedSupply = _supplyMaxLimit;
-        _lastInflationBlockTime = 0;
 
         // update the _lastInflationBlockTime value
-        uint256 blockTimeDiff = additionalBlockTime.mulDiv(
-          inflationDiff,
+        uint256 currentBlockTimeDiff = additionalBlockTime.mulDiv(
+          currentInflationDiff,
           additionalInflation
         );
-        _lastInflationBlockTime = _lastInflationBlockTime.add(blockTimeDiff);
+        _lastInflationBlockTime = _lastInflationBlockTime.add(
+          currentBlockTimeDiff
+        );
       } else {
         // update _lastInflationBlockTime with the time period pertaining to inflationInstalments
         _lastInflationBlockTime = _lastInflationBlockTime.add(
@@ -379,6 +380,8 @@ contract PSTAKE is
     // require inflation rate to be not more than 100 since it is a percentage
     require(inflationRate <= _valueDivisor, "PS7");
     require(inflationPeriod > 0, "PS9");
+    // execute check inflation to update the inflation values before setting the inflation
+    _checkInflation();
     // after enabling inflation, one way to arrest inflation can be to set a large inflationPeriod value
     _inflationRate = inflationRate;
     _inflationPeriod = inflationPeriod;
@@ -410,6 +413,8 @@ contract PSTAKE is
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS8");
     // new supply max limit cannot be less than _totalInflatedSupply
     require(supplyMaxLimit >= _totalInflatedSupply, "PS10");
+    // execute check inflation to update the inflation values before setting the inflation
+    _checkInflation();
     // if the total inflated supply has already reached supply max limit then update _lastInflationBlockTime
     // to restart the inflation cycle again
     if (_supplyMaxLimit == _totalInflatedSupply) {

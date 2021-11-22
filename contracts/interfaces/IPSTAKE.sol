@@ -8,6 +8,14 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
  */
 interface IPSTAKE is IERC20Upgradeable {
   /**
+   * @dev checks the inflation and sets the inflation parameters if the inflation cycle has changed
+   *
+   */
+  function checkInflation()
+    external
+    returns (uint256 totalInflatedSupply, uint256 lastInflationBlockTime);
+
+  /**
    * @dev A token holder contract that will allow a beneficiary to extract
    */
   function setInflation(uint256 inflationRate, uint256 inflationPeriod)
@@ -92,4 +100,17 @@ interface IPSTAKE is IERC20Upgradeable {
   );
 
   event SetSupplyMaxLimit(address accountAddress, uint256 supplyMaxLimit);
+
+  event AddGrant(
+    address token,
+    address accountAddress,
+    uint256 startTime,
+    uint256 cliffPeriod,
+    uint256 tokens,
+    uint256 instalmentAmount,
+    uint256 instalmentCount,
+    uint256 instalmentPeriod,
+    address grantManager,
+    uint256 timestamp
+  );
 }

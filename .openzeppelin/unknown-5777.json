@@ -1,25 +1,25 @@
 {
   "manifestVersion": "3.2",
   "admin": {
-    "address": "0x466c7b7B92662f0212cAB30bf2ad12a8c366A688",
-    "txHash": "0xd6f6314e7f22e06052b1e509397aaf8eff24bee82abebf57f8f8486b9c496848"
+    "address": "0xFE877554f6401fA11cA205C4765043059e13975F",
+    "txHash": "0xe62017ce6ef3209567d287521a83386d8a3af311c5dff2844a2f2b65f83ca35f"
   },
   "proxies": [
     {
-      "address": "0x32Fa22A3D3Fbdd7Dc4Fa5Ec4CF75c62151Fc3f9c",
-      "txHash": "0xfae3a5108e90d6cf7f7d89c16d25fe65f176be309bc496afccfe43c7137050e1",
+      "address": "0xc12dd08d46c4b17cf5356Cc0D0DD9e2c2cD012cD",
+      "txHash": "0x93e15b28ebb16e8405a82362e88f85233db66b3ea005d0df970b7274cd32659f",
       "kind": "transparent"
     },
     {
-      "address": "0xa2144FE7D53020cAe0C1B5872A71A44B327cc21f",
-      "txHash": "0x010b3d58143c3c4544eaeec3111db8b2769ee7e606e94a8a7cda87597262ead8",
+      "address": "0x1714B307865727Aea429c555A7ceDE51F040bB09",
+      "txHash": "0x48dadf1129def47663c8b1b76eee17175f2adc28f983eff49f3fc94fbb40f211",
       "kind": "transparent"
     }
   ],
   "impls": {
     "d610737585cca90b03b4e6db46e7e3b329f1f2668f90090d4c7db755d1c02e48": {
-      "address": "0x2D9da1BD8275Ff634F32499C50D3E929bCce364A",
-      "txHash": "0x8dd0b9a2fc5e10d49934336f2e241de78ea9c8b48bef1a8c535759dd25afbcd0",
+      "address": "0x26E0F4ca613bE94285A4cef9701fe7724DD350EE",
+      "txHash": "0x496c7c15affd80a67931400c811e358986e61d0612317e30b78e107dfcd557f2",
       "layout": {
         "storage": [
           {
@@ -91,8 +91,8 @@
           {
             "contract": "VestingTimelockV3",
             "label": "_grantData",
-            "type": "t_mapping(t_address,t_mapping(t_address,t_struct(Grant)5450_storage))",
-            "src": "..\\project:\\contracts\\VestingTimelockV3.sol:70"
+            "type": "t_mapping(t_address,t_mapping(t_address,t_struct(Grant)5580_storage))",
+            "src": "..\\project:\\contracts\\VestingTimelockV3.sol:56"
           }
         ],
         "types": {
@@ -105,13 +105,13 @@
           "t_address": {
             "label": "address"
           },
-          "t_mapping(t_address,t_mapping(t_address,t_struct(Grant)5450_storage))": {
+          "t_mapping(t_address,t_mapping(t_address,t_struct(Grant)5580_storage))": {
             "label": "mapping(address => mapping(address => struct VestingTimelockV3.Grant))"
           },
-          "t_mapping(t_address,t_struct(Grant)5450_storage)": {
+          "t_mapping(t_address,t_struct(Grant)5580_storage)": {
             "label": "mapping(address => struct VestingTimelockV3.Grant)"
           },
-          "t_struct(Grant)5450_storage": {
+          "t_struct(Grant)5580_storage": {
             "label": "struct VestingTimelockV3.Grant",
             "members": [
               {
@@ -224,9 +224,9 @@
         }
       }
     },
-    "89a633320ad8d1cd59d971f8942a947a0e8b2d87e84f825953ba778b0722c3a6": {
-      "address": "0x8c8657F3e9B2A7f58cB4ED9Ce4446bdC79cF31F7",
-      "txHash": "0x43319374a590388a150a5a3f84adef177b7d72e6ef272bf3c9dc59f6c1fcc0c2",
+    "d9c11b7202caae45263488f38ad0cc1fdc250ba5d42b538e0fa5cd1ce253d61a": {
+      "address": "0xfBfdB53acE4B93dE0a959aC3868b125504173913",
+      "txHash": "0x843c3bb899f60078cd34fe410955ad5c38671c813df3af95df7d7d9bb6f86394",
       "layout": {
         "storage": [
           {
@@ -314,124 +314,136 @@
             "src": "..\\@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:225"
           },
           {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "..\\@openzeppelin\\contracts-upgradeable\\utils\\ReentrancyGuardUpgradeable.sol:37"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "..\\@openzeppelin\\contracts-upgradeable\\utils\\ReentrancyGuardUpgradeable.sol:67"
+          },
+          {
             "contract": "PSTAKE",
             "label": "_version",
             "type": "t_uint256",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:27"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:29"
           },
           {
             "contract": "PSTAKE",
             "label": "_valueDivisor",
             "type": "t_uint256",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:28"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:30"
           },
           {
             "contract": "PSTAKE",
             "label": "_airdropPool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:31"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:33"
           },
           {
             "contract": "PSTAKE",
             "label": "_alphaLaunchpadPool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:32"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:34"
           },
           {
             "contract": "PSTAKE",
             "label": "_seedSalePool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:33"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:35"
           },
           {
             "contract": "PSTAKE",
             "label": "_publicSalePool1",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:34"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:36"
           },
           {
             "contract": "PSTAKE",
             "label": "_publicSalePool2",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:35"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:37"
           },
           {
             "contract": "PSTAKE",
             "label": "_publicSalePool3",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:36"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:38"
           },
           {
             "contract": "PSTAKE",
             "label": "_teamPool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:37"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:39"
           },
           {
             "contract": "PSTAKE",
             "label": "_incentivisationPool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:38"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:40"
           },
           {
             "contract": "PSTAKE",
             "label": "_xprtStakersPool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:39"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:41"
           },
           {
             "contract": "PSTAKE",
             "label": "_protocolTreasuryPool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:40"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:42"
           },
           {
             "contract": "PSTAKE",
             "label": "_communityDevelopmentFundPool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:41"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:43"
           },
           {
             "contract": "PSTAKE",
             "label": "_retroactiveRewardProtocolBootstrapPool",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:42"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:44"
           },
           {
             "contract": "PSTAKE",
             "label": "_vestingTimelockAddress",
             "type": "t_address",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:45"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:47"
           },
           {
             "contract": "PSTAKE",
             "label": "_totalInflatedSupply",
             "type": "t_uint256",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:48"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:50"
           },
           {
             "contract": "PSTAKE",
             "label": "_inflationRate",
             "type": "t_uint256",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:49"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:51"
           },
           {
             "contract": "PSTAKE",
             "label": "_inflationPeriod",
             "type": "t_uint256",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:50"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:52"
           },
           {
             "contract": "PSTAKE",
             "label": "_lastInflationBlockTime",
             "type": "t_uint256",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:51"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:53"
           },
           {
             "contract": "PSTAKE",
             "label": "_supplyMaxLimit",
             "type": "t_uint256",
-            "src": "..\\project:\\contracts\\PSTAKE.sol:52"
+            "src": "..\\project:\\contracts\\PSTAKE.sol:54"
           }
         ],
         "types": {
@@ -440,6 +452,9 @@
           },
           "t_address": {
             "label": "address"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
           },
           "t_mapping(t_bytes32,t_struct(RoleData)39_storage)": {
             "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
@@ -487,9 +502,6 @@
           },
           "t_mapping(t_bytes32,t_uint256)": {
             "label": "mapping(bytes32 => uint256)"
-          },
-          "t_array(t_uint256)49_storage": {
-            "label": "uint256[49]"
           },
           "t_bool": {
             "label": "bool"

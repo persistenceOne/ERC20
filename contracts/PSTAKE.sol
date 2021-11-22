@@ -4,6 +4,7 @@ pragma solidity >=0.7.0;
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
 import "./libraries/FullMath.sol";
 import "./interfaces/IVestingTimelockV2.sol";
@@ -13,7 +14,8 @@ contract PSTAKE is
   IPSTAKE,
   ERC20Upgradeable,
   PausableUpgradeable,
-  AccessControlUpgradeable
+  AccessControlUpgradeable,
+  ReentrancyGuardUpgradeable
 {
   // including libraries
   using SafeMathUpgradeable for uint256;
@@ -283,13 +285,16 @@ contract PSTAKE is
    * Emits a {CheckInflation} event with 'block height', 'inflationComponent', and 'timestamp'.
    *
    */
-  function _checkInflation() internal returns (uint256 totalInflatedSupply) {
+  function _checkInflation()
+    internal
+    returns (uint256 totalInflatedSupply, uint256 lastInflationBlockTime)
+  {
     // if the _totalInflatedSupply has already reacted _supplyMaxLimit or inflation properties not set, then return
     if (
       _totalInflatedSupply >= _supplyMaxLimit ||
       _inflationRate == 0 ||
       _inflationPeriod == 0
-    ) return (totalInflatedSupply);
+    ) return (totalInflatedSupply, lastInflationBlockTime);
 
     // get the time since last inflation
     uint256 timeSinceLastInflation = (block.timestamp).sub(
@@ -332,6 +337,8 @@ contract PSTAKE is
         );
       }
 
+      lastInflationBlockTime = _lastInflationBlockTime;
+
       // emit an event
       emit CheckInflation(
         _lastInflationBlockTime,
@@ -341,6 +348,20 @@ contract PSTAKE is
     }
 
     totalInflatedSupply = _totalInflatedSupply;
+  }
+
+  /**
+   * @dev checks the inflation and sets the inflation parameters if the inflation cycle has changed
+   *
+   */
+  function checkInflation()
+    public
+    virtual
+    override
+    returns (uint256 totalInflatedSupply, uint256 lastInflationBlockTime)
+  {
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS13");
+    (totalInflatedSupply, lastInflationBlockTime) = _checkInflation();
   }
 
   /**
@@ -453,7 +474,7 @@ contract PSTAKE is
    * @param instalmentCount instalment count
    * @param instalmentPeriod instalment period
    *
-   * Emits a {AddGrantAsInstalment} event.
+   * Emits a {AddVesting} event.
    */
   function addVesting(
     address beneficiary,
@@ -473,6 +494,19 @@ contract PSTAKE is
       instalmentAmount,
       instalmentCount,
       instalmentPeriod
+    );
+
+    emit AddGrant(
+      address(this),
+      beneficiary,
+      startTime,
+      cliffPeriod,
+      totalVestingAmount,
+      instalmentAmount,
+      instalmentCount,
+      instalmentPeriod,
+      _msgSender(),
+      block.timestamp
     );
   }
 

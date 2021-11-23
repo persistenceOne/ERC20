@@ -48,6 +48,7 @@ interface IPSTAKE is IERC20Upgradeable {
     returns (
       uint256 totalInflatedSupply,
       uint256 inflationRate,
+      uint256 valueDivisor,
       uint256 inflationPeriod,
       uint256 lastInflationBlockTime,
       uint256 supplyMaxLimit

@@ -54,9 +54,9 @@ contract PSTAKE is
   uint256 public override _supplyMaxLimit;
 
   // constants for value allocation
-  uint256 public constant INFLATION_RATE = uint256(15e7);
-  uint256 public constant INFLATION_PERIOD = 365 days;
   uint256 public constant VALUE_DIVISOR = uint256(1e9);
+  uint256 public constant INFLATION_RATE = uint256(15e9);
+  uint256 public constant INFLATION_PERIOD = 365 days;
   uint256 public constant SUPPLY_AT_GENESIS = uint256(500000000e18);
   uint256 public constant TOTAL_VESTED_SUPPLY = uint256(450111111e18);
   uint256 public constant SUPPLY_MAX_LIMIT = uint256(1250000000e18);
@@ -376,6 +376,7 @@ contract PSTAKE is
     returns (
       uint256 totalInflatedSupply,
       uint256 inflationRate,
+      uint256 valueDivisor,
       uint256 inflationPeriod,
       uint256 lastInflationBlockTime,
       uint256 supplyMaxLimit
@@ -384,6 +385,7 @@ contract PSTAKE is
     return (
       _totalInflatedSupply,
       _inflationRate,
+      _valueDivisor,
       _inflationPeriod,
       _lastInflationBlockTime,
       _supplyMaxLimit
@@ -403,19 +405,19 @@ contract PSTAKE is
   {
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS0");
     // require inflation rate to be not more than 100 since it is a percentage
-    require(inflationRate <= 100, "PS7");
+    require(inflationRate <= _valueDivisor.mul(100), "PS7");
     require(inflationPeriod > 0, "PS9");
     // execute check inflation to update the inflation values before setting the inflation
     _checkInflation();
     // after enabling inflation, one way to arrest inflation can be to set a large inflationPeriod value
-    _inflationRate = inflationRate.mul(_valueDivisor);
+    _inflationRate = inflationRate;
     _inflationPeriod = inflationPeriod;
     // if this is the first time inflation values are being set (inflation activation) then
     // initialize _totalInflatedSupply with the inflated value and update _lastInflationBlockTime
     // the inflation cycle begins just as these values are set
     if (_lastInflationBlockTime == 0) {
       _totalInflatedSupply = _totalInflatedSupply.add(
-        _totalInflatedSupply.mulDiv(_inflationRate, _valueDivisor)
+        (_totalInflatedSupply.mulDiv(_inflationRate, _valueDivisor)).div(100)
       );
       _lastInflationBlockTime = block.timestamp;
     }

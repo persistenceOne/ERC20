@@ -47,11 +47,11 @@ contract PSTAKE is
   address public _vestingTimelockAddress;
 
   // total inflated supply and the supply limit component to implement inflation
-  uint256 public _totalInflatedSupply;
+  uint256 public override _totalInflatedSupply;
   uint256 public _inflationRate;
   uint256 public _inflationPeriod;
-  uint256 public _lastInflationBlockTime;
-  uint256 public _supplyMaxLimit;
+  uint256 public override _lastInflationBlockTime;
+  uint256 public override _supplyMaxLimit;
 
   // constants for value allocation
   uint256 public constant INFLATION_RATE = uint256(15e7);
@@ -294,7 +294,7 @@ contract PSTAKE is
       _totalInflatedSupply >= _supplyMaxLimit ||
       _inflationRate == 0 ||
       _inflationPeriod == 0
-    ) return (totalInflatedSupply, lastInflationBlockTime);
+    ) return (_totalInflatedSupply, _lastInflationBlockTime);
 
     // get the time since last inflation
     uint256 timeSinceLastInflation = (block.timestamp).sub(
@@ -302,10 +302,9 @@ contract PSTAKE is
     );
 
     // get the inflation amount for one cycle of inflation period
-    uint256 inflationPerInstalment = uint256(SUPPLY_AT_GENESIS).mulDiv(
-      _inflationRate,
-      _valueDivisor
-    );
+    uint256 inflationPerInstalment = (
+      uint256(SUPPLY_AT_GENESIS).mulDiv(_inflationRate, _valueDivisor)
+    ).div(100);
 
     // get the number of cycles/instalments of inflation that are pending to be updated
     uint256 inflationInstalments = timeSinceLastInflation.div(_inflationPeriod);
@@ -313,18 +312,19 @@ contract PSTAKE is
       inflationPerInstalment
     );
     uint256 additionalBlockTime = inflationInstalments.mul(_inflationPeriod);
+    uint256 currentInflationDiff;
+    uint256 currentBlockTimeDiff;
 
     if (inflationInstalments > 0) {
-      // add inflationPerInstalment to total inflated supply
-      uint256 currentInflationDiff = _supplyMaxLimit.sub(_totalInflatedSupply);
-      _totalInflatedSupply = _totalInflatedSupply.add(additionalInflation);
+      // add additional instalment to total inflated supply and update last Inflation BlockTime
+      if (_totalInflatedSupply.add(additionalInflation) > _supplyMaxLimit) {
+        currentInflationDiff = _supplyMaxLimit.sub(_totalInflatedSupply);
 
-      if (_totalInflatedSupply > _supplyMaxLimit) {
         // set totalInflatedSupply as supply max limit
         _totalInflatedSupply = _supplyMaxLimit;
 
         // update the _lastInflationBlockTime value
-        uint256 currentBlockTimeDiff = additionalBlockTime.mulDiv(
+        currentBlockTimeDiff = additionalBlockTime.mulDiv(
           currentInflationDiff,
           additionalInflation
         );
@@ -333,12 +333,11 @@ contract PSTAKE is
         );
       } else {
         // update _lastInflationBlockTime with the time period pertaining to inflationInstalments
+        _totalInflatedSupply = _totalInflatedSupply.add(additionalInflation);
         _lastInflationBlockTime = _lastInflationBlockTime.add(
           additionalBlockTime
         );
       }
-
-      lastInflationBlockTime = _lastInflationBlockTime;
 
       // emit an event
       emit CheckInflation(
@@ -348,6 +347,7 @@ contract PSTAKE is
       );
     }
 
+    lastInflationBlockTime = _lastInflationBlockTime;
     totalInflatedSupply = _totalInflatedSupply;
   }
 
@@ -366,9 +366,34 @@ contract PSTAKE is
   }
 
   /**
+   * @dev returns the properties pertaining to inflation
+   */
+  function getInflation()
+    public
+    view
+    virtual
+    override
+    returns (
+      uint256 totalInflatedSupply,
+      uint256 inflationRate,
+      uint256 inflationPeriod,
+      uint256 lastInflationBlockTime,
+      uint256 supplyMaxLimit
+    )
+  {
+    return (
+      _totalInflatedSupply,
+      _inflationRate,
+      _inflationPeriod,
+      _lastInflationBlockTime,
+      _supplyMaxLimit
+    );
+  }
+
+  /**
    * @dev Set inflation
-   * @param inflationRate: inflation rate.
-   *
+   * @param inflationRate: inflation rate given as value between 0 and 100
+   * @param inflationPeriod: inflation cycle in seconds
    */
   function setInflation(uint256 inflationRate, uint256 inflationPeriod)
     public
@@ -378,12 +403,12 @@ contract PSTAKE is
   {
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS0");
     // require inflation rate to be not more than 100 since it is a percentage
-    require(inflationRate <= _valueDivisor, "PS7");
+    require(inflationRate <= 100, "PS7");
     require(inflationPeriod > 0, "PS9");
     // execute check inflation to update the inflation values before setting the inflation
     _checkInflation();
     // after enabling inflation, one way to arrest inflation can be to set a large inflationPeriod value
-    _inflationRate = inflationRate;
+    _inflationRate = inflationRate.mul(_valueDivisor);
     _inflationPeriod = inflationPeriod;
     // if this is the first time inflation values are being set (inflation activation) then
     // initialize _totalInflatedSupply with the inflated value and update _lastInflationBlockTime
@@ -491,7 +516,13 @@ contract PSTAKE is
   ) public virtual override nonReentrant returns (uint256 totalVestingAmount) {
     require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS12");
 
-    totalVestingAmount = IVestingTimelockV2(_vestingTimelockAddress).addGrant(
+    totalVestingAmount = instalmentAmount.mul(instalmentCount);
+
+    // get approval for transfer of total vesting amount if not already there
+    if (totalVestingAmount > allowance(address(this), _vestingTimelockAddress))
+      _approve(address(this), _vestingTimelockAddress, totalVestingAmount);
+
+    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
       address(this),
       beneficiary,
       startTime,

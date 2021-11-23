@@ -10,19 +10,19 @@ interface IVestingTimelockV3 {
    * @param token_: address of token
    * @param beneficiary_: address of beneficiary
    */
-  function getGrant(address token_, address beneficiary_)
+  function _grantData(address token_, address beneficiary_)
     external
     returns (
-      uint256 startTime,
-      uint256 endTime,
-      uint256 cliffPeriod,
       bool isActive,
+      uint32 cliffPeriod,
+      uint32 instalmentPeriod,
+      uint48 startTime,
+      uint48 endTime,
+      uint48 lastClaimedTime,
+      uint40 instalmentCount,
       uint256 instalmentAmount,
-      uint256 instalmentCount,
-      uint256 instalmentPeriod,
       uint256 amountReceived,
-      address grantManager,
-      uint256 lastClaimedTimestamp
+      address grantManager
     );
 
   /**

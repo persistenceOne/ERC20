@@ -8,12 +8,50 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
  */
 interface IPSTAKE is IERC20Upgradeable {
   /**
+   * @dev getter method created from variable definition
+   *
+   */
+  function _lastInflationBlockTime()
+    external
+    view
+    returns (uint256 lastInflationBlockTime);
+
+  /**
+   * @dev getter method created from variable definition
+   *
+   */
+  function _totalInflatedSupply()
+    external
+    view
+    returns (uint256 totalInflatedSupply);
+
+  /**
+   * @dev getter method created from variable definition
+   *
+   */
+  function _supplyMaxLimit() external view returns (uint256 supplyMaxLimit);
+
+  /**
    * @dev checks the inflation and sets the inflation parameters if the inflation cycle has changed
    *
    */
   function checkInflation()
     external
     returns (uint256 totalInflatedSupply, uint256 lastInflationBlockTime);
+
+  /**
+   * @dev returns the properties pertaining to inflation
+   */
+  function getInflation()
+    external
+    view
+    returns (
+      uint256 totalInflatedSupply,
+      uint256 inflationRate,
+      uint256 inflationPeriod,
+      uint256 lastInflationBlockTime,
+      uint256 supplyMaxLimit
+    );
 
   /**
    * @dev A token holder contract that will allow a beneficiary to extract

@@ -36,7 +36,7 @@ contract VestingTimelockV3 is
   // variable pertaining to contract upgrades versioning
   uint256 public _version;
 
-  mapping(address => uint256) public _grantCount;
+  // mapping(address => uint256) public _grantCount;
 
   // Vesting grant parameters (tightly packed)
   struct Grant {
@@ -53,7 +53,7 @@ contract VestingTimelockV3 is
   }
 
   // ID from the token and beneficiary
-  mapping(address => mapping(address => Grant)) public _grantData;
+  mapping(address => mapping(address => Grant)) public override _grantData;
 
   /**
    * @dev Constructor for initializing the Vesting Timelock contract.
@@ -78,7 +78,7 @@ contract VestingTimelockV3 is
    * @param token_: address of token
    * @param beneficiary_: address of beneficiary
    */
-  function getGrant(address token_, address beneficiary_)
+  /* function getGrant(address token_, address beneficiary_)
     public
     view
     virtual
@@ -110,7 +110,7 @@ contract VestingTimelockV3 is
       grant.grantManager,
       uint256(grant.lastClaimedTime)
     );
-  }
+  } */
 
   /**
    * @dev calculate the pending time in the currently vesting installment

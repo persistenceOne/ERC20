@@ -21,14 +21,15 @@ const { ZWeb3 } = require('zos-lib');
 const BigNumber = require('big-number');
 
 ZWeb3.initialize(web3.currentProvider);
-const VestingTimelockV2 = artifacts.require('VestingTimelockV2');
+const VestingTimelockV3 = artifacts.require('VestingTimelockV3');
 const PSTAKE = artifacts.require('PSTAKE');
 
-let grantAdminAddress_ = "0x811F34E9Ad663a3E56A2deFAE73EA81eE89a80E6";
+let grantAdminAddress_ = "0xedC1434AaD72FE6eFD1C559124749cF7202C196E";
 let pauseAdmin = accounts[0];
 
-let admin = "0x811F34E9Ad663a3E56A2deFAE73EA81eE89a80E6";
-let otherAddress = "0xB0931cd7801F94DDfEa514b4E4A06c94Fa656BFb";
+let admin = "0xedC1434AaD72FE6eFD1C559124749cF7202C196E";
+let otherAddress = "0x03dc4e3B24B55932CfC099ac24276dE59A88C55B";
+let zeroAddress = "0x0000000000000000000000000000000000000000"
 
 describe('pSTAKE', () => {
     let totalAmount = new BN(1000000000000);
@@ -37,44 +38,78 @@ describe('pSTAKE', () => {
     let inflationRate = new BN(3000000);
     let inflationRate_ = new BN(12000000000);
     let inflationPeriod = new BN(1);
+    let zero = new BN(0);
+    let divisor = BigNumber("1000000000000")
     let toAddress = accounts[4];
-    let vestingTimelockV2;
+    let startTime = 1636521174;  //Wed Nov 10 2021 05:12:54 GMT+0000
+    let cliffPeriod = 86400;  //1 Day
+    let instalmentAmount = new BN(10000);
+    let instalmentCount_ = 3;
+    let installmentPeriod_ = 3600 //1 Hour
+    let vestingTimelockV3;
     let pStake;
 
 
     beforeEach(async function () {
         this.project = await TestHelper()
-        vestingTimelockV2 = await deployProxy(VestingTimelockV2, [pauseAdmin, grantAdminAddress_], { initializer: 'initialize' });
+        vestingTimelockV3 = await deployProxy(VestingTimelockV3, [pauseAdmin, grantAdminAddress_], { initializer: 'initialize' });
 
         pStake = await deployProxy(PSTAKE, [admin,admin,admin,admin,admin,admin,admin,admin,admin,admin,admin,admin,admin], { initializer: 'initialize' });
        // console.log("pstake deployed: ", pStake.address)
     });
 
     describe("Inflation Rate", function () {
-        it("Malicious/illegitimate actor cannot set inflation rate: ", async function () {
-            await expectRevert(pStake.setInflation(
-                inflationRate, inflationPeriod,
-                {from: otherAddress}), "PS0");
-        });
 
-        it("Inflation rate to be not more than 100: ", async function () {
-            await expectRevert(pStake.setInflation(
-                inflationRate_, inflationPeriod,
-                {from: admin}), "PS7");
-        });
-
-        it("Set inflation rate: ", async function () {
-
-            let set =  await pStake.setInflation(
-                inflationRate, inflationPeriod,
-                {from: admin});
-
-            expectEvent(set, "SetInflationRate", {
-                inflationRate: inflationRate,
-                inflationPeriod: inflationPeriod
+        describe("Check Inflation", function () {
+            it("Malicious/illegitimate actor cannot check inflation: ", async function () {
+                await expectRevert(pStake.checkInflation({from: otherAddress}), "PS13");
             });
-            // TEST SCENARIO END
-        }, 200000);
+
+            it("Only admin can check inflation: ", async function () {
+                await pStake.checkInflation({from: admin});
+            });
+        })
+
+        describe("Set Inflation", function () {
+            it("Malicious/illegitimate actor cannot set inflation rate: ", async function () {
+                await expectRevert(pStake.setInflation(
+                    inflationRate, inflationPeriod,
+                    {from: otherAddress}), "PS0");
+            });
+
+            it("Inflation rate can be 0: ", async function () {
+                let set = await pStake.setInflation(zero, inflationPeriod,{from: admin});
+                expectEvent(set, "SetInflationRate", {
+                    inflationRate: zero,
+                    inflationPeriod: inflationPeriod
+                });
+            });
+
+            it("Inflation rate cannot be grater than value divisor: ", async function () {
+                await expectRevert(pStake.setInflation(
+                    divisor, inflationPeriod,
+                    {from: admin}), "PS7");
+            });
+
+            it("Inflation period cannot be 0: ", async function () {
+                await expectRevert(pStake.setInflation(
+                    inflationRate_, zero,
+                    {from: admin}), "PS9");
+            });
+
+            it("Set inflation rate: ", async function () {
+
+                let set =  await pStake.setInflation(
+                    inflationRate, inflationPeriod,
+                    {from: admin});
+
+                expectEvent(set, "SetInflationRate", {
+                    inflationRate: inflationRate,
+                    inflationPeriod: inflationPeriod
+                });
+                // TEST SCENARIO END
+            }, 200000);
+        })
     });
 
     describe("Set Supply Max Limit", function () {
@@ -90,6 +125,13 @@ describe('pSTAKE', () => {
 
             await expectRevert(pStake.setSupplyMaxLimit(
                 totalAmount,
+                {from: admin}), "PS10");
+        });
+
+        it("New supply cannot be 0", async function () {
+
+            await expectRevert(pStake.setSupplyMaxLimit(
+                zero,
                 {from: admin}), "PS10");
         });
 
@@ -113,6 +155,13 @@ describe('pSTAKE', () => {
                 {from: otherAddress}), "PS1");
         });
 
+        it("TOADDRESS cannot be 0x00", async function () {
+            await expectRevert(pStake.mint(
+                zeroAddress,
+                amount,
+                {from: admin}), "PS2");
+        });
+
         it("Mint", async function () {
             let set =  await pStake.setInflation(
                 inflationRate, inflationPeriod,
@@ -132,4 +181,38 @@ describe('pSTAKE', () => {
             });
         });
     });
+
+    describe("Setting vesting timelock contract", function () {
+        it("Only admin can set the contract address", async function () {
+            await expectRevert(pStake.setVestingTimelockContract(
+                vestingTimelockV3.address,
+                {from: otherAddress}), "PS6");
+        });
+
+        it("Vesting timelock address cannot be 0x00", async function () {
+            await expectRevert(pStake.setVestingTimelockContract(
+                zeroAddress,
+                {from: admin}), "PS11");
+        });
+
+        it("Set vesting timelock contract: ", async function () {
+
+            let set =  await pStake.setVestingTimelockContract(
+                vestingTimelockV3.address,
+                {from: admin});
+
+            expectEvent(set, "SetVestingTimelockContract", {
+                vestingTimelockAddress: vestingTimelockV3.address
+            });
+            // TEST SCENARIO END
+        }, 200000);
+    })
+
+    describe("Add Vesting", function () {
+        it("Only admin can add vesting", async function () {
+            await expectRevert(pStake.addVesting(
+                otherAddress, startTime, cliffPeriod, instalmentAmount, instalmentCount_, inflationPeriod,
+                {from: otherAddress}), "PS12");
+        });
+    })
 });

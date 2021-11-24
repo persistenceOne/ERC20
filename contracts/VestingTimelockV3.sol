@@ -245,7 +245,14 @@ contract VestingTimelockV3 is
     uint256 instalmentAmount_,
     uint256 instalmentCount_,
     uint256 instalmentPeriod_
-  ) public virtual override nonReentrant returns (uint256 totalVestingAmount) {
+  )
+    public
+    virtual
+    override
+    nonReentrant
+    whenNotPaused
+    returns (uint256 totalVestingAmount)
+  {
     // Require statements to for transaction sanity check
     require(
       token_ != address(0) &&

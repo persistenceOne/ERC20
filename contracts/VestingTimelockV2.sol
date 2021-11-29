@@ -427,7 +427,7 @@ contract VestingTimelockV2 is
    * @param instalmentCount_: instalment count
    * @param instalmentPeriod_: instalment period
    *
-   * Emits a {AddGrantAsInstalment} event.
+   * Emits a {AddGrant} event.
    */
   function addGrant(
     address token_,
@@ -453,23 +453,23 @@ contract VestingTimelockV2 is
         instalmentCount_ < 1200 &&
         // max limit of instalment period is 10 years (in seconds)
         instalmentPeriod_ < (3650 days),
-      "VT3"
+      "VT2"
     );
 
-    // require instalmentPeriod to be set when the instalmentCount is more than 1
-    require(!(instalmentCount_ > 1 && instalmentPeriod_ == 0), "VT18");
+    // check instalmentPeriod to be set when the instalmentCount is more than 1
+    require(!(instalmentCount_ > 1 && instalmentPeriod_ == 0), "VT3");
 
     // check the calling address has suffecient tokens and then transfer tokens to this contract
     totalVestingAmount = instalmentAmount_.mul(instalmentCount_);
     require(
       IERC20Upgradeable(token_).balanceOf(_msgSender()) >= totalVestingAmount,
-      "VT11"
+      "VT4"
     );
 
     // check if the grant is not already active
     uint256 existingID = _grantID[token_][beneficiary_];
     // check if an existing active grant is not already in effect
-    require(!_isActive[existingID], "VT17");
+    require(!_isActive[existingID], "VT5");
 
     IERC20Upgradeable(token_).safeTransferFrom(
       _msgSender(),
@@ -513,17 +513,15 @@ contract VestingTimelockV2 is
   /**
    * @dev Revoke grant tokens held by timelock to beneficiary.
    * @param id_: user id
-   *
-   * Emits a {AddGrantAsInstalment} event.
    */
   function _revokeGrant(uint256 id_)
     internal
     returns (uint256 remainingAmount)
   {
-    // require the end date for grant to not have passed
+    // check the end date for grant to not have passed
     require(
       _isActive[id_] && _lastClaimedTimestamp[id_] < _endTime[id_],
-      "VT4"
+      "VT6"
     );
 
     (remainingAmount, , ) = _getRemaining(id_);
@@ -545,8 +543,8 @@ contract VestingTimelockV2 is
     nonReentrant
     returns (uint256 remainingAmount)
   {
-    // require beneficiary not be address(0)
-    require(token_ != address(0) && beneficiary_ != (address(0)), "VT5");
+    // checl beneficiary not be address(0)
+    require(token_ != address(0) && beneficiary_ != (address(0)), "VT7");
 
     // get the ID and retrieve grantManager to compare with the msgSender()
     uint256 id = _grantID[token_][beneficiary_];
@@ -558,7 +556,7 @@ contract VestingTimelockV2 is
       _msgSender() == beneficiary_ ||
         _msgSender() == grantManager ||
         hasRole(GRANT_ADMIN_ROLE, _msgSender()),
-      "VT6"
+      "VT9"
     );
 
     // find the remaining amount after revoke and transfer it back to the grant manager
@@ -593,7 +591,7 @@ contract VestingTimelockV2 is
     nonReentrant
     returns (uint256 remainingAmount)
   {
-    require(id_ != 0, "VT15");
+    require(id_ != 0, "VT10");
     // get grantManager and beneficiary
     address grantManager = _grantManager[id_];
     address beneficiary = _beneficiary[id_];
@@ -603,7 +601,7 @@ contract VestingTimelockV2 is
       _msgSender() == beneficiary ||
         _msgSender() == grantManager ||
         hasRole(GRANT_ADMIN_ROLE, _msgSender()),
-      "VT16"
+      "VT11"
     );
 
     // find the remaining amount after revoke and transfer it back to the grant manager
@@ -644,12 +642,12 @@ contract VestingTimelockV2 is
     whenNotPaused
     returns (uint256 pendingAmount)
   {
-    // require beneficiary not be address(0)
-    require(token_ != address(0) && beneficiary_ != (address(0)), "VT8");
+    // check beneficiary not be address(0)
+    require(token_ != address(0) && beneficiary_ != (address(0)), "VT12");
 
     // get the ID and grant manager from the grant data
     uint256 id = _grantID[token_][beneficiary_];
-    require(id != 0, "VT9");
+    require(id != 0, "VT13");
     address grantManager = _grantManager[id];
 
     // Grant can be revoked by the beneficiary, grant manager or GRANT ADMIN defined in the contract
@@ -657,14 +655,14 @@ contract VestingTimelockV2 is
       _msgSender() == beneficiary_ ||
         _msgSender() == grantManager ||
         hasRole(GRANT_ADMIN_ROLE, _msgSender()),
-      "VT10"
+      "VT14"
     );
 
-    // require the grant to be active and vesting amount still pending to be credited to beneficiary for claiming
+    // check the grant to be active and vesting amount still pending to be credited to beneficiary for claiming
     require(
       _isActive[id] &&
         (_instalmentAmount[id].mul(_instalmentCount[id]) > _amountReceived[id]),
-      "VT12"
+      "VT15"
     );
 
     // get the pending amount to be credited to beneficiary
@@ -696,7 +694,7 @@ contract VestingTimelockV2 is
   function pause() public virtual override returns (bool success) {
     require(
       hasRole(PAUSER_ROLE, _msgSender()),
-      "VT19"
+      "VT16"
     );
     _pause();
     return true;
@@ -712,7 +710,7 @@ contract VestingTimelockV2 is
   function unpause() public virtual override returns (bool success) {
     require(
       hasRole(PAUSER_ROLE, _msgSender()),
-      "VT20"
+      "VT17"
     );
     _unpause();
     return true;

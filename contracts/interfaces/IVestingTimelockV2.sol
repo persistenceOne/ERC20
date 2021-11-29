@@ -5,6 +5,7 @@ pragma solidity >=0.7.0;
  * @dev Interface of the IVestingTimelockV2.
  */
 interface IVestingTimelockV2 {
+
   /**
    * @dev Get the details of the vesting grant for a user
    * @param token_: address of token
@@ -95,7 +96,17 @@ interface IVestingTimelockV2 {
     );
 
   /**
-   * @notice Transfers tokens held by beneficiary to timelock.
+   * @dev Transfers tokens held by beneficiary to timelock in installments
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   * @param startTime_: start time
+   * @param cliffPeriod_: initial waiting period
+   * @param instalmentAmount_: installment amount
+   * @param instalmentCount_: instalment count
+   * @param instalmentPeriod_: instalment period
+   *
+   * Emits a {AddGrant} event.
+   *
    */
   function addGrant(
     address token_,
@@ -108,7 +119,11 @@ interface IVestingTimelockV2 {
   ) external returns (uint256 instalmentAmount);
 
   /**
-   * @notice revokeGrant tokens held by timelock to beneficiary.
+   * @dev Revoke grant tokens held by timelock to beneficiary.
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   *
+   * Emits a {RevokeGrant} event.
    */
   function revokeGrant(address token_, address beneficiary_)
     external
@@ -124,9 +139,13 @@ interface IVestingTimelockV2 {
     external
     returns (uint256 remainingAmount);
 
-  /**
-   * @notice Transfers tokens held by timelock to beneficiary.
-   */
+   /**
+    * @dev Transfers tokens held by timelock to beneficiary.
+    * @param token_: token address
+    * @param beneficiary_: beneficiary address
+    *
+    * Emits a {ClaimGrant} event.
+    */
   function claimGrant(address token_, address beneficiary_)
     external
     returns (uint256 pendingAmount);
@@ -149,6 +168,9 @@ interface IVestingTimelockV2 {
    */
   function unpause() external returns (bool success);
 
+  /**
+   * @dev Emitted when grant is added
+  */
   event AddGrant(
     uint256 id,
     address token,
@@ -163,6 +185,9 @@ interface IVestingTimelockV2 {
     uint256 timestamp
   );
 
+  /**
+   * @dev Emitted when grant is revoked
+  */
   event RevokeGrant(
     uint256 id,
     address token,
@@ -173,6 +198,9 @@ interface IVestingTimelockV2 {
     uint256 timestamp
   );
 
+  /**
+   * @dev Emitted when grant is claimed
+  */
   event ClaimGrant(
     uint256 id,
     address token,

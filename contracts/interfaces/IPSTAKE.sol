@@ -7,6 +7,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
  * @dev Interface of the IPSTAKE.
  */
 interface IPSTAKE is IERC20Upgradeable {
+
   /**
    * @dev getter method created from variable definition
    *
@@ -54,9 +55,14 @@ interface IPSTAKE is IERC20Upgradeable {
       uint256 supplyMaxLimit
     );
 
-  /**
-   * @dev A token holder contract that will allow a beneficiary to extract
-   */
+   /**
+    * @dev Set inflation
+    * @param inflationRate: inflation rate given as value between 0 and 100
+    * @param inflationPeriod: inflation cycle in seconds
+    *
+    * Emits a {SetInflationRate} event.
+    *
+    */
   function setInflation(uint256 inflationRate, uint256 inflationPeriod)
     external
     returns (bool success);
@@ -64,6 +70,8 @@ interface IPSTAKE is IERC20Upgradeable {
   /**
    * @dev Set supply max limit of the inflation component
    * @param supplyMaxLimit: supply max limit value
+   *
+   * Emits a {SetSupplyMaxLimit} event.
    *
    */
   function setSupplyMaxLimit(uint256 supplyMaxLimit)
@@ -82,20 +90,20 @@ interface IPSTAKE is IERC20Upgradeable {
   /**
    * @dev Set 'contract address', called from constructor
    * @param vestingTimelockAddress: VestingTimelockcontract address
+   *
    * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.
+   *
    */
   function setVestingTimelockContract(address vestingTimelockAddress) external;
 
   /**
    * @dev adds a vesting grant initiated by this contract as manager
-   * @param beneficiary beneficiary address
-   * @param startTime start time
-   * @param cliffPeriod initial waiting period
-   * @param instalmentAmount installment amount
-   * @param instalmentCount instalment count
-   * @param instalmentPeriod instalment period
-   *
-   * Emits a {AddGrantAsInstalment} event.
+   * @param beneficiary: beneficiary address
+   * @param startTime: start time
+   * @param cliffPeriod: initial waiting period
+   * @param instalmentAmount: installment amount
+   * @param instalmentCount: instalment count
+   * @param instalmentPeriod: instalment period
    */
   function addVesting(
     address beneficiary,
@@ -124,32 +132,31 @@ interface IPSTAKE is IERC20Upgradeable {
    */
   function unpause() external returns (bool success);
 
+  /**
+   * @dev Emitted when checkInflation() is called
+   */
   event CheckInflation(
     uint256 lastInflationBlockTime,
     uint256 inflationAdded,
     uint256 timestamp
   );
 
+  /**
+   * @dev Emitted when setting vesting timelock contract address
+   */
   event SetVestingTimelockContract(address vestingTimelockAddress);
 
+  /**
+   * @dev Emitted when setting inflation rate
+   */
   event SetInflationRate(
     address accountAddress,
     uint256 inflationRate,
     uint256 inflationPeriod
   );
 
+  /**
+   * @dev Emitted when setting max limit supply
+   */
   event SetSupplyMaxLimit(address accountAddress, uint256 supplyMaxLimit);
-
-  event AddGrant(
-    address token,
-    address accountAddress,
-    uint256 startTime,
-    uint256 cliffPeriod,
-    uint256 tokens,
-    uint256 instalmentAmount,
-    uint256 instalmentCount,
-    uint256 instalmentPeriod,
-    address grantManager,
-    uint256 timestamp
-  );
 }

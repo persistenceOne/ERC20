@@ -17,6 +17,8 @@ contract XPRT is ERC20Upgradeable, PausableUpgradeable, AccessControlUpgradeable
    * @dev Constructor for initializing the UToken contract.
    * @param bridgeAdminAddress - address of the bridge admin.
    * @param pauserAddress - address of the pauser admin.
+   * @param preAllocationAddress - address for pre-allocation.
+   * @param preAllocationTokens - token amount for pre-allocation.
    */
     function initialize(address bridgeAdminAddress, address pauserAddress, address preAllocationAddress, uint256 preAllocationTokens) public virtual initializer {
         __ERC20_init("Persistence XPRT", "XPRT");
@@ -31,34 +33,26 @@ contract XPRT is ERC20Upgradeable, PausableUpgradeable, AccessControlUpgradeable
 
     /**
     * @dev Mint new utokens for the provided 'address' and 'amount'
-    * @param to: account address, amount: number of tokens
+    * @param to: account address, tokens: number of tokens
     *
-    * Emits a {MintTokens} event with 'to' set to address and 'amount' set to amount of tokens.
-    *
-    * Requirements:
-    *
-    * - `amount` cannot be less than zero.
+    * Emits a {Transfer} event with 'to' set to address and 'amount' set to amount of tokens.
     *
     */
     function mint(address to, uint256 tokens) public virtual whenNotPaused returns (bool success) {
-        require(hasRole(BRIDGE_ADMIN_ROLE, _msgSender()), "XPRT: User not authorised to mint tokens");
+        require(hasRole(BRIDGE_ADMIN_ROLE, _msgSender()), "XPRT1");
         _mint(to, tokens);
         return true;
     }
 
     /*
      * @dev Burn utokens for the provided 'address' and 'amount'
-     * @param to: account address, amount: number of tokens
+     * @param from: account address, tokens: number of tokens
      *
-     * Emits a {BurnTokens} event with 'to' set to address and 'amount' set to amount of tokens.
-     *
-     * Requirements:
-     *
-     * - `amount` cannot be less than zero.
+     * Emits a {Transfer} event with 'to' set to address and 'amount' set to amount of tokens.
      *
      */
     function burn(address from, uint256 tokens) public virtual whenNotPaused returns (bool success) {
-        require(hasRole(BRIDGE_ADMIN_ROLE, _msgSender()), "XPRT: User not authorised to burn tokens");
+        require(hasRole(BRIDGE_ADMIN_ROLE, _msgSender()), "XPRT2");
         _burn(from, tokens);
         return true;
     }
@@ -71,7 +65,7 @@ contract XPRT is ERC20Upgradeable, PausableUpgradeable, AccessControlUpgradeable
       * - The contract must not be paused.
       */
     function pause() public virtual returns (bool success) {
-        require(hasRole(PAUSER_ROLE, _msgSender()), "XPRT: User not authorised to pause contracts.");
+        require(hasRole(PAUSER_ROLE, _msgSender()), "XPRT3");
         _pause();
         return true;
     }
@@ -84,7 +78,7 @@ contract XPRT is ERC20Upgradeable, PausableUpgradeable, AccessControlUpgradeable
      * - The contract must be paused.
      */
     function unpause() public virtual returns (bool success) {
-        require(hasRole(PAUSER_ROLE, _msgSender()), "XPRT: User not authorised to unpause contracts.");
+        require(hasRole(PAUSER_ROLE, _msgSender()), "XPRT4");
         _unpause();
         return true;
     }

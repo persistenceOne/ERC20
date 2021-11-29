@@ -361,7 +361,7 @@ contract PSTAKE is
     override
     returns (uint256 totalInflatedSupply, uint256 lastInflationBlockTime)
   {
-    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS13");
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS1");
     (totalInflatedSupply, lastInflationBlockTime) = _checkInflation();
   }
 
@@ -396,6 +396,9 @@ contract PSTAKE is
    * @dev Set inflation
    * @param inflationRate: inflation rate given as value between 0 and 100
    * @param inflationPeriod: inflation cycle in seconds
+   *
+   * Emits a {SetInflationRate} event.
+   *
    */
   function setInflation(uint256 inflationRate, uint256 inflationPeriod)
     public
@@ -403,10 +406,10 @@ contract PSTAKE is
     override
     returns (bool success)
   {
-    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS0");
-    // require inflation rate to be not more than 100 since it is a percentage
-    require(inflationRate <= _valueDivisor.mul(100), "PS7");
-    require(inflationPeriod > 0, "PS9");
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS2");
+    // check inflation rate to be not more than 100 since it is a percentage
+    require(inflationRate <= _valueDivisor.mul(100), "PS3");
+    require(inflationPeriod > 0, "PS4");
     // execute check inflation to update the inflation values before setting the inflation
     _checkInflation();
     // after enabling inflation, one way to arrest inflation can be to set a large inflationPeriod value
@@ -429,6 +432,8 @@ contract PSTAKE is
    * @dev Set supply max limit of the inflation component
    * @param supplyMaxLimit: supply max limit value
    *
+   * Emits a {SetSupplyMaxLimit} event.
+   *
    */
   function setSupplyMaxLimit(uint256 supplyMaxLimit)
     public
@@ -436,10 +441,10 @@ contract PSTAKE is
     override
     returns (bool success)
   {
-    // require this function to be callable only by the admin
-    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS8");
+    // check this function to be callable only by the admin
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS5");
     // new supply max limit cannot be less than _totalInflatedSupply
-    require(supplyMaxLimit >= _totalInflatedSupply, "PS10");
+    require(supplyMaxLimit >= _totalInflatedSupply, "PS6");
     // execute check inflation to update the inflation values before setting the inflation
     _checkInflation();
     // if the total inflated supply has already reached supply max limit then update _lastInflationBlockTime
@@ -456,7 +461,7 @@ contract PSTAKE is
    * @dev Mint new PSTAKE for the provided 'address' and 'amount'
    *
    *
-   * Emits a {MintTokens} event with 'to' set to address and 'tokens' set to amount of tokens.
+   * Emits a {Transfer} event with 'to' set to address and 'tokens' set to amount of tokens.
    *
    * Requirements:
    *
@@ -469,11 +474,11 @@ contract PSTAKE is
     override
     returns (bool success)
   {
-    require(hasRole(MINTER_ROLE, _msgSender()), "PS1");
+    require(hasRole(MINTER_ROLE, _msgSender()), "PS7");
 
     // condition to check if the total supply doesnt cross the inflated supply
     _checkInflation();
-    require((totalSupply()).add(tokens) <= _totalInflatedSupply, "PS2");
+    require((totalSupply()).add(tokens) <= _totalInflatedSupply, "PS8");
 
     // mint the tokens
     _mint(to, tokens);
@@ -485,28 +490,27 @@ contract PSTAKE is
    * @param vestingTimelockAddress: Vesting timelock contract address
    *
    * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.
+   *
    */
   function setVestingTimelockContract(address vestingTimelockAddress)
     public
     virtual
     override
   {
-    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS6");
-    require(vestingTimelockAddress != address(0), "PS11");
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS9");
+    require(vestingTimelockAddress != address(0), "PS10");
     _vestingTimelockAddress = vestingTimelockAddress;
     emit SetVestingTimelockContract(vestingTimelockAddress);
   }
 
   /**
    * @dev adds a vesting grant initiated by this contract as manager
-   * @param beneficiary beneficiary address
-   * @param startTime start time
-   * @param cliffPeriod initial waiting period
-   * @param instalmentAmount installment amount
-   * @param instalmentCount instalment count
-   * @param instalmentPeriod instalment period
-   *
-   * Emits a {AddVesting} event.
+   * @param beneficiary: beneficiary address
+   * @param startTime: start time
+   * @param cliffPeriod: initial waiting period
+   * @param instalmentAmount: installment amount
+   * @param instalmentCount: instalment count
+   * @param instalmentPeriod: instalment period
    */
   function addVesting(
     address beneficiary,
@@ -516,7 +520,7 @@ contract PSTAKE is
     uint256 instalmentCount,
     uint256 instalmentPeriod
   ) public virtual override nonReentrant returns (uint256 totalVestingAmount) {
-    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS12");
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS11");
 
     totalVestingAmount = instalmentAmount.mul(instalmentCount);
 
@@ -533,19 +537,6 @@ contract PSTAKE is
       instalmentCount,
       instalmentPeriod
     );
-
-    emit AddGrant(
-      address(this),
-      beneficiary,
-      startTime,
-      cliffPeriod,
-      totalVestingAmount,
-      instalmentAmount,
-      instalmentCount,
-      instalmentPeriod,
-      _msgSender(),
-      block.timestamp
-    );
   }
 
   /**
@@ -556,7 +547,7 @@ contract PSTAKE is
    * - The contract must not be paused.
    */
   function pause() public virtual override returns (bool success) {
-    require(hasRole(PAUSER_ROLE, _msgSender()), "PS3");
+    require(hasRole(PAUSER_ROLE, _msgSender()), "PS12");
     _pause();
     return true;
   }
@@ -569,7 +560,7 @@ contract PSTAKE is
    * - The contract must be paused.
    */
   function unpause() public virtual override returns (bool success) {
-    require(hasRole(PAUSER_ROLE, _msgSender()), "PS4");
+    require(hasRole(PAUSER_ROLE, _msgSender()), "PS13");
     _unpause();
     return true;
   }
@@ -592,7 +583,7 @@ contract PSTAKE is
     address to,
     uint256 amount
   ) internal virtual override {
-    require(!paused(), "PS5");
+    require(!paused(), "PS14");
     super._beforeTokenTransfer(from, to, amount);
   }
 }

@@ -235,7 +235,7 @@ contract VestingTimelockV3 is
    * @param instalmentCount_: instalment count
    * @param instalmentPeriod_: instalment period
    *
-   * Emits a {AddGrantAsInstalment} event.
+   * Emits a {AddGrant} event.
    */
   function addGrant(
     address token_,
@@ -268,23 +268,23 @@ contract VestingTimelockV3 is
         instalmentCount_ < 1200 &&
         // max limit of instalment period is 10 years (in seconds)
         instalmentPeriod_ < (3650 days),
-      "VT3"
+      "VT1"
     );
 
-    // require instalmentPeriod to be set when the instalmentCount is more than 1
-    require(!(instalmentCount_ > 1 && instalmentPeriod_ == 0), "VT18");
+    // check instalmentPeriod to be set when the instalmentCount is more than 1
+    require(!(instalmentCount_ > 1 && instalmentPeriod_ == 0), "VT2");
 
-    // check the calling address has suffecient tokens and then transfer tokens to this contract
+    // check the calling address has sufficient tokens and then transfer tokens to this contract
     totalVestingAmount = instalmentAmount_.mul(instalmentCount_);
     require(
       IERC20Upgradeable(token_).balanceOf(_msgSender()) >= totalVestingAmount,
-      "VT11"
+      "VT3"
     );
 
     // check if the grant is not already active
     // Grant memory grant = _grantData[token_][beneficiary_];
     // check if an existing active grant is not already in effect
-    require(!_grantData[token_][beneficiary_].isActive, "VT17");
+    require(!_grantData[token_][beneficiary_].isActive, "VT4");
 
     IERC20Upgradeable(token_).safeTransferFrom(
       _msgSender(),
@@ -338,7 +338,7 @@ contract VestingTimelockV3 is
     nonReentrant
     returns (uint256 remainingAmount)
   {
-    // require beneficiary not be address(0)
+    // check beneficiary not be address(0)
     require(token_ != address(0) && beneficiary_ != (address(0)), "VT5");
 
     Grant storage grant = _grantData[token_][beneficiary_];
@@ -353,8 +353,8 @@ contract VestingTimelockV3 is
     );
 
     // find the remaining amount after revoke and transfer it back to the grant manager
-    // require the end date for grant to not have passed
-    require(grant.isActive && grant.lastClaimedTime < grant.endTime, "VT4");
+    // check the end date for grant to not have passed
+    require(grant.isActive && grant.lastClaimedTime < grant.endTime, "VT7");
 
     (remainingAmount, , ) = getRemaining(token_, beneficiary_);
     // deactivate the grant (keep other values intact)
@@ -391,7 +391,7 @@ contract VestingTimelockV3 is
     whenNotPaused
     returns (uint256 pendingAmount)
   {
-    // require beneficiary not be address(0)
+    // check beneficiary not be address(0)
     require(token_ != address(0) && beneficiary_ != (address(0)), "VT8");
 
     // get the grant manager from the grant data
@@ -403,15 +403,15 @@ contract VestingTimelockV3 is
       _msgSender() == beneficiary_ ||
         _msgSender() == grantManager ||
         hasRole(GRANT_ADMIN_ROLE, _msgSender()),
-      "VT10"
+      "VT9"
     );
 
-    // require the grant to be active and vesting amount still pending to be credited to beneficiary for claiming
+    // check the grant to be active and vesting amount still pending to be credited to beneficiary for claiming
     require(
       grant.isActive &&
         (grant.instalmentAmount.mul(uint256(grant.instalmentCount)) >
           grant.amountReceived),
-      "VT12"
+      "VT10"
     );
 
     // get the pending amount to be credited to beneficiary
@@ -441,7 +441,7 @@ contract VestingTimelockV3 is
    * - The contract must not be paused.
    */
   function pause() public virtual override returns (bool success) {
-    require(hasRole(PAUSER_ROLE, _msgSender()), "VT19");
+    require(hasRole(PAUSER_ROLE, _msgSender()), "VT11");
     _pause();
     return true;
   }
@@ -454,7 +454,7 @@ contract VestingTimelockV3 is
    * - The contract must be paused.
    */
   function unpause() public virtual override returns (bool success) {
-    require(hasRole(PAUSER_ROLE, _msgSender()), "VT20");
+    require(hasRole(PAUSER_ROLE, _msgSender()), "VT12");
     _unpause();
     return true;
   }

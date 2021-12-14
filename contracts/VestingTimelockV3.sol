@@ -143,7 +143,6 @@ contract VestingTimelockV3 is
     if (
       !grant.isActive ||
       grant.lastClaimedTime >= grant.endTime ||
-      grant.instalmentAmount <= 0 ||
       block.timestamp <= vestingStartTime
     ) return (pendingAmount, pendingTime, pendingInstalment);
 
@@ -176,9 +175,7 @@ contract VestingTimelockV3 is
     );
 
     // calculate the pendingInstalment from the pendingAmount calculated above
-    pendingInstalment = grant.instalmentAmount > 0
-      ? pendingAmount.div(grant.instalmentAmount)
-      : 0;
+    pendingInstalment = pendingAmount.div(grant.instalmentAmount);
   }
 
   /**

@@ -50,26 +50,26 @@ interface IVestingTimelockV3 {
     );
 
   /**
-    * @dev Transfers tokens held by beneficiary to timelock in installments
-    * @param token_: token address
-    * @param beneficiary_: beneficiary address
-    * @param startTime_: start time
-    * @param cliffPeriod_: initial waiting period
-    * @param instalmentAmount_: installment amount
-    * @param instalmentCount_: instalment count
-    * @param instalmentPeriod_: instalment period
-    *
-    * Emits a {AddGrant} event.
-    */
+   * @dev Transfers tokens held by beneficiary to timelock in installments
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   * @param startTime_: start time
+   * @param cliffPeriod_: initial waiting period
+   * @param instalmentAmount_: installment amount
+   * @param instalmentCount_: instalment count
+   * @param instalmentPeriod_: instalment period
+   *
+   * Emits a {AddGrant} event.
+   */
   function addGrant(
     address token_,
     address beneficiary_,
     uint256 startTime_,
     uint256 cliffPeriod_,
-    uint256 totalAmount_,
+    uint256 instalmentAmount_,
     uint256 instalmentCount_,
     uint256 instalmentPeriod_
-  ) external returns (uint256 instalmentAmount);
+  ) external returns (uint256 totalVestingAmount);
 
   /**
    * @dev Revoke grant tokens held by timelock to beneficiary.
@@ -82,13 +82,13 @@ interface IVestingTimelockV3 {
     external
     returns (uint256 remainingAmount);
 
-   /**
-    * @dev Transfers tokens held by timelock to beneficiary.
-    * @param token_: token address
-    * @param beneficiary_: beneficiary address
-    *
-    * Emits a {ClaimGrant} event.
-    */
+  /**
+   * @dev Transfers tokens held by timelock to beneficiary.
+   * @param token_: token address
+   * @param beneficiary_: beneficiary address
+   *
+   * Emits a {ClaimGrant} event.
+   */
   function claimGrant(address token_, address beneficiary_)
     external
     returns (uint256 pendingAmount);
@@ -128,8 +128,8 @@ interface IVestingTimelockV3 {
   );
 
   /**
-  * @dev Emitted when grant is revoked
-  */
+   * @dev Emitted when grant is revoked
+   */
   event RevokeGrant(
     address token,
     address sender,
@@ -140,8 +140,8 @@ interface IVestingTimelockV3 {
   );
 
   /**
-  * @dev Emitted when grant is claimed
-  */
+   * @dev Emitted when grant is claimed
+   */
   event ClaimGrant(
     address token,
     address accountAddress,

@@ -7,7 +7,7 @@ import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol"
 import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
 import "./libraries/FullMath.sol";
-import "./interfaces/IVestingTimelockV2.sol";
+import "./interfaces/IVestingTimelockV3.sol";
 import "./interfaces/IPSTAKE.sol";
 
 contract PSTAKE is
@@ -120,7 +120,7 @@ contract PSTAKE is
     // _inflationPeriod = INFLATION_PERIOD;
     // _lastInflationBlockTime = block.timestamp;
     _totalInflatedSupply = uint256(SUPPLY_AT_GENESIS);
-    _supplyMaxLimit = SUPPLY_MAX_LIMIT;
+    // _supplyMaxLimit = SUPPLY_MAX_LIMIT;
     // allocate the various tokenomics strategy pool addresses
     // (must be different addresses because each address can have only one active vesting strategy at a time)
     _airdropPool = airdropPool;
@@ -155,129 +155,9 @@ contract PSTAKE is
     mint(address(this), TOTAL_VESTED_SUPPLY);
 
     // approve the vesting timelock contract to pull the tokens
-    _approve(address(this), _vestingTimelockAddress, TOTAL_VESTED_SUPPLY);
+    // _approve(address(this), _vestingTimelockAddress, TOTAL_VESTED_SUPPLY);
 
     // ALLOCATING VESTING STRATEGIES
-
-    /* // airdrop pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _airdropPool,
-      block.timestamp,
-      (30 days + 10 hours),
-      uint256(5000000e18),
-      5,
-      (30 days + 10 hours)
-    );
-
-    // seedSale pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _seedSalePool,
-      block.timestamp,
-      // 6 months
-      (182 days + 12 hours),
-      uint256(8333333e18),
-      12,
-      (30 days + 10 hours)
-    );
-
-    // publicSalePool1 pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _publicSalePool1,
-      block.timestamp,
-      // 6 months
-      (182 days + 12 hours),
-      uint256(833333e18),
-      6,
-      (30 days + 10 hours)
-    );
-
-    // publicSalePool2 pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _publicSalePool2,
-      block.timestamp,
-      // 3 months
-      (91 days + 6 hours),
-      uint256(1666667e18),
-      6,
-      (30 days + 10 hours)
-    );
-
-    // publicSalePool3 pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _publicSalePool3,
-      block.timestamp,
-      (30 days + 10 hours),
-      uint256(10000000e18),
-      1,
-      0
-    );
-
-    // team pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _teamPool,
-      block.timestamp,
-      // 18 months
-      (547 days + 12 hours),
-      uint256(4444444e18),
-      18,
-      (30 days + 10 hours)
-    );
-
-    // incentivisation pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _incentivisationPool,
-      block.timestamp,
-      // 3 months
-      (91 days + 6 hours),
-      uint256(13222222e18),
-      8,
-      // 3 months
-      (91 days + 6 hours)
-    );
-
-    // xprtStakers pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _xprtStakersPool,
-      block.timestamp,
-      (30 days + 10 hours),
-      uint256(1250000e18),
-      11,
-      (30 days + 10 hours)
-    );
-
-    // protocolTreasury pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _protocolTreasuryPool,
-      block.timestamp,
-      // 2 months
-      (60 days + 20 hours),
-      uint256(4250000e18),
-      17,
-      // 2 months
-      (60 days + 20 hours)
-    );
-
-    // communityDevelopmentFund pool
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
-      address(this),
-      _communityDevelopmentFundPool,
-      block.timestamp,
-      // 3 months
-      (91 days + 6 hours),
-      uint256(1666667e18),
-      17,
-      // 3 months
-      (91 days + 6 hours)
-    ); */
   }
 
   /**
@@ -311,42 +191,27 @@ contract PSTAKE is
     uint256 additionalInflation = inflationInstalments.mul(
       inflationPerInstalment
     );
-    uint256 additionalBlockTime = inflationInstalments.mul(_inflationPeriod);
-    uint256 currentInflationDiff;
-    uint256 currentBlockTimeDiff;
 
     if (inflationInstalments > 0) {
-      // add additional instalment to total inflated supply and update last Inflation BlockTime
-      if (_totalInflatedSupply.add(additionalInflation) > _supplyMaxLimit) {
-        currentInflationDiff = _supplyMaxLimit.sub(_totalInflatedSupply);
-
-        // set totalInflatedSupply as supply max limit
-        _totalInflatedSupply = _supplyMaxLimit;
-
-        // update the _lastInflationBlockTime value
-        currentBlockTimeDiff = additionalBlockTime.mulDiv(
-          currentInflationDiff,
-          additionalInflation
-        );
-        _lastInflationBlockTime = _lastInflationBlockTime.add(
-          currentBlockTimeDiff
-        );
-      } else {
-        // update _lastInflationBlockTime with the time period pertaining to inflationInstalments
-        _totalInflatedSupply = _totalInflatedSupply.add(additionalInflation);
-        _lastInflationBlockTime = _lastInflationBlockTime.add(
-          additionalBlockTime
-        );
-      }
+      // if adding additionalInflation to _totalInflatedSupply crosses _supplyMaxLimit then make _totalInflatedSupply as _supplyMaxLimit
+      _totalInflatedSupply = _totalInflatedSupply.add(additionalInflation) >
+        _supplyMaxLimit
+        ? _supplyMaxLimit
+        : _totalInflatedSupply.add(additionalInflation);
+      /* process if (_totalInflatedSupply > _supplyMaxLimit) */
+      _lastInflationBlockTime = _lastInflationBlockTime.add(
+        _inflationPeriod.mul(inflationInstalments)
+      );
 
       // emit an event
       emit CheckInflation(
         _lastInflationBlockTime,
-        inflationInstalments.mul(_inflationPeriod),
+        additionalInflation,
         block.timestamp
       );
     }
 
+    // get the return values
     lastInflationBlockTime = _lastInflationBlockTime;
     totalInflatedSupply = _totalInflatedSupply;
   }
@@ -460,13 +325,7 @@ contract PSTAKE is
   /**
    * @dev Mint new PSTAKE for the provided 'address' and 'amount'
    *
-   *
    * Emits a {Transfer} event with 'to' set to address and 'tokens' set to amount of tokens.
-   *
-   * Requirements:
-   *
-   * - `amount` cannot be less than zero.
-   *
    */
   function mint(address to, uint256 tokens)
     public
@@ -528,7 +387,7 @@ contract PSTAKE is
     if (totalVestingAmount > allowance(address(this), _vestingTimelockAddress))
       _approve(address(this), _vestingTimelockAddress, totalVestingAmount);
 
-    IVestingTimelockV2(_vestingTimelockAddress).addGrant(
+    IVestingTimelockV3(_vestingTimelockAddress).addGrant(
       address(this),
       beneficiary,
       startTime,
@@ -542,7 +401,6 @@ contract PSTAKE is
   /**
    * @dev Triggers stopped state.
    *
-   * Requirements:
    *
    * - The contract must not be paused.
    */
@@ -555,7 +413,6 @@ contract PSTAKE is
   /**
    * @dev Returns to normal state.
    *
-   * Requirements:
    *
    * - The contract must be paused.
    */
@@ -568,14 +425,6 @@ contract PSTAKE is
   /**
    * @dev Hook that is called before any transfer of tokens. This includes
    * minting and burning.
-   *
-   * Calling conditions:
-   *
-   * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens
-   * will be to transferred to `to`.
-   * - when `from` is zero, `amount` tokens will be minted for `to`.
-   * - when `to` is zero, `amount` of ``from``'s tokens will be burned.
-   * - `from` and `to` are never both zero.
    *
    */
   function _beforeTokenTransfer(

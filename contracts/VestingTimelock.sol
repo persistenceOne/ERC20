@@ -1,4 +1,7 @@
-// SPDX-License-Identifier: Unlicensed
+/*
+ Copyright [2019] - [2021], PERSISTENCE TECHNOLOGIES PTE. LTD. and the ERC20 contributors
+ SPDX-License-Identifier: Apache-2.0
+*/
 
 pragma solidity >=0.7.0;
 

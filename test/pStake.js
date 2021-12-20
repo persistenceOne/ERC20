@@ -1,3 +1,8 @@
+/*
+ Copyright [2019] - [2021], PERSISTENCE TECHNOLOGIES PTE. LTD. and the ERC20 contributors
+ SPDX-License-Identifier: Apache-2.0
+*/
+
 //UNIT TEST
 
 /* This unit test uses the OpenZeppelin test environment and OpenZeppelin test helpers,

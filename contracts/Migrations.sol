@@ -1,4 +1,8 @@
-// SPDX-License-Identifier: MIT
+/*
+ Copyright [2019] - [2021], PERSISTENCE TECHNOLOGIES PTE. LTD. and the ERC20 contributors
+ SPDX-License-Identifier: Apache-2.0
+*/
+
 pragma solidity >=0.4.22 <0.9.0;
 
 contract Migrations {

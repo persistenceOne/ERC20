@@ -512,7 +512,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"lastInflationBlockTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"inflationAdded\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"CheckInflation\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"accountAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"inflationRate\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"inflationPeriod\",\"type\":\"uint256\"}],\"name\":\"SetInflationRate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"accountAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"supplyMaxLimit\",\"type\":\"uint256\"}],\"name\":\"SetSupplyMaxLimit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"vestingTimelockAddress\",\"type\":\"address\"}],\"name\":\"SetVestingTimelockContract\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"_lastInflationBlockTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"lastInflationBlockTime\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"_supplyMaxLimit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"supplyMaxLimit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"_totalInflatedSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalInflatedSupply\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"cliffPeriod\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"instalmentAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"instalmentCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"instalmentPeriod\",\"type\":\"uint256\"}],\"name\":\"addVesting\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalVestingAmount\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"checkInflation\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalInflatedSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastInflationBlockTime\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getInflation\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalInflatedSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"inflationRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"valueDivisor\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"inflationPeriod\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastInflationBlockTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"supplyMaxLimit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"inflationRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"inflationPeriod\",\"type\":\"uint256\"}],\"name\":\"setInflation\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"supplyMaxLimit\",\"type\":\"uint256\"}],\"name\":\"setSupplyMaxLimit\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"vestingTimelockAddress\",\"type\":\"address\"}],\"name\":\"setVestingTimelockContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the IPSTAKE.\",\"events\":{\"CheckInflation(uint256,uint256,uint256)\":{\"details\":\"Emitted when checkInflation() is called\"},\"SetInflationRate(address,uint256,uint256)\":{\"details\":\"Emitted when setting inflation rate\"},\"SetSupplyMaxLimit(address,uint256)\":{\"details\":\"Emitted when setting max limit supply\"},\"SetVestingTimelockContract(address)\":{\"details\":\"Emitted when setting vesting timelock contract address\"}},\"kind\":\"dev\",\"methods\":{\"_lastInflationBlockTime()\":{\"details\":\"getter method created from variable definition\"},\"_supplyMaxLimit()\":{\"details\":\"getter method created from variable definition\"},\"_totalInflatedSupply()\":{\"details\":\"getter method created from variable definition\"},\"addVesting(address,uint256,uint256,uint256,uint256,uint256)\":{\"details\":\"adds a vesting grant initiated by this contract as manager\",\"params\":{\"beneficiary\":\": beneficiary address\",\"cliffPeriod\":\": initial waiting period\",\"instalmentAmount\":\": installment amount\",\"instalmentCount\":\": instalment count\",\"instalmentPeriod\":\": instalment period\",\"startTime\":\": start time\"}},\"allowance(address,address)\":{\"details\":\"Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default. This value changes when {approve} or {transferFrom} are called.\"},\"approve(address,uint256)\":{\"details\":\"Sets `amount` as the allowance of `spender` over the caller's tokens. Returns a boolean value indicating whether the operation succeeded. IMPORTANT: Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729 Emits an {Approval} event.\"},\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"checkInflation()\":{\"details\":\"checks the inflation and sets the inflation parameters if the inflation cycle has changed\"},\"getInflation()\":{\"details\":\"returns the properties pertaining to inflation\"},\"mint(address,uint256)\":{\"details\":\"Mints `amount` tokens to the caller's address `to`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"pause()\":{\"details\":\"Triggers stopped state. Requirements: - The contract must not be paused.\"},\"setInflation(uint256,uint256)\":{\"details\":\"Set inflation\",\"params\":{\"inflationPeriod\":\": inflation cycle in seconds Emits a {SetInflationRate} event.\",\"inflationRate\":\": inflation rate given as value between 0 and 100\"}},\"setSupplyMaxLimit(uint256)\":{\"details\":\"Set supply max limit of the inflation component\",\"params\":{\"supplyMaxLimit\":\": supply max limit value Emits a {SetSupplyMaxLimit} event.\"}},\"setVestingTimelockContract(address)\":{\"details\":\"Set 'contract address', called from constructor\",\"params\":{\"vestingTimelockAddress\":\": VestingTimelockcontract address Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.\"}},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"unpause()\":{\"details\":\"Returns to normal state. Requirements: - The contract must be paused.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IPSTAKE.sol\":\"IPSTAKE\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol\":{\"keccak256\":\"0xa1931c47a617014f858580db625aa0dcf343796f39acd4b5b51effc092a1f0a9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2cbeb499bad52667b96dd7df8e9b1f583e8c07afaba0018a75e5b7ff6e777173\",\"dweb:/ipfs/QmPLJnuhEcWnpmhMHKsiuVHVxMwb5k6idYyjajbrtZLz5B\"]},\"project:/contracts/interfaces/IPSTAKE.sol\":{\"keccak256\":\"0xa2b1c7efd5669a0e49546821c4eb72947f70d71c473c97c04fcb93a3ae2a9525\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://04135b10cbd114726ffc2b4afc861e3e456f5e11891415eabf6aae5a15df285f\",\"dweb:/ipfs/QmdSVG9sg1hmuSFQonD491fDFNxfVM35b3RfvMBKYGSGxk\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"lastInflationBlockTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"inflationAdded\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"CheckInflation\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"accountAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"inflationRate\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"inflationPeriod\",\"type\":\"uint256\"}],\"name\":\"SetInflationRate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"accountAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"supplyMaxLimit\",\"type\":\"uint256\"}],\"name\":\"SetSupplyMaxLimit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"vestingTimelockAddress\",\"type\":\"address\"}],\"name\":\"SetVestingTimelockContract\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"_lastInflationBlockTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"lastInflationBlockTime\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"_supplyMaxLimit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"supplyMaxLimit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"_totalInflatedSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalInflatedSupply\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"cliffPeriod\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"instalmentAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"instalmentCount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"instalmentPeriod\",\"type\":\"uint256\"}],\"name\":\"addVesting\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalVestingAmount\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"checkInflation\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalInflatedSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastInflationBlockTime\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getInflation\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalInflatedSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"inflationRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"valueDivisor\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"inflationPeriod\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastInflationBlockTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"supplyMaxLimit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"inflationRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"inflationPeriod\",\"type\":\"uint256\"}],\"name\":\"setInflation\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"supplyMaxLimit\",\"type\":\"uint256\"}],\"name\":\"setSupplyMaxLimit\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"vestingTimelockAddress\",\"type\":\"address\"}],\"name\":\"setVestingTimelockContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the IPSTAKE.\",\"events\":{\"CheckInflation(uint256,uint256,uint256)\":{\"details\":\"Emitted when checkInflation() is called\"},\"SetInflationRate(address,uint256,uint256)\":{\"details\":\"Emitted when setting inflation rate\"},\"SetSupplyMaxLimit(address,uint256)\":{\"details\":\"Emitted when setting max limit supply\"},\"SetVestingTimelockContract(address)\":{\"details\":\"Emitted when setting vesting timelock contract address\"}},\"kind\":\"dev\",\"methods\":{\"_lastInflationBlockTime()\":{\"details\":\"getter method created from variable definition\"},\"_supplyMaxLimit()\":{\"details\":\"getter method created from variable definition\"},\"_totalInflatedSupply()\":{\"details\":\"getter method created from variable definition\"},\"addVesting(address,uint256,uint256,uint256,uint256,uint256)\":{\"details\":\"adds a vesting grant initiated by this contract as manager\",\"params\":{\"beneficiary\":\": beneficiary address\",\"cliffPeriod\":\": initial waiting period\",\"instalmentAmount\":\": installment amount\",\"instalmentCount\":\": instalment count\",\"instalmentPeriod\":\": instalment period\",\"startTime\":\": start time\"}},\"allowance(address,address)\":{\"details\":\"Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default. This value changes when {approve} or {transferFrom} are called.\"},\"approve(address,uint256)\":{\"details\":\"Sets `amount` as the allowance of `spender` over the caller's tokens. Returns a boolean value indicating whether the operation succeeded. IMPORTANT: Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729 Emits an {Approval} event.\"},\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"checkInflation()\":{\"details\":\"checks the inflation and sets the inflation parameters if the inflation cycle has changed\"},\"getInflation()\":{\"details\":\"returns the properties pertaining to inflation\"},\"mint(address,uint256)\":{\"details\":\"Mints `amount` tokens to the caller's address `to`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"pause()\":{\"details\":\"Triggers stopped state. Requirements: - The contract must not be paused.\"},\"setInflation(uint256,uint256)\":{\"details\":\"Set inflation\",\"params\":{\"inflationPeriod\":\": inflation cycle in seconds Emits a {SetInflationRate} event.\",\"inflationRate\":\": inflation rate given as value between 0 and 100\"}},\"setSupplyMaxLimit(uint256)\":{\"details\":\"Set supply max limit of the inflation component\",\"params\":{\"supplyMaxLimit\":\": supply max limit value Emits a {SetSupplyMaxLimit} event.\"}},\"setVestingTimelockContract(address)\":{\"details\":\"Set 'contract address', called from constructor\",\"params\":{\"vestingTimelockAddress\":\": VestingTimelockcontract address Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.\"}},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"unpause()\":{\"details\":\"Returns to normal state. Requirements: - The contract must be paused.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IPSTAKE.sol\":\"IPSTAKE\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol\":{\"keccak256\":\"0xa1931c47a617014f858580db625aa0dcf343796f39acd4b5b51effc092a1f0a9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2cbeb499bad52667b96dd7df8e9b1f583e8c07afaba0018a75e5b7ff6e777173\",\"dweb:/ipfs/QmPLJnuhEcWnpmhMHKsiuVHVxMwb5k6idYyjajbrtZLz5B\"]},\"project:/contracts/interfaces/IPSTAKE.sol\":{\"keccak256\":\"0xb9f6a87a098b0d5ccd59b8de545b18dd10f38fbe5ed4d1b4f7b737b522867ce6\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://bff3f1b290a852592dd319daf0768d3de1a539a0c4a95d349138182597cc8967\",\"dweb:/ipfs/QmcZ2VQRiBZ27cCDC6mYm51pZe86URhcpssYyhGcGoLsAp\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -520,8 +520,8 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity >=0.7.0;\n\nimport \"@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol\";\n\n/**\n * @dev Interface of the IPSTAKE.\n */\ninterface IPSTAKE is IERC20Upgradeable {\n\n  /**\n   * @dev getter method created from variable definition\n   *\n   */\n  function _lastInflationBlockTime()\n    external\n    view\n    returns (uint256 lastInflationBlockTime);\n\n  /**\n   * @dev getter method created from variable definition\n   *\n   */\n  function _totalInflatedSupply()\n    external\n    view\n    returns (uint256 totalInflatedSupply);\n\n  /**\n   * @dev getter method created from variable definition\n   *\n   */\n  function _supplyMaxLimit() external view returns (uint256 supplyMaxLimit);\n\n  /**\n   * @dev checks the inflation and sets the inflation parameters if the inflation cycle has changed\n   *\n   */\n  function checkInflation()\n    external\n    returns (uint256 totalInflatedSupply, uint256 lastInflationBlockTime);\n\n  /**\n   * @dev returns the properties pertaining to inflation\n   */\n  function getInflation()\n    external\n    view\n    returns (\n      uint256 totalInflatedSupply,\n      uint256 inflationRate,\n      uint256 valueDivisor,\n      uint256 inflationPeriod,\n      uint256 lastInflationBlockTime,\n      uint256 supplyMaxLimit\n    );\n\n   /**\n    * @dev Set inflation\n    * @param inflationRate: inflation rate given as value between 0 and 100\n    * @param inflationPeriod: inflation cycle in seconds\n    *\n    * Emits a {SetInflationRate} event.\n    *\n    */\n  function setInflation(uint256 inflationRate, uint256 inflationPeriod)\n    external\n    returns (bool success);\n\n  /**\n   * @dev Set supply max limit of the inflation component\n   * @param supplyMaxLimit: supply max limit value\n   *\n   * Emits a {SetSupplyMaxLimit} event.\n   *\n   */\n  function setSupplyMaxLimit(uint256 supplyMaxLimit)\n    external\n    returns (bool success);\n\n  /**\n   * @dev Mints `amount` tokens to the caller's address `to`.\n   *\n   * Returns a boolean value indicating whether the operation succeeded.\n   *\n   * Emits a {Transfer} event.\n   */\n  function mint(address to, uint256 tokens) external returns (bool success);\n\n  /**\n   * @dev Set 'contract address', called from constructor\n   * @param vestingTimelockAddress: VestingTimelockcontract address\n   *\n   * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.\n   *\n   */\n  function setVestingTimelockContract(address vestingTimelockAddress) external;\n\n  /**\n   * @dev adds a vesting grant initiated by this contract as manager\n   * @param beneficiary: beneficiary address\n   * @param startTime: start time\n   * @param cliffPeriod: initial waiting period\n   * @param instalmentAmount: installment amount\n   * @param instalmentCount: instalment count\n   * @param instalmentPeriod: instalment period\n   */\n  function addVesting(\n    address beneficiary,\n    uint256 startTime,\n    uint256 cliffPeriod,\n    uint256 instalmentAmount,\n    uint256 instalmentCount,\n    uint256 instalmentPeriod\n  ) external returns (uint256 totalVestingAmount);\n\n  /**\n   * @dev Triggers stopped state.\n   *\n   * Requirements:\n   *\n   * - The contract must not be paused.\n   */\n  function pause() external returns (bool success);\n\n  /**\n   * @dev Returns to normal state.\n   *\n   * Requirements:\n   *\n   * - The contract must be paused.\n   */\n  function unpause() external returns (bool success);\n\n  /**\n   * @dev Emitted when checkInflation() is called\n   */\n  event CheckInflation(\n    uint256 lastInflationBlockTime,\n    uint256 inflationAdded,\n    uint256 timestamp\n  );\n\n  /**\n   * @dev Emitted when setting vesting timelock contract address\n   */\n  event SetVestingTimelockContract(address vestingTimelockAddress);\n\n  /**\n   * @dev Emitted when setting inflation rate\n   */\n  event SetInflationRate(\n    address accountAddress,\n    uint256 inflationRate,\n    uint256 inflationPeriod\n  );\n\n  /**\n   * @dev Emitted when setting max limit supply\n   */\n  event SetSupplyMaxLimit(address accountAddress, uint256 supplyMaxLimit);\n}\n",
-  "sourcePath": "C:\\Users\\Kamlesh\\Persistence\\pStake\\codebase\\erc20\\contracts\\interfaces\\IPSTAKE.sol",
+  "source": "/*\n Copyright [2019] - [2021], PERSISTENCE TECHNOLOGIES PTE. LTD. and the ERC20 contributors\n SPDX-License-Identifier: Apache-2.0\n*/\n\npragma solidity >=0.7.0;\n\nimport \"@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol\";\n\n/**\n * @dev Interface of the IPSTAKE.\n */\ninterface IPSTAKE is IERC20Upgradeable {\n\n  /**\n   * @dev getter method created from variable definition\n   *\n   */\n  function _lastInflationBlockTime()\n    external\n    view\n    returns (uint256 lastInflationBlockTime);\n\n  /**\n   * @dev getter method created from variable definition\n   *\n   */\n  function _totalInflatedSupply()\n    external\n    view\n    returns (uint256 totalInflatedSupply);\n\n  /**\n   * @dev getter method created from variable definition\n   *\n   */\n  function _supplyMaxLimit() external view returns (uint256 supplyMaxLimit);\n\n  /**\n   * @dev checks the inflation and sets the inflation parameters if the inflation cycle has changed\n   *\n   */\n  function checkInflation()\n    external\n    returns (uint256 totalInflatedSupply, uint256 lastInflationBlockTime);\n\n  /**\n   * @dev returns the properties pertaining to inflation\n   */\n  function getInflation()\n    external\n    view\n    returns (\n      uint256 totalInflatedSupply,\n      uint256 inflationRate,\n      uint256 valueDivisor,\n      uint256 inflationPeriod,\n      uint256 lastInflationBlockTime,\n      uint256 supplyMaxLimit\n    );\n\n   /**\n    * @dev Set inflation\n    * @param inflationRate: inflation rate given as value between 0 and 100\n    * @param inflationPeriod: inflation cycle in seconds\n    *\n    * Emits a {SetInflationRate} event.\n    *\n    */\n  function setInflation(uint256 inflationRate, uint256 inflationPeriod)\n    external\n    returns (bool success);\n\n  /**\n   * @dev Set supply max limit of the inflation component\n   * @param supplyMaxLimit: supply max limit value\n   *\n   * Emits a {SetSupplyMaxLimit} event.\n   *\n   */\n  function setSupplyMaxLimit(uint256 supplyMaxLimit)\n    external\n    returns (bool success);\n\n  /**\n   * @dev Mints `amount` tokens to the caller's address `to`.\n   *\n   * Returns a boolean value indicating whether the operation succeeded.\n   *\n   * Emits a {Transfer} event.\n   */\n  function mint(address to, uint256 tokens) external returns (bool success);\n\n  /**\n   * @dev Set 'contract address', called from constructor\n   * @param vestingTimelockAddress: VestingTimelockcontract address\n   *\n   * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.\n   *\n   */\n  function setVestingTimelockContract(address vestingTimelockAddress) external;\n\n  /**\n   * @dev adds a vesting grant initiated by this contract as manager\n   * @param beneficiary: beneficiary address\n   * @param startTime: start time\n   * @param cliffPeriod: initial waiting period\n   * @param instalmentAmount: installment amount\n   * @param instalmentCount: instalment count\n   * @param instalmentPeriod: instalment period\n   */\n  function addVesting(\n    address beneficiary,\n    uint256 startTime,\n    uint256 cliffPeriod,\n    uint256 instalmentAmount,\n    uint256 instalmentCount,\n    uint256 instalmentPeriod\n  ) external returns (uint256 totalVestingAmount);\n\n  /**\n   * @dev Triggers stopped state.\n   *\n   * Requirements:\n   *\n   * - The contract must not be paused.\n   */\n  function pause() external returns (bool success);\n\n  /**\n   * @dev Returns to normal state.\n   *\n   * Requirements:\n   *\n   * - The contract must be paused.\n   */\n  function unpause() external returns (bool success);\n\n  /**\n   * @dev Emitted when checkInflation() is called\n   */\n  event CheckInflation(\n    uint256 lastInflationBlockTime,\n    uint256 inflationAdded,\n    uint256 timestamp\n  );\n\n  /**\n   * @dev Emitted when setting vesting timelock contract address\n   */\n  event SetVestingTimelockContract(address vestingTimelockAddress);\n\n  /**\n   * @dev Emitted when setting inflation rate\n   */\n  event SetInflationRate(\n    address accountAddress,\n    uint256 inflationRate,\n    uint256 inflationPeriod\n  );\n\n  /**\n   * @dev Emitted when setting max limit supply\n   */\n  event SetSupplyMaxLimit(address accountAddress, uint256 supplyMaxLimit);\n}\n",
+  "sourcePath": "/home/aditimahesh/Documents/Work/Persistence/go/src/github.com/persistenceOne/ERC20/contracts/interfaces/IPSTAKE.sol",
   "ast": {
     "absolutePath": "project:/contracts/interfaces/IPSTAKE.sol",
     "exportedSymbols": {
@@ -533,7 +533,7 @@
       ]
     },
     "id": 6824,
-    "license": "UNLICENSED",
+    "license": "Apache-2.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -545,7 +545,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "39:24:17"
+        "src": "134:24:17"
       },
       {
         "absolutePath": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
@@ -554,7 +554,7 @@
         "nodeType": "ImportDirective",
         "scope": 6824,
         "sourceUnit": 1337,
-        "src": "65:79:17",
+        "src": "160:79:17",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -567,7 +567,7 @@
               "name": "IERC20Upgradeable",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 1336,
-              "src": "209:17:17",
+              "src": "304:17:17",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_IERC20Upgradeable_$1336",
                 "typeString": "contract IERC20Upgradeable"
@@ -575,7 +575,7 @@
             },
             "id": 6686,
             "nodeType": "InheritanceSpecifier",
-            "src": "209:17:17"
+            "src": "304:17:17"
           }
         ],
         "contractDependencies": [
@@ -585,7 +585,7 @@
         "documentation": {
           "id": 6684,
           "nodeType": "StructuredDocumentation",
-          "src": "146:41:17",
+          "src": "241:41:17",
           "text": " @dev Interface of the IPSTAKE."
         },
         "fullyImplemented": false,
@@ -601,7 +601,7 @@
             "documentation": {
               "id": 6687,
               "nodeType": "StructuredDocumentation",
-              "src": "232:71:17",
+              "src": "327:71:17",
               "text": " @dev getter method created from variable definition"
             },
             "functionSelector": "499f002c",
@@ -615,7 +615,7 @@
               "id": 6688,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "338:2:17"
+              "src": "433:2:17"
             },
             "returnParameters": {
               "id": 6691,
@@ -628,7 +628,7 @@
                   "name": "lastInflationBlockTime",
                   "nodeType": "VariableDeclaration",
                   "scope": 6692,
-                  "src": "376:30:17",
+                  "src": "471:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -639,7 +639,7 @@
                     "id": 6689,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "376:7:17",
+                    "src": "471:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -648,10 +648,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "375:32:17"
+              "src": "470:32:17"
             },
             "scope": 6823,
-            "src": "306:102:17",
+            "src": "401:102:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -660,7 +660,7 @@
             "documentation": {
               "id": 6693,
               "nodeType": "StructuredDocumentation",
-              "src": "412:71:17",
+              "src": "507:71:17",
               "text": " @dev getter method created from variable definition"
             },
             "functionSelector": "e6f0dfdf",
@@ -674,7 +674,7 @@
               "id": 6694,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "515:2:17"
+              "src": "610:2:17"
             },
             "returnParameters": {
               "id": 6697,
@@ -687,7 +687,7 @@
                   "name": "totalInflatedSupply",
                   "nodeType": "VariableDeclaration",
                   "scope": 6698,
-                  "src": "553:27:17",
+                  "src": "648:27:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -698,7 +698,7 @@
                     "id": 6695,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "553:7:17",
+                    "src": "648:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -707,10 +707,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "552:29:17"
+              "src": "647:29:17"
             },
             "scope": 6823,
-            "src": "486:96:17",
+            "src": "581:96:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -719,7 +719,7 @@
             "documentation": {
               "id": 6699,
               "nodeType": "StructuredDocumentation",
-              "src": "586:71:17",
+              "src": "681:71:17",
               "text": " @dev getter method created from variable definition"
             },
             "functionSelector": "7744e3c7",
@@ -733,7 +733,7 @@
               "id": 6700,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "684:2:17"
+              "src": "779:2:17"
             },
             "returnParameters": {
               "id": 6703,
@@ -746,7 +746,7 @@
                   "name": "supplyMaxLimit",
                   "nodeType": "VariableDeclaration",
                   "scope": 6704,
-                  "src": "710:22:17",
+                  "src": "805:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -757,7 +757,7 @@
                     "id": 6701,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "710:7:17",
+                    "src": "805:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -766,10 +766,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "709:24:17"
+              "src": "804:24:17"
             },
             "scope": 6823,
-            "src": "660:74:17",
+            "src": "755:74:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -778,7 +778,7 @@
             "documentation": {
               "id": 6705,
               "nodeType": "StructuredDocumentation",
-              "src": "738:114:17",
+              "src": "833:114:17",
               "text": " @dev checks the inflation and sets the inflation parameters if the inflation cycle has changed"
             },
             "functionSelector": "6789dafd",
@@ -792,7 +792,7 @@
               "id": 6706,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "878:2:17"
+              "src": "973:2:17"
             },
             "returnParameters": {
               "id": 6711,
@@ -805,7 +805,7 @@
                   "name": "totalInflatedSupply",
                   "nodeType": "VariableDeclaration",
                   "scope": 6712,
-                  "src": "907:27:17",
+                  "src": "1002:27:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -816,7 +816,7 @@
                     "id": 6707,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "907:7:17",
+                    "src": "1002:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -831,7 +831,7 @@
                   "name": "lastInflationBlockTime",
                   "nodeType": "VariableDeclaration",
                   "scope": 6712,
-                  "src": "936:30:17",
+                  "src": "1031:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -842,7 +842,7 @@
                     "id": 6709,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "936:7:17",
+                    "src": "1031:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -851,10 +851,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "906:61:17"
+              "src": "1001:61:17"
             },
             "scope": 6823,
-            "src": "855:113:17",
+            "src": "950:113:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -863,7 +863,7 @@
             "documentation": {
               "id": 6713,
               "nodeType": "StructuredDocumentation",
-              "src": "972:66:17",
+              "src": "1067:66:17",
               "text": " @dev returns the properties pertaining to inflation"
             },
             "functionSelector": "d5a95771",
@@ -877,7 +877,7 @@
               "id": 6714,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1062:2:17"
+              "src": "1157:2:17"
             },
             "returnParameters": {
               "id": 6727,
@@ -890,7 +890,7 @@
                   "name": "totalInflatedSupply",
                   "nodeType": "VariableDeclaration",
                   "scope": 6728,
-                  "src": "1107:27:17",
+                  "src": "1202:27:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -901,7 +901,7 @@
                     "id": 6715,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1107:7:17",
+                    "src": "1202:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -916,7 +916,7 @@
                   "name": "inflationRate",
                   "nodeType": "VariableDeclaration",
                   "scope": 6728,
-                  "src": "1142:21:17",
+                  "src": "1237:21:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -927,7 +927,7 @@
                     "id": 6717,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1142:7:17",
+                    "src": "1237:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -942,7 +942,7 @@
                   "name": "valueDivisor",
                   "nodeType": "VariableDeclaration",
                   "scope": 6728,
-                  "src": "1171:20:17",
+                  "src": "1266:20:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -953,7 +953,7 @@
                     "id": 6719,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1171:7:17",
+                    "src": "1266:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -968,7 +968,7 @@
                   "name": "inflationPeriod",
                   "nodeType": "VariableDeclaration",
                   "scope": 6728,
-                  "src": "1199:23:17",
+                  "src": "1294:23:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -979,7 +979,7 @@
                     "id": 6721,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1199:7:17",
+                    "src": "1294:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -994,7 +994,7 @@
                   "name": "lastInflationBlockTime",
                   "nodeType": "VariableDeclaration",
                   "scope": 6728,
-                  "src": "1230:30:17",
+                  "src": "1325:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1005,7 +1005,7 @@
                     "id": 6723,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1230:7:17",
+                    "src": "1325:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1020,7 +1020,7 @@
                   "name": "supplyMaxLimit",
                   "nodeType": "VariableDeclaration",
                   "scope": 6728,
-                  "src": "1268:22:17",
+                  "src": "1363:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1031,7 +1031,7 @@
                     "id": 6725,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1268:7:17",
+                    "src": "1363:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1040,10 +1040,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1099:197:17"
+              "src": "1194:197:17"
             },
             "scope": 6823,
-            "src": "1041:256:17",
+            "src": "1136:256:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1052,7 +1052,7 @@
             "documentation": {
               "id": 6729,
               "nodeType": "StructuredDocumentation",
-              "src": "1302:220:17",
+              "src": "1397:220:17",
               "text": " @dev Set inflation\n @param inflationRate: inflation rate given as value between 0 and 100\n @param inflationPeriod: inflation cycle in seconds\n Emits a {SetInflationRate} event."
             },
             "functionSelector": "453c69cb",
@@ -1073,7 +1073,7 @@
                   "name": "inflationRate",
                   "nodeType": "VariableDeclaration",
                   "scope": 6738,
-                  "src": "1547:21:17",
+                  "src": "1642:21:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1084,7 +1084,7 @@
                     "id": 6730,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1547:7:17",
+                    "src": "1642:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1099,7 +1099,7 @@
                   "name": "inflationPeriod",
                   "nodeType": "VariableDeclaration",
                   "scope": 6738,
-                  "src": "1570:23:17",
+                  "src": "1665:23:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1110,7 +1110,7 @@
                     "id": 6732,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1570:7:17",
+                    "src": "1665:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1119,7 +1119,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1546:48:17"
+              "src": "1641:48:17"
             },
             "returnParameters": {
               "id": 6737,
@@ -1132,7 +1132,7 @@
                   "name": "success",
                   "nodeType": "VariableDeclaration",
                   "scope": 6738,
-                  "src": "1621:12:17",
+                  "src": "1716:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1143,7 +1143,7 @@
                     "id": 6735,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1621:4:17",
+                    "src": "1716:4:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1152,10 +1152,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1620:14:17"
+              "src": "1715:14:17"
             },
             "scope": 6823,
-            "src": "1525:110:17",
+            "src": "1620:110:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1164,7 +1164,7 @@
             "documentation": {
               "id": 6739,
               "nodeType": "StructuredDocumentation",
-              "src": "1639:168:17",
+              "src": "1734:168:17",
               "text": " @dev Set supply max limit of the inflation component\n @param supplyMaxLimit: supply max limit value\n Emits a {SetSupplyMaxLimit} event."
             },
             "functionSelector": "8321296d",
@@ -1185,7 +1185,7 @@
                   "name": "supplyMaxLimit",
                   "nodeType": "VariableDeclaration",
                   "scope": 6746,
-                  "src": "1837:22:17",
+                  "src": "1932:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1196,7 +1196,7 @@
                     "id": 6740,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1837:7:17",
+                    "src": "1932:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1205,7 +1205,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1836:24:17"
+              "src": "1931:24:17"
             },
             "returnParameters": {
               "id": 6745,
@@ -1218,7 +1218,7 @@
                   "name": "success",
                   "nodeType": "VariableDeclaration",
                   "scope": 6746,
-                  "src": "1887:12:17",
+                  "src": "1982:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1229,7 +1229,7 @@
                     "id": 6743,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1887:4:17",
+                    "src": "1982:4:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1238,10 +1238,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1886:14:17"
+              "src": "1981:14:17"
             },
             "scope": 6823,
-            "src": "1810:91:17",
+            "src": "1905:91:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1250,7 +1250,7 @@
             "documentation": {
               "id": 6747,
               "nodeType": "StructuredDocumentation",
-              "src": "1905:185:17",
+              "src": "2000:185:17",
               "text": " @dev Mints `amount` tokens to the caller's address `to`.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
             },
             "functionSelector": "40c10f19",
@@ -1271,7 +1271,7 @@
                   "name": "to",
                   "nodeType": "VariableDeclaration",
                   "scope": 6756,
-                  "src": "2107:10:17",
+                  "src": "2202:10:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1282,7 +1282,7 @@
                     "id": 6748,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2107:7:17",
+                    "src": "2202:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1298,7 +1298,7 @@
                   "name": "tokens",
                   "nodeType": "VariableDeclaration",
                   "scope": 6756,
-                  "src": "2119:14:17",
+                  "src": "2214:14:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1309,7 +1309,7 @@
                     "id": 6750,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2119:7:17",
+                    "src": "2214:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1318,7 +1318,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2106:28:17"
+              "src": "2201:28:17"
             },
             "returnParameters": {
               "id": 6755,
@@ -1331,7 +1331,7 @@
                   "name": "success",
                   "nodeType": "VariableDeclaration",
                   "scope": 6756,
-                  "src": "2153:12:17",
+                  "src": "2248:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1342,7 +1342,7 @@
                     "id": 6753,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2153:4:17",
+                    "src": "2248:4:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1351,10 +1351,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2152:14:17"
+              "src": "2247:14:17"
             },
             "scope": 6823,
-            "src": "2093:74:17",
+            "src": "2188:74:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1363,7 +1363,7 @@
             "documentation": {
               "id": 6757,
               "nodeType": "StructuredDocumentation",
-              "src": "2171:254:17",
+              "src": "2266:254:17",
               "text": " @dev Set 'contract address', called from constructor\n @param vestingTimelockAddress: VestingTimelockcontract address\n Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address."
             },
             "functionSelector": "20dd4868",
@@ -1384,7 +1384,7 @@
                   "name": "vestingTimelockAddress",
                   "nodeType": "VariableDeclaration",
                   "scope": 6762,
-                  "src": "2464:30:17",
+                  "src": "2559:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1395,7 +1395,7 @@
                     "id": 6758,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2464:7:17",
+                    "src": "2559:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1405,16 +1405,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2463:32:17"
+              "src": "2558:32:17"
             },
             "returnParameters": {
               "id": 6761,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2504:0:17"
+              "src": "2599:0:17"
             },
             "scope": 6823,
-            "src": "2428:77:17",
+            "src": "2523:77:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1423,7 +1423,7 @@
             "documentation": {
               "id": 6763,
               "nodeType": "StructuredDocumentation",
-              "src": "2509:348:17",
+              "src": "2604:348:17",
               "text": " @dev adds a vesting grant initiated by this contract as manager\n @param beneficiary: beneficiary address\n @param startTime: start time\n @param cliffPeriod: initial waiting period\n @param instalmentAmount: installment amount\n @param instalmentCount: instalment count\n @param instalmentPeriod: instalment period"
             },
             "functionSelector": "5b0d59e6",
@@ -1444,7 +1444,7 @@
                   "name": "beneficiary",
                   "nodeType": "VariableDeclaration",
                   "scope": 6780,
-                  "src": "2885:19:17",
+                  "src": "2980:19:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1455,7 +1455,7 @@
                     "id": 6764,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2885:7:17",
+                    "src": "2980:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1471,7 +1471,7 @@
                   "name": "startTime",
                   "nodeType": "VariableDeclaration",
                   "scope": 6780,
-                  "src": "2910:17:17",
+                  "src": "3005:17:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1482,7 +1482,7 @@
                     "id": 6766,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2910:7:17",
+                    "src": "3005:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1497,7 +1497,7 @@
                   "name": "cliffPeriod",
                   "nodeType": "VariableDeclaration",
                   "scope": 6780,
-                  "src": "2933:19:17",
+                  "src": "3028:19:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1508,7 +1508,7 @@
                     "id": 6768,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2933:7:17",
+                    "src": "3028:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1523,7 +1523,7 @@
                   "name": "instalmentAmount",
                   "nodeType": "VariableDeclaration",
                   "scope": 6780,
-                  "src": "2958:24:17",
+                  "src": "3053:24:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1534,7 +1534,7 @@
                     "id": 6770,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2958:7:17",
+                    "src": "3053:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1549,7 +1549,7 @@
                   "name": "instalmentCount",
                   "nodeType": "VariableDeclaration",
                   "scope": 6780,
-                  "src": "2988:23:17",
+                  "src": "3083:23:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1560,7 +1560,7 @@
                     "id": 6772,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2988:7:17",
+                    "src": "3083:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1575,7 +1575,7 @@
                   "name": "instalmentPeriod",
                   "nodeType": "VariableDeclaration",
                   "scope": 6780,
-                  "src": "3017:24:17",
+                  "src": "3112:24:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1586,7 +1586,7 @@
                     "id": 6774,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3017:7:17",
+                    "src": "3112:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1595,7 +1595,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2879:166:17"
+              "src": "2974:166:17"
             },
             "returnParameters": {
               "id": 6779,
@@ -1608,7 +1608,7 @@
                   "name": "totalVestingAmount",
                   "nodeType": "VariableDeclaration",
                   "scope": 6780,
-                  "src": "3064:26:17",
+                  "src": "3159:26:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1619,7 +1619,7 @@
                     "id": 6777,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3064:7:17",
+                    "src": "3159:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1628,10 +1628,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3063:28:17"
+              "src": "3158:28:17"
             },
             "scope": 6823,
-            "src": "2860:232:17",
+            "src": "2955:232:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1640,7 +1640,7 @@
             "documentation": {
               "id": 6781,
               "nodeType": "StructuredDocumentation",
-              "src": "3096:112:17",
+              "src": "3191:112:17",
               "text": " @dev Triggers stopped state.\n Requirements:\n - The contract must not be paused."
             },
             "functionSelector": "8456cb59",
@@ -1654,7 +1654,7 @@
               "id": 6782,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3225:2:17"
+              "src": "3320:2:17"
             },
             "returnParameters": {
               "id": 6785,
@@ -1667,7 +1667,7 @@
                   "name": "success",
                   "nodeType": "VariableDeclaration",
                   "scope": 6786,
-                  "src": "3246:12:17",
+                  "src": "3341:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1678,7 +1678,7 @@
                     "id": 6783,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3246:4:17",
+                    "src": "3341:4:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1687,10 +1687,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3245:14:17"
+              "src": "3340:14:17"
             },
             "scope": 6823,
-            "src": "3211:49:17",
+            "src": "3306:49:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1699,7 +1699,7 @@
             "documentation": {
               "id": 6787,
               "nodeType": "StructuredDocumentation",
-              "src": "3264:109:17",
+              "src": "3359:109:17",
               "text": " @dev Returns to normal state.\n Requirements:\n - The contract must be paused."
             },
             "functionSelector": "3f4ba83a",
@@ -1713,7 +1713,7 @@
               "id": 6788,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3392:2:17"
+              "src": "3487:2:17"
             },
             "returnParameters": {
               "id": 6791,
@@ -1726,7 +1726,7 @@
                   "name": "success",
                   "nodeType": "VariableDeclaration",
                   "scope": 6792,
-                  "src": "3413:12:17",
+                  "src": "3508:12:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1737,7 +1737,7 @@
                     "id": 6789,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3413:4:17",
+                    "src": "3508:4:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1746,10 +1746,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3412:14:17"
+              "src": "3507:14:17"
             },
             "scope": 6823,
-            "src": "3376:51:17",
+            "src": "3471:51:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1759,7 +1759,7 @@
             "documentation": {
               "id": 6793,
               "nodeType": "StructuredDocumentation",
-              "src": "3431:59:17",
+              "src": "3526:59:17",
               "text": " @dev Emitted when checkInflation() is called"
             },
             "id": 6801,
@@ -1777,7 +1777,7 @@
                   "name": "lastInflationBlockTime",
                   "nodeType": "VariableDeclaration",
                   "scope": 6801,
-                  "src": "3519:30:17",
+                  "src": "3614:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1788,7 +1788,7 @@
                     "id": 6794,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3519:7:17",
+                    "src": "3614:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1804,7 +1804,7 @@
                   "name": "inflationAdded",
                   "nodeType": "VariableDeclaration",
                   "scope": 6801,
-                  "src": "3555:22:17",
+                  "src": "3650:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1815,7 +1815,7 @@
                     "id": 6796,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3555:7:17",
+                    "src": "3650:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1831,7 +1831,7 @@
                   "name": "timestamp",
                   "nodeType": "VariableDeclaration",
                   "scope": 6801,
-                  "src": "3583:17:17",
+                  "src": "3678:17:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1842,7 +1842,7 @@
                     "id": 6798,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3583:7:17",
+                    "src": "3678:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1851,16 +1851,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3513:91:17"
+              "src": "3608:91:17"
             },
-            "src": "3493:112:17"
+            "src": "3588:112:17"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 6802,
               "nodeType": "StructuredDocumentation",
-              "src": "3609:74:17",
+              "src": "3704:74:17",
               "text": " @dev Emitted when setting vesting timelock contract address"
             },
             "id": 6806,
@@ -1878,7 +1878,7 @@
                   "name": "vestingTimelockAddress",
                   "nodeType": "VariableDeclaration",
                   "scope": 6806,
-                  "src": "3719:30:17",
+                  "src": "3814:30:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1889,7 +1889,7 @@
                     "id": 6803,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3719:7:17",
+                    "src": "3814:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1899,16 +1899,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3718:32:17"
+              "src": "3813:32:17"
             },
-            "src": "3686:65:17"
+            "src": "3781:65:17"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 6807,
               "nodeType": "StructuredDocumentation",
-              "src": "3755:55:17",
+              "src": "3850:55:17",
               "text": " @dev Emitted when setting inflation rate"
             },
             "id": 6815,
@@ -1926,7 +1926,7 @@
                   "name": "accountAddress",
                   "nodeType": "VariableDeclaration",
                   "scope": 6815,
-                  "src": "3841:22:17",
+                  "src": "3936:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1937,7 +1937,7 @@
                     "id": 6808,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3841:7:17",
+                    "src": "3936:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1954,7 +1954,7 @@
                   "name": "inflationRate",
                   "nodeType": "VariableDeclaration",
                   "scope": 6815,
-                  "src": "3869:21:17",
+                  "src": "3964:21:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1965,7 +1965,7 @@
                     "id": 6810,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3869:7:17",
+                    "src": "3964:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1981,7 +1981,7 @@
                   "name": "inflationPeriod",
                   "nodeType": "VariableDeclaration",
                   "scope": 6815,
-                  "src": "3896:23:17",
+                  "src": "3991:23:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1992,7 +1992,7 @@
                     "id": 6812,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3896:7:17",
+                    "src": "3991:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2001,16 +2001,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3835:88:17"
+              "src": "3930:88:17"
             },
-            "src": "3813:111:17"
+            "src": "3908:111:17"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 6816,
               "nodeType": "StructuredDocumentation",
-              "src": "3928:57:17",
+              "src": "4023:57:17",
               "text": " @dev Emitted when setting max limit supply"
             },
             "id": 6822,
@@ -2028,7 +2028,7 @@
                   "name": "accountAddress",
                   "nodeType": "VariableDeclaration",
                   "scope": 6822,
-                  "src": "4012:22:17",
+                  "src": "4107:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2039,7 +2039,7 @@
                     "id": 6817,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4012:7:17",
+                    "src": "4107:7:17",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2056,7 +2056,7 @@
                   "name": "supplyMaxLimit",
                   "nodeType": "VariableDeclaration",
                   "scope": 6822,
-                  "src": "4036:22:17",
+                  "src": "4131:22:17",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2067,7 +2067,7 @@
                     "id": 6819,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4036:7:17",
+                    "src": "4131:7:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2076,16 +2076,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4011:48:17"
+              "src": "4106:48:17"
             },
-            "src": "3988:72:17"
+            "src": "4083:72:17"
           }
         ],
         "scope": 6824,
-        "src": "188:3874:17"
+        "src": "283:3874:17"
       }
     ],
-    "src": "39:4024:17"
+    "src": "134:4024:17"
   },
   "legacyAST": {
     "attributes": {
@@ -2098,7 +2098,7 @@
           6823
         ]
       },
-      "license": "UNLICENSED"
+      "license": "Apache-2.0"
     },
     "children": [
       {
@@ -2112,7 +2112,7 @@
         },
         "id": 6682,
         "name": "PragmaDirective",
-        "src": "39:24:17"
+        "src": "134:24:17"
       },
       {
         "attributes": {
@@ -2127,7 +2127,7 @@
         },
         "id": 6683,
         "name": "ImportDirective",
-        "src": "65:79:17"
+        "src": "160:79:17"
       },
       {
         "attributes": {
@@ -2151,7 +2151,7 @@
             },
             "id": 6684,
             "name": "StructuredDocumentation",
-            "src": "146:41:17"
+            "src": "241:41:17"
           },
           {
             "attributes": {},
@@ -2164,12 +2164,12 @@
                 },
                 "id": 6685,
                 "name": "UserDefinedTypeName",
-                "src": "209:17:17"
+                "src": "304:17:17"
               }
             ],
             "id": 6686,
             "name": "InheritanceSpecifier",
-            "src": "209:17:17"
+            "src": "304:17:17"
           },
           {
             "attributes": {
@@ -2193,7 +2193,7 @@
                 },
                 "id": 6687,
                 "name": "StructuredDocumentation",
-                "src": "232:71:17"
+                "src": "327:71:17"
               },
               {
                 "attributes": {
@@ -2204,7 +2204,7 @@
                 "children": [],
                 "id": 6688,
                 "name": "ParameterList",
-                "src": "338:2:17"
+                "src": "433:2:17"
               },
               {
                 "children": [
@@ -2227,22 +2227,22 @@
                         },
                         "id": 6689,
                         "name": "ElementaryTypeName",
-                        "src": "376:7:17"
+                        "src": "471:7:17"
                       }
                     ],
                     "id": 6690,
                     "name": "VariableDeclaration",
-                    "src": "376:30:17"
+                    "src": "471:30:17"
                   }
                 ],
                 "id": 6691,
                 "name": "ParameterList",
-                "src": "375:32:17"
+                "src": "470:32:17"
               }
             ],
             "id": 6692,
             "name": "FunctionDefinition",
-            "src": "306:102:17"
+            "src": "401:102:17"
           },
           {
             "attributes": {
@@ -2266,7 +2266,7 @@
                 },
                 "id": 6693,
                 "name": "StructuredDocumentation",
-                "src": "412:71:17"
+                "src": "507:71:17"
               },
               {
                 "attributes": {
@@ -2277,7 +2277,7 @@
                 "children": [],
                 "id": 6694,
                 "name": "ParameterList",
-                "src": "515:2:17"
+                "src": "610:2:17"
               },
               {
                 "children": [
@@ -2300,22 +2300,22 @@
                         },
                         "id": 6695,
                         "name": "ElementaryTypeName",
-                        "src": "553:7:17"
+                        "src": "648:7:17"
                       }
                     ],
                     "id": 6696,
                     "name": "VariableDeclaration",
-                    "src": "553:27:17"
+                    "src": "648:27:17"
                   }
                 ],
                 "id": 6697,
                 "name": "ParameterList",
-                "src": "552:29:17"
+                "src": "647:29:17"
               }
             ],
             "id": 6698,
             "name": "FunctionDefinition",
-            "src": "486:96:17"
+            "src": "581:96:17"
           },
           {
             "attributes": {
@@ -2339,7 +2339,7 @@
                 },
                 "id": 6699,
                 "name": "StructuredDocumentation",
-                "src": "586:71:17"
+                "src": "681:71:17"
               },
               {
                 "attributes": {
@@ -2350,7 +2350,7 @@
                 "children": [],
                 "id": 6700,
                 "name": "ParameterList",
-                "src": "684:2:17"
+                "src": "779:2:17"
               },
               {
                 "children": [
@@ -2373,22 +2373,22 @@
                         },
                         "id": 6701,
                         "name": "ElementaryTypeName",
-                        "src": "710:7:17"
+                        "src": "805:7:17"
                       }
                     ],
                     "id": 6702,
                     "name": "VariableDeclaration",
-                    "src": "710:22:17"
+                    "src": "805:22:17"
                   }
                 ],
                 "id": 6703,
                 "name": "ParameterList",
-                "src": "709:24:17"
+                "src": "804:24:17"
               }
             ],
             "id": 6704,
             "name": "FunctionDefinition",
-            "src": "660:74:17"
+            "src": "755:74:17"
           },
           {
             "attributes": {
@@ -2412,7 +2412,7 @@
                 },
                 "id": 6705,
                 "name": "StructuredDocumentation",
-                "src": "738:114:17"
+                "src": "833:114:17"
               },
               {
                 "attributes": {
@@ -2423,7 +2423,7 @@
                 "children": [],
                 "id": 6706,
                 "name": "ParameterList",
-                "src": "878:2:17"
+                "src": "973:2:17"
               },
               {
                 "children": [
@@ -2446,12 +2446,12 @@
                         },
                         "id": 6707,
                         "name": "ElementaryTypeName",
-                        "src": "907:7:17"
+                        "src": "1002:7:17"
                       }
                     ],
                     "id": 6708,
                     "name": "VariableDeclaration",
-                    "src": "907:27:17"
+                    "src": "1002:27:17"
                   },
                   {
                     "attributes": {
@@ -2472,22 +2472,22 @@
                         },
                         "id": 6709,
                         "name": "ElementaryTypeName",
-                        "src": "936:7:17"
+                        "src": "1031:7:17"
                       }
                     ],
                     "id": 6710,
                     "name": "VariableDeclaration",
-                    "src": "936:30:17"
+                    "src": "1031:30:17"
                   }
                 ],
                 "id": 6711,
                 "name": "ParameterList",
-                "src": "906:61:17"
+                "src": "1001:61:17"
               }
             ],
             "id": 6712,
             "name": "FunctionDefinition",
-            "src": "855:113:17"
+            "src": "950:113:17"
           },
           {
             "attributes": {
@@ -2511,7 +2511,7 @@
                 },
                 "id": 6713,
                 "name": "StructuredDocumentation",
-                "src": "972:66:17"
+                "src": "1067:66:17"
               },
               {
                 "attributes": {
@@ -2522,7 +2522,7 @@
                 "children": [],
                 "id": 6714,
                 "name": "ParameterList",
-                "src": "1062:2:17"
+                "src": "1157:2:17"
               },
               {
                 "children": [
@@ -2545,12 +2545,12 @@
                         },
                         "id": 6715,
                         "name": "ElementaryTypeName",
-                        "src": "1107:7:17"
+                        "src": "1202:7:17"
                       }
                     ],
                     "id": 6716,
                     "name": "VariableDeclaration",
-                    "src": "1107:27:17"
+                    "src": "1202:27:17"
                   },
                   {
                     "attributes": {
@@ -2571,12 +2571,12 @@
                         },
                         "id": 6717,
                         "name": "ElementaryTypeName",
-                        "src": "1142:7:17"
+                        "src": "1237:7:17"
                       }
                     ],
                     "id": 6718,
                     "name": "VariableDeclaration",
-                    "src": "1142:21:17"
+                    "src": "1237:21:17"
                   },
                   {
                     "attributes": {
@@ -2597,12 +2597,12 @@
                         },
                         "id": 6719,
                         "name": "ElementaryTypeName",
-                        "src": "1171:7:17"
+                        "src": "1266:7:17"
                       }
                     ],
                     "id": 6720,
                     "name": "VariableDeclaration",
-                    "src": "1171:20:17"
+                    "src": "1266:20:17"
                   },
                   {
                     "attributes": {
@@ -2623,12 +2623,12 @@
                         },
                         "id": 6721,
                         "name": "ElementaryTypeName",
-                        "src": "1199:7:17"
+                        "src": "1294:7:17"
                       }
                     ],
                     "id": 6722,
                     "name": "VariableDeclaration",
-                    "src": "1199:23:17"
+                    "src": "1294:23:17"
                   },
                   {
                     "attributes": {
@@ -2649,12 +2649,12 @@
                         },
                         "id": 6723,
                         "name": "ElementaryTypeName",
-                        "src": "1230:7:17"
+                        "src": "1325:7:17"
                       }
                     ],
                     "id": 6724,
                     "name": "VariableDeclaration",
-                    "src": "1230:30:17"
+                    "src": "1325:30:17"
                   },
                   {
                     "attributes": {
@@ -2675,22 +2675,22 @@
                         },
                         "id": 6725,
                         "name": "ElementaryTypeName",
-                        "src": "1268:7:17"
+                        "src": "1363:7:17"
                       }
                     ],
                     "id": 6726,
                     "name": "VariableDeclaration",
-                    "src": "1268:22:17"
+                    "src": "1363:22:17"
                   }
                 ],
                 "id": 6727,
                 "name": "ParameterList",
-                "src": "1099:197:17"
+                "src": "1194:197:17"
               }
             ],
             "id": 6728,
             "name": "FunctionDefinition",
-            "src": "1041:256:17"
+            "src": "1136:256:17"
           },
           {
             "attributes": {
@@ -2714,7 +2714,7 @@
                 },
                 "id": 6729,
                 "name": "StructuredDocumentation",
-                "src": "1302:220:17"
+                "src": "1397:220:17"
               },
               {
                 "children": [
@@ -2737,12 +2737,12 @@
                         },
                         "id": 6730,
                         "name": "ElementaryTypeName",
-                        "src": "1547:7:17"
+                        "src": "1642:7:17"
                       }
                     ],
                     "id": 6731,
                     "name": "VariableDeclaration",
-                    "src": "1547:21:17"
+                    "src": "1642:21:17"
                   },
                   {
                     "attributes": {
@@ -2763,17 +2763,17 @@
                         },
                         "id": 6732,
                         "name": "ElementaryTypeName",
-                        "src": "1570:7:17"
+                        "src": "1665:7:17"
                       }
                     ],
                     "id": 6733,
                     "name": "VariableDeclaration",
-                    "src": "1570:23:17"
+                    "src": "1665:23:17"
                   }
                 ],
                 "id": 6734,
                 "name": "ParameterList",
-                "src": "1546:48:17"
+                "src": "1641:48:17"
               },
               {
                 "children": [
@@ -2796,22 +2796,22 @@
                         },
                         "id": 6735,
                         "name": "ElementaryTypeName",
-                        "src": "1621:4:17"
+                        "src": "1716:4:17"
                       }
                     ],
                     "id": 6736,
                     "name": "VariableDeclaration",
-                    "src": "1621:12:17"
+                    "src": "1716:12:17"
                   }
                 ],
                 "id": 6737,
                 "name": "ParameterList",
-                "src": "1620:14:17"
+                "src": "1715:14:17"
               }
             ],
             "id": 6738,
             "name": "FunctionDefinition",
-            "src": "1525:110:17"
+            "src": "1620:110:17"
           },
           {
             "attributes": {
@@ -2835,7 +2835,7 @@
                 },
                 "id": 6739,
                 "name": "StructuredDocumentation",
-                "src": "1639:168:17"
+                "src": "1734:168:17"
               },
               {
                 "children": [
@@ -2858,17 +2858,17 @@
                         },
                         "id": 6740,
                         "name": "ElementaryTypeName",
-                        "src": "1837:7:17"
+                        "src": "1932:7:17"
                       }
                     ],
                     "id": 6741,
                     "name": "VariableDeclaration",
-                    "src": "1837:22:17"
+                    "src": "1932:22:17"
                   }
                 ],
                 "id": 6742,
                 "name": "ParameterList",
-                "src": "1836:24:17"
+                "src": "1931:24:17"
               },
               {
                 "children": [
@@ -2891,22 +2891,22 @@
                         },
                         "id": 6743,
                         "name": "ElementaryTypeName",
-                        "src": "1887:4:17"
+                        "src": "1982:4:17"
                       }
                     ],
                     "id": 6744,
                     "name": "VariableDeclaration",
-                    "src": "1887:12:17"
+                    "src": "1982:12:17"
                   }
                 ],
                 "id": 6745,
                 "name": "ParameterList",
-                "src": "1886:14:17"
+                "src": "1981:14:17"
               }
             ],
             "id": 6746,
             "name": "FunctionDefinition",
-            "src": "1810:91:17"
+            "src": "1905:91:17"
           },
           {
             "attributes": {
@@ -2930,7 +2930,7 @@
                 },
                 "id": 6747,
                 "name": "StructuredDocumentation",
-                "src": "1905:185:17"
+                "src": "2000:185:17"
               },
               {
                 "children": [
@@ -2954,12 +2954,12 @@
                         },
                         "id": 6748,
                         "name": "ElementaryTypeName",
-                        "src": "2107:7:17"
+                        "src": "2202:7:17"
                       }
                     ],
                     "id": 6749,
                     "name": "VariableDeclaration",
-                    "src": "2107:10:17"
+                    "src": "2202:10:17"
                   },
                   {
                     "attributes": {
@@ -2980,17 +2980,17 @@
                         },
                         "id": 6750,
                         "name": "ElementaryTypeName",
-                        "src": "2119:7:17"
+                        "src": "2214:7:17"
                       }
                     ],
                     "id": 6751,
                     "name": "VariableDeclaration",
-                    "src": "2119:14:17"
+                    "src": "2214:14:17"
                   }
                 ],
                 "id": 6752,
                 "name": "ParameterList",
-                "src": "2106:28:17"
+                "src": "2201:28:17"
               },
               {
                 "children": [
@@ -3013,22 +3013,22 @@
                         },
                         "id": 6753,
                         "name": "ElementaryTypeName",
-                        "src": "2153:4:17"
+                        "src": "2248:4:17"
                       }
                     ],
                     "id": 6754,
                     "name": "VariableDeclaration",
-                    "src": "2153:12:17"
+                    "src": "2248:12:17"
                   }
                 ],
                 "id": 6755,
                 "name": "ParameterList",
-                "src": "2152:14:17"
+                "src": "2247:14:17"
               }
             ],
             "id": 6756,
             "name": "FunctionDefinition",
-            "src": "2093:74:17"
+            "src": "2188:74:17"
           },
           {
             "attributes": {
@@ -3052,7 +3052,7 @@
                 },
                 "id": 6757,
                 "name": "StructuredDocumentation",
-                "src": "2171:254:17"
+                "src": "2266:254:17"
               },
               {
                 "children": [
@@ -3076,17 +3076,17 @@
                         },
                         "id": 6758,
                         "name": "ElementaryTypeName",
-                        "src": "2464:7:17"
+                        "src": "2559:7:17"
                       }
                     ],
                     "id": 6759,
                     "name": "VariableDeclaration",
-                    "src": "2464:30:17"
+                    "src": "2559:30:17"
                   }
                 ],
                 "id": 6760,
                 "name": "ParameterList",
-                "src": "2463:32:17"
+                "src": "2558:32:17"
               },
               {
                 "attributes": {
@@ -3097,12 +3097,12 @@
                 "children": [],
                 "id": 6761,
                 "name": "ParameterList",
-                "src": "2504:0:17"
+                "src": "2599:0:17"
               }
             ],
             "id": 6762,
             "name": "FunctionDefinition",
-            "src": "2428:77:17"
+            "src": "2523:77:17"
           },
           {
             "attributes": {
@@ -3126,7 +3126,7 @@
                 },
                 "id": 6763,
                 "name": "StructuredDocumentation",
-                "src": "2509:348:17"
+                "src": "2604:348:17"
               },
               {
                 "children": [
@@ -3150,12 +3150,12 @@
                         },
                         "id": 6764,
                         "name": "ElementaryTypeName",
-                        "src": "2885:7:17"
+                        "src": "2980:7:17"
                       }
                     ],
                     "id": 6765,
                     "name": "VariableDeclaration",
-                    "src": "2885:19:17"
+                    "src": "2980:19:17"
                   },
                   {
                     "attributes": {
@@ -3176,12 +3176,12 @@
                         },
                         "id": 6766,
                         "name": "ElementaryTypeName",
-                        "src": "2910:7:17"
+                        "src": "3005:7:17"
                       }
                     ],
                     "id": 6767,
                     "name": "VariableDeclaration",
-                    "src": "2910:17:17"
+                    "src": "3005:17:17"
                   },
                   {
                     "attributes": {
@@ -3202,12 +3202,12 @@
                         },
                         "id": 6768,
                         "name": "ElementaryTypeName",
-                        "src": "2933:7:17"
+                        "src": "3028:7:17"
                       }
                     ],
                     "id": 6769,
                     "name": "VariableDeclaration",
-                    "src": "2933:19:17"
+                    "src": "3028:19:17"
                   },
                   {
                     "attributes": {
@@ -3228,12 +3228,12 @@
                         },
                         "id": 6770,
                         "name": "ElementaryTypeName",
-                        "src": "2958:7:17"
+                        "src": "3053:7:17"
                       }
                     ],
                     "id": 6771,
                     "name": "VariableDeclaration",
-                    "src": "2958:24:17"
+                    "src": "3053:24:17"
                   },
                   {
                     "attributes": {
@@ -3254,12 +3254,12 @@
                         },
                         "id": 6772,
                         "name": "ElementaryTypeName",
-                        "src": "2988:7:17"
+                        "src": "3083:7:17"
                       }
                     ],
                     "id": 6773,
                     "name": "VariableDeclaration",
-                    "src": "2988:23:17"
+                    "src": "3083:23:17"
                   },
                   {
                     "attributes": {
@@ -3280,17 +3280,17 @@
                         },
                         "id": 6774,
                         "name": "ElementaryTypeName",
-                        "src": "3017:7:17"
+                        "src": "3112:7:17"
                       }
                     ],
                     "id": 6775,
                     "name": "VariableDeclaration",
-                    "src": "3017:24:17"
+                    "src": "3112:24:17"
                   }
                 ],
                 "id": 6776,
                 "name": "ParameterList",
-                "src": "2879:166:17"
+                "src": "2974:166:17"
               },
               {
                 "children": [
@@ -3313,22 +3313,22 @@
                         },
                         "id": 6777,
                         "name": "ElementaryTypeName",
-                        "src": "3064:7:17"
+                        "src": "3159:7:17"
                       }
                     ],
                     "id": 6778,
                     "name": "VariableDeclaration",
-                    "src": "3064:26:17"
+                    "src": "3159:26:17"
                   }
                 ],
                 "id": 6779,
                 "name": "ParameterList",
-                "src": "3063:28:17"
+                "src": "3158:28:17"
               }
             ],
             "id": 6780,
             "name": "FunctionDefinition",
-            "src": "2860:232:17"
+            "src": "2955:232:17"
           },
           {
             "attributes": {
@@ -3352,7 +3352,7 @@
                 },
                 "id": 6781,
                 "name": "StructuredDocumentation",
-                "src": "3096:112:17"
+                "src": "3191:112:17"
               },
               {
                 "attributes": {
@@ -3363,7 +3363,7 @@
                 "children": [],
                 "id": 6782,
                 "name": "ParameterList",
-                "src": "3225:2:17"
+                "src": "3320:2:17"
               },
               {
                 "children": [
@@ -3386,22 +3386,22 @@
                         },
                         "id": 6783,
                         "name": "ElementaryTypeName",
-                        "src": "3246:4:17"
+                        "src": "3341:4:17"
                       }
                     ],
                     "id": 6784,
                     "name": "VariableDeclaration",
-                    "src": "3246:12:17"
+                    "src": "3341:12:17"
                   }
                 ],
                 "id": 6785,
                 "name": "ParameterList",
-                "src": "3245:14:17"
+                "src": "3340:14:17"
               }
             ],
             "id": 6786,
             "name": "FunctionDefinition",
-            "src": "3211:49:17"
+            "src": "3306:49:17"
           },
           {
             "attributes": {
@@ -3425,7 +3425,7 @@
                 },
                 "id": 6787,
                 "name": "StructuredDocumentation",
-                "src": "3264:109:17"
+                "src": "3359:109:17"
               },
               {
                 "attributes": {
@@ -3436,7 +3436,7 @@
                 "children": [],
                 "id": 6788,
                 "name": "ParameterList",
-                "src": "3392:2:17"
+                "src": "3487:2:17"
               },
               {
                 "children": [
@@ -3459,22 +3459,22 @@
                         },
                         "id": 6789,
                         "name": "ElementaryTypeName",
-                        "src": "3413:4:17"
+                        "src": "3508:4:17"
                       }
                     ],
                     "id": 6790,
                     "name": "VariableDeclaration",
-                    "src": "3413:12:17"
+                    "src": "3508:12:17"
                   }
                 ],
                 "id": 6791,
                 "name": "ParameterList",
-                "src": "3412:14:17"
+                "src": "3507:14:17"
               }
             ],
             "id": 6792,
             "name": "FunctionDefinition",
-            "src": "3376:51:17"
+            "src": "3471:51:17"
           },
           {
             "attributes": {
@@ -3488,7 +3488,7 @@
                 },
                 "id": 6793,
                 "name": "StructuredDocumentation",
-                "src": "3431:59:17"
+                "src": "3526:59:17"
               },
               {
                 "children": [
@@ -3512,12 +3512,12 @@
                         },
                         "id": 6794,
                         "name": "ElementaryTypeName",
-                        "src": "3519:7:17"
+                        "src": "3614:7:17"
                       }
                     ],
                     "id": 6795,
                     "name": "VariableDeclaration",
-                    "src": "3519:30:17"
+                    "src": "3614:30:17"
                   },
                   {
                     "attributes": {
@@ -3539,12 +3539,12 @@
                         },
                         "id": 6796,
                         "name": "ElementaryTypeName",
-                        "src": "3555:7:17"
+                        "src": "3650:7:17"
                       }
                     ],
                     "id": 6797,
                     "name": "VariableDeclaration",
-                    "src": "3555:22:17"
+                    "src": "3650:22:17"
                   },
                   {
                     "attributes": {
@@ -3566,22 +3566,22 @@
                         },
                         "id": 6798,
                         "name": "ElementaryTypeName",
-                        "src": "3583:7:17"
+                        "src": "3678:7:17"
                       }
                     ],
                     "id": 6799,
                     "name": "VariableDeclaration",
-                    "src": "3583:17:17"
+                    "src": "3678:17:17"
                   }
                 ],
                 "id": 6800,
                 "name": "ParameterList",
-                "src": "3513:91:17"
+                "src": "3608:91:17"
               }
             ],
             "id": 6801,
             "name": "EventDefinition",
-            "src": "3493:112:17"
+            "src": "3588:112:17"
           },
           {
             "attributes": {
@@ -3595,7 +3595,7 @@
                 },
                 "id": 6802,
                 "name": "StructuredDocumentation",
-                "src": "3609:74:17"
+                "src": "3704:74:17"
               },
               {
                 "children": [
@@ -3620,22 +3620,22 @@
                         },
                         "id": 6803,
                         "name": "ElementaryTypeName",
-                        "src": "3719:7:17"
+                        "src": "3814:7:17"
                       }
                     ],
                     "id": 6804,
                     "name": "VariableDeclaration",
-                    "src": "3719:30:17"
+                    "src": "3814:30:17"
                   }
                 ],
                 "id": 6805,
                 "name": "ParameterList",
-                "src": "3718:32:17"
+                "src": "3813:32:17"
               }
             ],
             "id": 6806,
             "name": "EventDefinition",
-            "src": "3686:65:17"
+            "src": "3781:65:17"
           },
           {
             "attributes": {
@@ -3649,7 +3649,7 @@
                 },
                 "id": 6807,
                 "name": "StructuredDocumentation",
-                "src": "3755:55:17"
+                "src": "3850:55:17"
               },
               {
                 "children": [
@@ -3674,12 +3674,12 @@
                         },
                         "id": 6808,
                         "name": "ElementaryTypeName",
-                        "src": "3841:7:17"
+                        "src": "3936:7:17"
                       }
                     ],
                     "id": 6809,
                     "name": "VariableDeclaration",
-                    "src": "3841:22:17"
+                    "src": "3936:22:17"
                   },
                   {
                     "attributes": {
@@ -3701,12 +3701,12 @@
                         },
                         "id": 6810,
                         "name": "ElementaryTypeName",
-                        "src": "3869:7:17"
+                        "src": "3964:7:17"
                       }
                     ],
                     "id": 6811,
                     "name": "VariableDeclaration",
-                    "src": "3869:21:17"
+                    "src": "3964:21:17"
                   },
                   {
                     "attributes": {
@@ -3728,22 +3728,22 @@
                         },
                         "id": 6812,
                         "name": "ElementaryTypeName",
-                        "src": "3896:7:17"
+                        "src": "3991:7:17"
                       }
                     ],
                     "id": 6813,
                     "name": "VariableDeclaration",
-                    "src": "3896:23:17"
+                    "src": "3991:23:17"
                   }
                 ],
                 "id": 6814,
                 "name": "ParameterList",
-                "src": "3835:88:17"
+                "src": "3930:88:17"
               }
             ],
             "id": 6815,
             "name": "EventDefinition",
-            "src": "3813:111:17"
+            "src": "3908:111:17"
           },
           {
             "attributes": {
@@ -3757,7 +3757,7 @@
                 },
                 "id": 6816,
                 "name": "StructuredDocumentation",
-                "src": "3928:57:17"
+                "src": "4023:57:17"
               },
               {
                 "children": [
@@ -3782,12 +3782,12 @@
                         },
                         "id": 6817,
                         "name": "ElementaryTypeName",
-                        "src": "4012:7:17"
+                        "src": "4107:7:17"
                       }
                     ],
                     "id": 6818,
                     "name": "VariableDeclaration",
-                    "src": "4012:22:17"
+                    "src": "4107:22:17"
                   },
                   {
                     "attributes": {
@@ -3809,32 +3809,32 @@
                         },
                         "id": 6819,
                         "name": "ElementaryTypeName",
-                        "src": "4036:7:17"
+                        "src": "4131:7:17"
                       }
                     ],
                     "id": 6820,
                     "name": "VariableDeclaration",
-                    "src": "4036:22:17"
+                    "src": "4131:22:17"
                   }
                 ],
                 "id": 6821,
                 "name": "ParameterList",
-                "src": "4011:48:17"
+                "src": "4106:48:17"
               }
             ],
             "id": 6822,
             "name": "EventDefinition",
-            "src": "3988:72:17"
+            "src": "4083:72:17"
           }
         ],
         "id": 6823,
         "name": "ContractDefinition",
-        "src": "188:3874:17"
+        "src": "283:3874:17"
       }
     ],
     "id": 6824,
     "name": "SourceUnit",
-    "src": "39:4024:17"
+    "src": "134:4024:17"
   },
   "compiler": {
     "name": "solc",
@@ -3842,7 +3842,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-13T01:21:45.839Z",
+  "updatedAt": "2021-12-21T08:48:15.016Z",
   "devdoc": {
     "details": "Interface of the IPSTAKE.",
     "events": {

@@ -36,15 +36,10 @@ contract PSTAKE is
   // addresses pertaining to various tokenomics strategy
   address public _airdropPool;
   address public _alphaLaunchpadPool;
-  address public _seedSalePool;
-  address public _publicSalePool1;
-  address public _publicSalePool2;
-  address public _publicSalePool3;
-  address public _teamPool;
-  address public _incentivisationPool;
+  address public _publicSalePool;
+  address public _incentivisationCommunityDevelopmentPool;
   address public _xprtStakersPool;
   address public _protocolTreasuryPool;
-  address public _communityDevelopmentFundPool;
   address public _retroactiveRewardProtocolBootstrapPool;
 
   // address of vesting timelock contract to enable several vesting strategy
@@ -62,49 +57,39 @@ contract PSTAKE is
   uint256 public constant INFLATION_RATE = uint256(15e9);
   uint256 public constant INFLATION_PERIOD = 365 days;
   uint256 public constant SUPPLY_AT_GENESIS = uint256(500000000e18);
-  uint256 public constant TOTAL_VESTED_SUPPLY = uint256(450111111e18);
+  uint256 public constant TOTAL_VESTED_SUPPLY = uint256(441944444e18);
   uint256 public constant SUPPLY_MAX_LIMIT = uint256(1250000000e18);
 
   // pre-allocate tokens to strategy pools
   uint256 public constant AIRDROPPOOLALLOCATION = uint256(5000000e18);
   uint256 public constant ALPHALAUNCHPADPOOLALLOCATION = uint256(10000000e18);
-  uint256 public constant INCENTIVISATIONPOOLALLOCATION = uint256(13222222e18);
+  uint256 public constant PUBLICSALEPOOLALLOCATION = uint256(6250000e18);
+  uint256 public constant INCENTIVISATIONCOMMUNITYDEVELOPMENTPOOLALLOCATION =
+    uint256(14444444e18);
   uint256 public constant XPRTSTAKERSPOOLALLOCATION = uint256(1250000e18);
-  uint256 public constant PROTOCOLTREASURYPOOLALLOCATION = uint256(4250000e18);
-  uint256 public constant COMMUNITYDEVELOPMENTFUNDPOOLALLOCATION =
-    uint256(1666667e18);
+  uint256 public constant PROTOCOLTREASURYPOOLALLOCATION = uint256(11111111e18);
   uint256 public constant RETROACTIVEREWARDPROTOCOLBOOTSTRAPPOOLALLOCATION =
-    uint256(14500000e18);
+    uint256(10000000e18);
 
   /**
    * @dev Constructor for initializing the PSTAKE contract.
    * @param vestingTimelockAddress - address of the vesting timelock contract.
    * @param airdropPool - address of the airdrop pool.
    * @param alphaLaunchpadPool - address of the alpha launchpad pool.
-   * @param seedSalePool - address of the seed sale pool.
-   * @param publicSalePool1 - address of the public sale pool1.
-   * @param publicSalePool2 - address of the public sale pool2.
-   * @param publicSalePool3 - address of the public sale pool3.
-   * @param teamPool - address of the team pool.
-   * @param incentivisationPool - address of the incentivising pool.
+   * @param publicSalePool - address of the public sale pool1.
+   * @param incentivisationCommunityDevelopmentPool - address of the incentivising pool.
    * @param xprtStakersPool - address of the xprt stakers pool.
    * @param protocolTreasuryPool - address of the protocol treasury pool.
-   * @param communityDevelopmentFundPool - address of the community development fund pool.
    * @param retroactiveRewardProtocolBootstrapPool - address of the retroactive reward protocol bootstrap pool.
    */
   function initialize(
     address vestingTimelockAddress,
     address airdropPool,
     address alphaLaunchpadPool,
-    address seedSalePool,
-    address publicSalePool1,
-    address publicSalePool2,
-    address publicSalePool3,
-    address teamPool,
-    address incentivisationPool,
+    address publicSalePool,
+    address incentivisationCommunityDevelopmentPool,
     address xprtStakersPool,
     address protocolTreasuryPool,
-    address communityDevelopmentFundPool,
     address retroactiveRewardProtocolBootstrapPool
   ) public virtual initializer {
     __ERC20_init("pSTAKE Token", "PSTAKE");
@@ -120,36 +105,25 @@ contract PSTAKE is
     // PSTAKE is an erc20 token hence 18 decimal places
     _setupDecimals(18);
     _valueDivisor = VALUE_DIVISOR;
-    // _inflationRate = INFLATION_RATE;
-    // _inflationPeriod = INFLATION_PERIOD;
-    // _lastInflationBlockTime = block.timestamp;
     _totalInflatedSupply = uint256(SUPPLY_AT_GENESIS);
-    // _supplyMaxLimit = SUPPLY_MAX_LIMIT;
-    // allocate the various tokenomics strategy pool addresses
-    // (must be different addresses because each address can have only one active vesting strategy at a time)
     _airdropPool = airdropPool;
     _alphaLaunchpadPool = alphaLaunchpadPool;
-    _seedSalePool = seedSalePool;
-    _publicSalePool1 = publicSalePool1;
-    _publicSalePool2 = publicSalePool2;
-    _publicSalePool3 = publicSalePool3;
-    _teamPool = teamPool;
-    _incentivisationPool = incentivisationPool;
+    _publicSalePool = publicSalePool;
+    _incentivisationCommunityDevelopmentPool = incentivisationCommunityDevelopmentPool;
     _xprtStakersPool = xprtStakersPool;
     _protocolTreasuryPool = protocolTreasuryPool;
-    _communityDevelopmentFundPool = communityDevelopmentFundPool;
     _retroactiveRewardProtocolBootstrapPool = retroactiveRewardProtocolBootstrapPool;
 
     // pre-allocate tokens to strategy pools
     _mint(_airdropPool, AIRDROPPOOLALLOCATION);
     _mint(_alphaLaunchpadPool, ALPHALAUNCHPADPOOLALLOCATION);
-    _mint(_incentivisationPool, INCENTIVISATIONPOOLALLOCATION);
+    _mint(_publicSalePool, PUBLICSALEPOOLALLOCATION);
+    _mint(
+      _incentivisationCommunityDevelopmentPool,
+      INCENTIVISATIONCOMMUNITYDEVELOPMENTPOOLALLOCATION
+    );
     _mint(_xprtStakersPool, XPRTSTAKERSPOOLALLOCATION);
     _mint(_protocolTreasuryPool, PROTOCOLTREASURYPOOLALLOCATION);
-    _mint(
-      _communityDevelopmentFundPool,
-      COMMUNITYDEVELOPMENTFUNDPOOLALLOCATION
-    );
     _mint(
       _retroactiveRewardProtocolBootstrapPool,
       RETROACTIVEREWARDPROTOCOLBOOTSTRAPPOOLALLOCATION
@@ -157,11 +131,6 @@ contract PSTAKE is
 
     // accumulate tokens to allocate for vesting strategies (total supply - initial circulating supply)
     mint(address(this), TOTAL_VESTED_SUPPLY);
-
-    // approve the vesting timelock contract to pull the tokens
-    // _approve(address(this), _vestingTimelockAddress, TOTAL_VESTED_SUPPLY);
-
-    // ALLOCATING VESTING STRATEGIES
   }
 
   /**
@@ -346,24 +315,6 @@ contract PSTAKE is
     // mint the tokens
     _mint(to, tokens);
     return true;
-  }
-
-  /**
-   * @dev Set 'contract address', called from constructor
-   * @param vestingTimelockAddress: Vesting timelock contract address
-   *
-   * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.
-   *
-   */
-  function setVestingTimelockContract(address vestingTimelockAddress)
-    public
-    virtual
-    override
-  {
-    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "PS9");
-    require(vestingTimelockAddress != address(0), "PS10");
-    _vestingTimelockAddress = vestingTimelockAddress;
-    emit SetVestingTimelockContract(vestingTimelockAddress);
   }
 
   /**

@@ -11,7 +11,6 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
  * @dev Interface of the IPSTAKE.
  */
 interface IPSTAKE is IERC20Upgradeable {
-
   /**
    * @dev getter method created from variable definition
    *
@@ -59,14 +58,14 @@ interface IPSTAKE is IERC20Upgradeable {
       uint256 supplyMaxLimit
     );
 
-   /**
-    * @dev Set inflation
-    * @param inflationRate: inflation rate given as value between 0 and 100
-    * @param inflationPeriod: inflation cycle in seconds
-    *
-    * Emits a {SetInflationRate} event.
-    *
-    */
+  /**
+   * @dev Set inflation
+   * @param inflationRate: inflation rate given as value between 0 and 100
+   * @param inflationPeriod: inflation cycle in seconds
+   *
+   * Emits a {SetInflationRate} event.
+   *
+   */
   function setInflation(uint256 inflationRate, uint256 inflationPeriod)
     external
     returns (bool success);
@@ -90,15 +89,6 @@ interface IPSTAKE is IERC20Upgradeable {
    * Emits a {Transfer} event.
    */
   function mint(address to, uint256 tokens) external returns (bool success);
-
-  /**
-   * @dev Set 'contract address', called from constructor
-   * @param vestingTimelockAddress: VestingTimelockcontract address
-   *
-   * Emits a {SetVestingTimelockContract} event with '_contract' set to the VestingTimelockcontract address.
-   *
-   */
-  function setVestingTimelockContract(address vestingTimelockAddress) external;
 
   /**
    * @dev adds a vesting grant initiated by this contract as manager

@@ -219,8 +219,8 @@ contract VestingTimelockV3 is
         beneficiary_ != (address(0)) &&
         // max limit of cliff period is 10 years (in seconds)
         cliffPeriod_ < (3650 days) &&
-        // min range for start time starts from 10 years in the past
-        startTime_ > ((block.timestamp).sub(3650 days)) &&
+        // min range for start time starts from now (cant accept past values)
+        startTime_ >= block.timestamp &&
         // max range for start time starts from 10 years in the future
         startTime_ < ((block.timestamp).add(3650 days)) &&
         instalmentAmount_ > 0 &&

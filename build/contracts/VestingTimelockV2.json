@@ -997,13 +997,13 @@
         2330
       ],
       "FullMath": [
-        7353
+        7348
       ],
       "IERC20Upgradeable": [
         1336
       ],
       "IVestingTimelockV2": [
-        6971
+        6966
       ],
       "Initializable": [
         728
@@ -1133,7 +1133,7 @@
         "id": 3968,
         "nodeType": "ImportDirective",
         "scope": 5442,
-        "sourceUnit": 7354,
+        "sourceUnit": 7349,
         "src": "779:34:14",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1144,7 +1144,7 @@
         "id": 3969,
         "nodeType": "ImportDirective",
         "scope": 5442,
-        "sourceUnit": 6972,
+        "sourceUnit": 6967,
         "src": "814:45:14",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1173,10 +1173,10 @@
               "id": 3973,
               "name": "IVestingTimelockV2",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 6971,
+              "referencedDeclaration": 6966,
               "src": "1112:18:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IVestingTimelockV2_$6971",
+                "typeIdentifier": "t_contract$_IVestingTimelockV2_$6966",
                 "typeString": "contract IVestingTimelockV2"
               }
             },
@@ -1239,7 +1239,7 @@
           1838,
           2443,
           2501,
-          6971
+          6966
         ],
         "contractKind": "contract",
         "documentation": {
@@ -1256,7 +1256,7 @@
           2443,
           1838,
           2501,
-          6971,
+          6966,
           728
         ],
         "name": "VestingTimelockV2",
@@ -1321,10 +1321,10 @@
               "id": 3987,
               "name": "FullMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7353,
+              "referencedDeclaration": 7348,
               "src": "1340:8:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_FullMath_$7353",
+                "typeIdentifier": "t_contract$_FullMath_$7348",
                 "typeString": "library FullMath"
               }
             },
@@ -3648,7 +3648,7 @@
           },
           {
             "baseFunctions": [
-              6775
+              6770
             ],
             "body": {
               "id": 4250,
@@ -4557,7 +4557,7 @@
           },
           {
             "baseFunctions": [
-              6803
+              6798
             ],
             "body": {
               "id": 4284,
@@ -7114,7 +7114,7 @@
           },
           {
             "baseFunctions": [
-              6817
+              6812
             ],
             "body": {
               "id": 4495,
@@ -7774,7 +7774,7 @@
           },
           {
             "baseFunctions": [
-              6829
+              6824
             ],
             "body": {
               "id": 4527,
@@ -9467,7 +9467,7 @@
           },
           {
             "baseFunctions": [
-              6843
+              6838
             ],
             "body": {
               "id": 4682,
@@ -10127,7 +10127,7 @@
           },
           {
             "baseFunctions": [
-              6855
+              6850
             ],
             "body": {
               "id": 4714,
@@ -11841,7 +11841,7 @@
           },
           {
             "baseFunctions": [
-              6875
+              6870
             ],
             "body": {
               "id": 5014,
@@ -14357,7 +14357,7 @@
                       "name": "AddGrant",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6940,
+                      "referencedDeclaration": 6935,
                       "src": "14694:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_address_$_t_uint256_$returns$__$",
@@ -15126,7 +15126,7 @@
           },
           {
             "baseFunctions": [
-              6885
+              6880
             ],
             "body": {
               "id": 5154,
@@ -16407,7 +16407,7 @@
                       "name": "RevokeGrant",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6957,
+                      "referencedDeclaration": 6952,
                       "src": "16686:11:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_address_$_t_address_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
@@ -16574,7 +16574,7 @@
           },
           {
             "baseFunctions": [
-              6893
+              6888
             ],
             "body": {
               "id": 5239,
@@ -17603,7 +17603,7 @@
                       "name": "RevokeGrant",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6957,
+                      "referencedDeclaration": 6952,
                       "src": "17905:11:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_address_$_t_address_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
@@ -17742,7 +17742,7 @@
           },
           {
             "baseFunctions": [
-              6903
+              6898
             ],
             "body": {
               "id": 5395,
@@ -19685,7 +19685,7 @@
                       "name": "ClaimGrant",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6970,
+                      "referencedDeclaration": 6965,
                       "src": "19792:10:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
@@ -19869,7 +19869,7 @@
           },
           {
             "baseFunctions": [
-              6909
+              6904
             ],
             "body": {
               "id": 5417,
@@ -20147,7 +20147,7 @@
           },
           {
             "baseFunctions": [
-              6915
+              6910
             ],
             "body": {
               "id": 5439,
@@ -20447,13 +20447,13 @@
           2330
         ],
         "FullMath": [
-          7353
+          7348
         ],
         "IERC20Upgradeable": [
           1336
         ],
         "IVestingTimelockV2": [
-          6971
+          6966
         ],
         "Initializable": [
           728
@@ -20612,7 +20612,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 7354,
+          "SourceUnit": 7349,
           "absolutePath": "project:/contracts/libraries/FullMath.sol",
           "file": "./libraries/FullMath.sol",
           "scope": 5442,
@@ -20627,7 +20627,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6972,
+          "SourceUnit": 6967,
           "absolutePath": "project:/contracts/interfaces/IVestingTimelockV2.sol",
           "file": "./interfaces/IVestingTimelockV2.sol",
           "scope": 5442,
@@ -20649,7 +20649,7 @@
             1838,
             2443,
             2501,
-            6971
+            6966
           ],
           "contractKind": "contract",
           "fullyImplemented": true,
@@ -20659,7 +20659,7 @@
             2443,
             1838,
             2501,
-            6971,
+            6966,
             728
           ],
           "name": "VestingTimelockV2",
@@ -20698,7 +20698,7 @@
               {
                 "attributes": {
                   "name": "IVestingTimelockV2",
-                  "referencedDeclaration": 6971,
+                  "referencedDeclaration": 6966,
                   "type": "contract IVestingTimelockV2"
                 },
                 "id": 3973,
@@ -20822,7 +20822,7 @@
               {
                 "attributes": {
                   "name": "FullMath",
-                  "referencedDeclaration": 7353,
+                  "referencedDeclaration": 7348,
                   "type": "library FullMath"
                 },
                 "id": 3987,
@@ -23294,7 +23294,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6775
+                6770
               ],
               "functionSelector": "6d1319eb",
               "implemented": true,
@@ -24259,7 +24259,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6803
+                6798
               ],
               "functionSelector": "9f08f869",
               "implemented": true,
@@ -26982,7 +26982,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6817
+                6812
               ],
               "functionSelector": "14820f2f",
               "implemented": true,
@@ -27691,7 +27691,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6829
+                6824
               ],
               "functionSelector": "d6003d9e",
               "implemented": true,
@@ -29517,7 +29517,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6843
+                6838
               ],
               "functionSelector": "88984a0d",
               "implemented": true,
@@ -30226,7 +30226,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6855
+                6850
               ],
               "functionSelector": "6ad1ee3d",
               "implemented": true,
@@ -32077,7 +32077,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6875
+                6870
               ],
               "functionSelector": "d41c9125",
               "implemented": true,
@@ -34855,7 +34855,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 6940,
+                              "referencedDeclaration": 6935,
                               "type": "function (uint256,address,address,uint256,uint256,uint256,uint256,uint256,uint256,address,uint256)",
                               "value": "AddGrant"
                             },
@@ -35574,7 +35574,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6885
+                6880
               ],
               "functionSelector": "0a68e60b",
               "implemented": true,
@@ -36982,7 +36982,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 6957,
+                              "referencedDeclaration": 6952,
                               "type": "function (uint256,address,address,address,address,uint256,uint256)",
                               "value": "RevokeGrant"
                             },
@@ -37145,7 +37145,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6893
+                6888
               ],
               "functionSelector": "71eaa3d7",
               "implemented": true,
@@ -38236,7 +38236,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 6957,
+                              "referencedDeclaration": 6952,
                               "type": "function (uint256,address,address,address,address,uint256,uint256)",
                               "value": "RevokeGrant"
                             },
@@ -38426,7 +38426,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6903
+                6898
               ],
               "functionSelector": "b4158844",
               "implemented": true,
@@ -40609,7 +40609,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 6970,
+                              "referencedDeclaration": 6965,
                               "type": "function (uint256,address,address,uint256,uint256)",
                               "value": "ClaimGrant"
                             },
@@ -40720,7 +40720,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6909
+                6904
               ],
               "functionSelector": "8456cb59",
               "implemented": true,
@@ -41045,7 +41045,7 @@
           {
             "attributes": {
               "baseFunctions": [
-                6915
+                6910
               ],
               "functionSelector": "3f4ba83a",
               "implemented": true,
@@ -41383,7 +41383,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-23T03:49:05.437Z",
+  "updatedAt": "2021-12-23T05:12:28.931Z",
   "devdoc": {
     "details": "A token holder contract that will allow a beneficiary to extract the tokens after a given release time. Supports multiple vesting strategies like Cliffed, Continuous, Stepped etc.",
     "kind": "dev",

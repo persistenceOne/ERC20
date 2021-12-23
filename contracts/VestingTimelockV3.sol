@@ -40,8 +40,6 @@ contract VestingTimelockV3 is
   // variable pertaining to contract upgrades versioning
   uint256 public _version;
 
-  // mapping(address => uint256) public _grantCount;
-
   // Vesting grant parameters (tightly packed)
   struct Grant {
     bool isActive;
@@ -76,45 +74,6 @@ contract VestingTimelockV3 is
     _setupRole(PAUSER_ROLE, pauserAddress_);
     _setupRole(GRANT_ADMIN_ROLE, grantAdminAddress_);
   }
-
-  /**
-   * @dev Get the details of the vesting grant for a user
-   * @param token_: address of token
-   * @param beneficiary_: address of beneficiary
-   */
-  /* function getGrant(address token_, address beneficiary_)
-    public
-    view
-    virtual
-    override
-    returns (
-      uint256 startTime,
-      uint256 endTime,
-      uint256 cliffPeriod,
-      bool isActive,
-      uint256 instalmentAmount,
-      uint256 instalmentCount,
-      uint256 instalmentPeriod,
-      uint256 amountReceived,
-      address grantManager,
-      uint256 lastClaimedTime
-    )
-  {
-    if (token_ != address(0) && beneficiary_ != address(0)) {}
-    Grant memory grant = _grantData[token_][beneficiary_];
-    return (
-      uint256(grant.startTime),
-      uint256(grant.endTime),
-      uint256(grant.cliffPeriod),
-      grant.isActive,
-      uint256(grant.instalmentAmount),
-      uint256(grant.instalmentCount),
-      uint256(grant.instalmentPeriod),
-      uint256(grant.amountReceived),
-      grant.grantManager,
-      uint256(grant.lastClaimedTime)
-    );
-  } */
 
   /**
    * @dev calculate the pending time in the currently vesting installment
@@ -282,8 +241,6 @@ contract VestingTimelockV3 is
       "VT3"
     );
 
-    // check if the grant is not already active
-    // Grant memory grant = _grantData[token_][beneficiary_];
     // check if an existing active grant is not already in effect
     require(!_grantData[token_][beneficiary_].isActive, "VT4");
 
@@ -362,7 +319,6 @@ contract VestingTimelockV3 is
     grant.isActive = false;
 
     if (remainingAmount > 0) {
-      // delete _grantID[token_][beneficiary_];
       IERC20Upgradeable(token_).safeTransfer(grantManager, remainingAmount);
     }
 

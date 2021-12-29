@@ -43,6 +43,9 @@ contract StepVesting is Initializable{
             address(_token) != address(0) && _receiver != address(0),
             "zero address not allowed"
         );
+
+        require(_stepDuration != 0, "step duration can't be zero");
+
         token = _token;
         cliffTime = _cliffTime;
         stepDuration = _stepDuration;

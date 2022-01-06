@@ -53,7 +53,7 @@ contract StepVesting is Initializable{
         stepAmount = _stepAmount;
         numOfSteps = _numOfSteps;
         receiver = _receiver;
-        emit ReceiverChanged(receiver, _receiver);
+        emit ReceiverChanged(address(0), _receiver);
     }
 
     function available() public view returns (uint256) {

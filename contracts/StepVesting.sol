@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.2;
+pragma solidity 0.8.4;
 
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
@@ -15,8 +15,8 @@ contract StepVesting is Initializable{
     event ReceiverChanged(address oldWallet, address newWallet);
 
     IPstake public token;
-    uint256 public cliffTime;
-    uint256 public stepDuration;
+    uint64 public cliffTime;
+    uint64 public stepDuration;
     uint256 public cliffAmount;
     uint256 public stepAmount;
     uint256 public numOfSteps;
@@ -32,8 +32,8 @@ contract StepVesting is Initializable{
 
     function initialize(
         IPstake _token,
-        uint256 _cliffTime,
-        uint256 _stepDuration,
+        uint64 _cliffTime,
+        uint64 _stepDuration,
         uint256 _cliffAmount,
         uint256 _stepAmount,
         uint256 _numOfSteps,
@@ -53,6 +53,7 @@ contract StepVesting is Initializable{
         stepAmount = _stepAmount;
         numOfSteps = _numOfSteps;
         receiver = _receiver;
+        emit ReceiverChanged(receiver, _receiver);
     }
 
     function available() public view returns (uint256) {

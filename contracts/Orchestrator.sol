@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.2;
+pragma solidity 0.8.4;
 
 import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 import { pStake } from "./pStake.sol";
@@ -9,10 +9,10 @@ contract Orchestrator is Ownable {
 
     struct VestingInfo {
         address beneficiary;
-        uint256 cliffTime;
+        uint64 cliffTime;
         uint256 stepAmount;
         uint256 cliffAmount;
-        uint256 stepDuration;
+        uint64 stepDuration;
         uint256 numOfSteps;
     }
 
@@ -20,30 +20,30 @@ contract Orchestrator is Ownable {
 
     address public mainOwner;
 
-    address public vestingImplementation;
+    address public immutable vestingImplementation;
 
-    pStake public token;
+    pStake public immutable token;
 
     mapping(address => address) public vestingMapping;
 
     constructor(VestingInfo[] memory _vestingInfos, address _mainOwner) {
         mainOwner = _mainOwner;
         
-        for(uint i=0; i<_vestingInfos.length; i++){
+        for(uint i = 0; i<_vestingInfos.length; i++){
             VestingInfo memory vestingInfo = _vestingInfos[i];
             vestingInfos.push(vestingInfo);
         }
 
         StepVesting stepVesting = new StepVesting();
         vestingImplementation = address(stepVesting);
+        token = new pStake(address(this), mainOwner);
     }
 
 
     function mintAndTransferTokens() external onlyOwner returns (address[] memory vestings) {
 
-        token = new pStake(address(this), mainOwner);
         vestings = new address[](vestingInfos.length);
-        for(uint i=0; i<vestingInfos.length; i++){
+        for(uint i = 0; i<vestingInfos.length; i++){
             VestingInfo memory vestingInfo = vestingInfos[i];
             address vesting = deploy();
             StepVesting(vesting).initialize(

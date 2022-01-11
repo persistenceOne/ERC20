@@ -4,7 +4,7 @@ require("dotenv").config();
 require("@nomiclabs/hardhat-etherscan");
 require("@nomiclabs/hardhat-ethers");
 
-require('dotenv').config()
+require("dotenv").config();
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -26,17 +26,26 @@ module.exports = {
   solidity: "0.8.4",
   networks: {
     ropsten: {
-      url:`https://ropsten.infura.io/v3/${process.env.INFURA_KEY}`,
-      accounts: [process.env.PRIV_KEY]
+      url: `https://ropsten.infura.io/v3/${process.env.INFURA_KEY}`,
+      accounts: [process.env.PRIV_KEY],
     },
     mainnet: {
-      url:`https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-      accounts: [process.env.PRIV_KEY]
-    }
+      url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
+      accounts: [process.env.PRIV_KEY],
+    },
+    /* mainnet: {
+      url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
+      accounts: {
+        mnemonic: process.env.MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+      },
+    }, */
   },
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: process.env.ETHERSCAN_API_KEY
-  }
+    apiKey: process.env.ETHERSCAN_API_KEY,
+  },
 };

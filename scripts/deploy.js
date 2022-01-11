@@ -92,6 +92,15 @@ async function main() {
         beneficiary: owner.address        
       }
       vestingInfos.push(treasury);
+      const retroactive = {
+        cliffTime: listingTimestamp,
+        cliffAmount: ethers.utils.parseEther("10000000"),
+        stepAmount: ethers.utils.parseEther("0"),
+        numOfSteps: 0,
+        stepDuration: 3*30*24*60*60,
+        beneficiary: owner.address        
+      }
+      vestingInfos.push(retroactive)
     }
 
     prepareVestingInfoData();

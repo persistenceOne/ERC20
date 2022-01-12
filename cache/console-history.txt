@@ -1,0 +1,7 @@
+.exit
+getAddresses
+let getAddresses = await ethers.getSigners();
+vestingAddress
+var vestingAddress = await instance1.vestingMapping("0x97Ef7Eda907A3DFe498fBFfF14E95716F2efFFa2")
+const instance1 = await o.attach("0x92FEBAb0073d48AA600D95D19e579d4A667a2C50")
+var o = await ethers.getContractFactory("Orchestrator");

@@ -13,7 +13,7 @@ interface IPstake is IERC20 {
 contract pStake is IPstake {
     /// @notice EIP-20 token name for this token
     // solhint-disable-next-line const-name-snakecase
-    string public constant name = "pStake";
+    string public constant name = "pSTAKE Finance";
 
     /// @notice EIP-20 token symbol for this token
     // solhint-disable-next-line const-name-snakecase

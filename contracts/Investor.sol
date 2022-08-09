@@ -24,6 +24,9 @@ contract InvestorClaim {
     address public admin;
     address public contractAdmin;
 
+    event ClaimedAmount(address investorAddress, uint256 amount);
+    event ReturnedAmount(address adminAddress, uint256 amount);
+    event AddedMoney(address adminAddress, uint256 amount);
     constructor(address _admin, IPstake _token, InvestorInit[] memory _investorList){
         admin = _admin;
         token = _token;
@@ -41,6 +44,7 @@ contract InvestorClaim {
         for (uint i = 0; i < investorsCount.length; i++) {
             investors[investorsCount[i]].amountLeft = uint256(investors[investorsCount[i]].amountTotal / 12);
         }
+        emit AddedMoney(msg.sender, amount);
     }
 
     function claimedTokens() external view returns (uint256){
@@ -57,6 +61,7 @@ contract InvestorClaim {
 
     function returnAmountLeft() external {
         require(checkIfReturnable(), "investors still have to claim the tokens");
+        emit ReturnedAmount(admin, token.balanceOf(address(this)));
         token.safeTransfer(admin, token.balanceOf(address(this)));
     }
 
@@ -81,6 +86,7 @@ contract InvestorClaim {
         require(investors[msg.sender].amountLeft > 0, "You have claimed all your tokens");
         token.safeTransfer(msg.sender, investors[msg.sender].amountLeft);
         investors[msg.sender].amountClaimed = investors[msg.sender].amountClaimed + investors[msg.sender].amountLeft;
+        emit ClaimedAmount(msg.sender, investors[msg.sender].amountLeft);
         investors[msg.sender].amountLeft = 0;
     }
 }

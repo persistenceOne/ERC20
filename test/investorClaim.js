@@ -48,7 +48,7 @@ describe("InvestorClaim", function () {
         this.pstake = await pstake.deploy();
 
         console.log("deployed pstake token:", this.pstake.address);
-        const investorAmount = [[investor_account1.address, BigInt(600000e18)], [investor_account2.address, BigInt(360000e18)], [investor_account3.address, BigInt(120000e18)]]
+        const investorAmount = [[investor_account1.address, BigInt(600000)], [investor_account2.address, BigInt(360000)], [investor_account3.address, BigInt(120000)]]
         this.investor = await Investor.deploy(admin.address, this.pstake.address, investorAmount)
         console.log("investor claim contract deployed to:", this.investor.address)
     })
@@ -64,45 +64,71 @@ describe("InvestorClaim", function () {
     describe("admin actions", function () {
         it("adds money to contract", async function () {
             await this.pstake.connect(admin).approve(this.investor.address, BigInt(750000e18));
-            await this.investor.connect(admin).addMoney(BigInt(750000e18));
-            await expect(BigInt(await this.pstake.balanceOf(this.investor.address))).to.equal(BigInt(750000e18));
+            await this.investor.connect(admin).addMoney(700000);
+            await expect(BigInt(await this.pstake.balanceOf(this.investor.address))/BigInt(1e18)).to.equal(BigInt(700000));
         });
         it("does not add money to contract", async function () {
 
             await this.pstake.connect(admin).approve(this.investor.address, BigInt(800e18));
-            await expect(this.investor.connect(admin).addMoney(BigInt(800e18))).to.be.revertedWith('AmountLessThanTotalInvestorAmount');
+            await expect(this.investor.connect(admin).addMoney(BigInt(800))).to.be.revertedWith('AmountLessThanTotalInvestorAmount');
         });
         it("does not add money to contract", async function () {
 
             await this.pstake.connect(admin).transfer(investor_account4.address, BigInt(1000e18));
             await this.pstake.connect(investor_account4).approve(this.investor.address, BigInt(800e18))
-            await expect(this.investor.connect(investor_account4).addMoney(BigInt(800e18))).to.be.revertedWith('NotAdmin');
+            await expect(this.investor.connect(investor_account4).addMoney(BigInt(800))).to.be.revertedWith('NotAdmin');
         });
         it("withdraw remaining money", async function () {
             await this.pstake.connect(admin).approve(this.investor.address, BigInt(750000e18));
-            await this.investor.connect(admin).addMoney(BigInt(750000e18));
-            await expect(BigInt(await this.pstake.balanceOf(this.investor.address))).to.equal(BigInt(750000e18));
+            await this.investor.connect(admin).addMoney(BigInt(740000));
             await this.investor.connect(investor_account1).claim();
             await this.investor.connect(investor_account2).claim();
             await expect(this.investor.connect(admin).returnAmountLeft()).to.be.revertedWith('TokenLeftToClaim');
             await this.investor.connect(investor_account3).claim();
             await this.investor.connect(admin).returnAmountLeft();
         });
+        it("admin able to remove investor", async function () {
+            await this.pstake.connect(admin).approve(this.investor.address, BigInt(750000e18));
+            await this.investor.connect(admin).addMoney(BigInt(740000));
+            console.log(BigInt(await this.pstake.balanceOf(this.investor.address)))
+            expect(BigInt(await this.investor.minAmountAdd())/BigInt(1e18)).to.equal(BigInt(90000))
+            await this.investor.connect(admin).removeInvestor([investor_account1.address,investor_account2.address])
+            await expect(this.investor.connect(investor_account1).removeInvestor([investor_account3.address])).to.be.revertedWith('NotAdmin')
+            expect(BigInt(await this.investor.connect(investor_account1).totalClaimable())).to.equal(BigInt(0))
+            expect(BigInt(await this.investor.connect(investor_account2).totalClaimable())).to.equal(BigInt(0))
+            expect(BigInt(await this.investor.connect(investor_account2).tokensLeft())).to.equal(BigInt(0))
+            expect(BigInt(await this.investor.connect(investor_account1).tokensLeft())).to.equal(BigInt(0))
+            console.log(BigInt(await this.pstake.balanceOf(this.investor.address)))
+            await expect(this.investor.connect(investor_account1).claim()).to.be.revertedWith("NotInvestor")
+            expect(BigInt(await this.investor.minAmountAdd())/BigInt(1e18)).to.equal(BigInt(10000))
+            await this.investor.connect(investor_account3).claim()
+            await this.investor.connect(admin).returnAmountLeft()
+            console.log(BigInt(await this.pstake.balanceOf(this.investor.address)))
+
+        });
+        it('admin able to replace investor', async function () {
+            await this.pstake.connect(admin).approve(this.investor.address, BigInt(750000e18));
+            await this.investor.connect(admin).addMoney(BigInt(740000));
+            await this.investor.connect(admin).replaceInvestor(investor_account3.address,investor_account4.address)
+            await expect(this.investor.connect(investor_account3).claim()).to.be.revertedWith("NotInvestor")
+            await this.investor.connect(investor_account4).claim()
+            console.log(BigInt(await this.pstake.balanceOf(investor_account4.address)))
+            expect(BigInt(await this.pstake.balanceOf(investor_account4.address))).to.equal(BigInt(10000)*BigInt(1e18))
+        });
     })
     describe("investors action", function () {
         it("can claim money", async function () {
             await this.pstake.connect(admin).approve(this.investor.address, BigInt(900000e18));
-            await this.investor.connect(admin).addMoney(BigInt(900000e18));
+            await this.investor.connect(admin).addMoney(BigInt(800000));
             await this.investor.connect(investor_account1).claim();
             await this.investor.connect(investor_account3).claim();
-            let amount = BigInt(await this.investor.connect(investor_account2).tokensLeft());
             await this.pstake.connect(admin).approve(this.investor.address, BigInt(900000e18));
-            await this.investor.connect(admin).addMoney(BigInt(900000e18));
-            await expect(BigInt(await this.investor.connect(investor_account2).tokensLeft())).to.equal(BigInt(2)*amount);
+            await this.investor.connect(admin).addMoney(BigInt(800000));
+            await expect(BigInt(await this.investor.connect(investor_account2).tokensLeft())/BigInt(1e18)).to.equal(BigInt(60000));
         });
         it("already claimed money", async function () {
             await this.pstake.connect(admin).approve(this.investor.address, BigInt(700000e18));
-            await this.investor.connect(admin).addMoney(BigInt(700000e18));
+            await this.investor.connect(admin).addMoney(BigInt(600000));
             await this.investor.connect(investor_account1).claim();
             await this.investor.connect(investor_account2).claim();
             await this.investor.connect(investor_account3).claim();
@@ -112,14 +138,14 @@ describe("InvestorClaim", function () {
         });
         it("not a investor", async function () {
             await this.pstake.connect(admin).approve(this.investor.address, BigInt(600000e18));
-            await this.investor.connect(admin).addMoney(BigInt(600000e18));
+            await this.investor.connect(admin).addMoney(BigInt(500000));
             await this.investor.connect(investor_account1).claim();
             await expect(this.investor.connect(investor_account4).claim()).to.be.revertedWith("NotInvestor");
         });
         it("12 installments passed", async function () {
             for (let i = 0; i < 12; i++) {
                 await this.pstake.connect(admin).approve(this.investor.address, BigInt(900000e18));
-                await this.investor.connect(admin).addMoney(BigInt(900000e18));
+                await this.investor.connect(admin).addMoney(BigInt(800000));
                 await this.investor.connect(investor_account1).claim();
                 await this.investor.connect(investor_account2).claim();
                 await this.investor.connect(investor_account3).claim();
